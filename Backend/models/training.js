@@ -7,6 +7,16 @@ const trainingSchema = new mongoose.Schema({
 		ref: 'User',
     },
 
+    categories:{
+        type: string,
+        requiere: true,
+    },
+
+    daysTrainig:{
+        type: date,
+        require: true
+    },
+    
     nameTrainin: {
         type: string,
         requiere:true,
