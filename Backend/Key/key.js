@@ -1,7 +1,6 @@
 export default {
     mongodb: {
-        Uri: 'http://localhost:8080'
+        Uri: 'mongodb+srv://admin-react:1122@cluster0.xt3mgur.mongodb.net/test'
     }
 }
 
-//Despues hay que remplazar ese localhost y poner el server para la base de datos
