@@ -7,22 +7,50 @@ const trainingSchema = new mongoose.Schema({
 		ref: 'User',
     },
 
-    nameTrainin: {
+    nameTraining: {
         type: string,
         requiere:true,
         allowNull: false,
     },
 
-    timeStar: {
-        type : data,
-        requiere:false,
-
+    category:{
+        type: string,
+        requiere: true,
+        allowNull: false,
     },
 
-    endTime: {
-        type: data,
-        requiere:false,
-    }
+    days:{
+        type: array,
+        require: true,
+        allowNull: false,
+    },
+
+    hours:{
+        startHour:{
+            type: date,
+            requiere: true,
+        },
+
+        endHour:{
+            type: date,
+            requiere: true,
+        },
+        
+    },
+
+    date: {
+        startDate:{
+            type: date,
+            requiere: true,
+        },
+
+        endData: {
+            type: data,
+            requiere:true,
+        }
+    },
+
+    
 });
 
 const Training = mongoose.model('Training', trainingSchema);
