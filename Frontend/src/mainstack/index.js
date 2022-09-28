@@ -8,6 +8,7 @@ import Example from "../screens/Example";
 const heightScreen = Dimensions.get("window").height;
 const widthScreen = Dimensions.get("window").width;
 //Instanciamos el stack
+//cambios
 const stack = createBottomTabNavigator();
 
 //Creamos el componente mainstack
