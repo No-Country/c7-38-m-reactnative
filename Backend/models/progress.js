@@ -8,37 +8,37 @@ const progressSchema = new mongoose.Schema({
     },
 
     nameTraining: {
-        type: string,
+        type: String,
         requiere:true,
         allowNull: false,
     },
 
     peso:{
-        type: number,
+        type: Number,
         requiere: true,
         allowNull: false,
     },
 
     imagen:{
-        type: string,
+        type: String,
         require: true,
         allowNull: false,
     },
 
     tiempoRealizado:{
         startHour:{
-            type: date,
+            type: Date,
             requiere: true,
         },
 
         endHour:{
-            type: date,
+            type: Date,
             requiere: true,
         },
         
     },
     cometarioProgress: {
-        type: string,
+        type: String,
         requiere:true,
         allowNull: false,
     },
