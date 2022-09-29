@@ -1,20 +1,20 @@
-import { Passport } from 'passport';
-import { Strategy as LocalStrategy } from "passport-local";
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 
 const User = require('../models/user');
 
 //
-Passport.serializeUser((user, done) =>{
+passport.serializeUser((user, done) =>{
     done(null, user.id);
 });
 
-Passport.deserializeUser(async (id, done) =>{
+passport.deserializeUser(async (id, done) =>{
     const user = await User.findById(id);
     done(null, user)
 });
 
 //
-Passport.use('local-signup', new LocalStrategy({
+passport.use('local-signup', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
     nameField: 'name',
@@ -30,7 +30,7 @@ Passport.use('local-signup', new LocalStrategy({
     }
 }));
 
-Passport.use('local-signin', new LocalStrategy({
+passport.use('local-signin', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
     nameField: 'name',
