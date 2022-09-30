@@ -8,31 +8,31 @@ const trainingSchema = new mongoose.Schema({
     },
 
     nameTraining: {
-        type: string,
+        type: String,
         requiere:true,
         allowNull: false,
     },
 
     category:{
-        type: string,
+        type: String,
         requiere: true,
         allowNull: false,
     },
 
     days:{
-        type: array,
+        type: Date(),
         require: true,
         allowNull: false,
     },
 
     hours:{
         startHour:{
-            type: date,
+            type: Date,
             requiere: true,
         },
 
         endHour:{
-            type: date,
+            type: Date,
             requiere: true,
         },
         
@@ -40,12 +40,12 @@ const trainingSchema = new mongoose.Schema({
 
     date: {
         startDate:{
-            type: date,
+            type: Date,
             requiere: true,
         },
 
         endData: {
-            type: data,
+            type: Date,
             requiere:true,
         }
     },
