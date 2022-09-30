@@ -3,7 +3,7 @@ const { Training } = require('../Training/models/training');
 const { Progress } = require('../Progress/models/progress')
 
 
-const getAllTraining = catchAsync(async (req, res, next) => {
+const getAllTraining = (async (req, res, next) => {
 	const trainings = await Training.findAll({
 		where: { status: 'active' },
 		include: [{ model: Progress }],
@@ -17,8 +17,16 @@ const getAllTraining = catchAsync(async (req, res, next) => {
 	
 });
 
+ const getTrainigById = (async (req, res, next) => {
+	const { training } = req;
 
-exports.createTrainig = (async (req, res, next) => {
+	res.status(200).json({
+		status: 'success',
+		data: { training },
+	});
+});
+
+ const createTrainig = (async (req, res, next) => {
 	const { nameTraining, category } = req.body;
 
 	const newTraining = await Training.create({
@@ -34,7 +42,7 @@ exports.createTrainig = (async (req, res, next) => {
 });
 
 
-const deleteTrainig = (async (req, res, next) => {
+ const deleteTrainig = (async (req, res, next) => {
 	const { training } = req;
 
 	await training.update({ status: 'deleted' });
@@ -43,3 +51,10 @@ const deleteTrainig = (async (req, res, next) => {
 		status: 'success',
 	});
 });
+
+module.exports = {
+	getAllTraining,
+	getTrainigById,
+	createTrainig,
+	deleteTrainig,
+};
