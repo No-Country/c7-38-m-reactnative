@@ -5,15 +5,12 @@ const bcrypt = require('bcrypt-nodejs')
 const userSchema = new Schema({
     email: String,
     password: String,
-    name: String
-    // creo que es conveniente 
-    //colocar el estatus del usuario./
-    //algo asi
-    // status: {
-     //      type: String,
-      //     default: 'active',
-   //     },
-});
+    name: String,
+    status: {
+        type: String,
+        default: 'active',
+    }
+}); // fijate asi decias vos Jorge? o de otra manera era el status?
 
 userSchema.methods.encryptPassword = (password) =>{
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));

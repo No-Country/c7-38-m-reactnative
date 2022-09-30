@@ -1,4 +1,4 @@
-const mongoose  = import('mongoose');
+const mongoose  = require('mongoose');
 
 const trainingSchema = new mongoose.Schema({
     
@@ -53,8 +53,7 @@ const trainingSchema = new mongoose.Schema({
     status: {
         type: String,
         default: 'active',
-    },
-
+    }
 });
 
 const Training = mongoose.model('Training', trainingSchema);
