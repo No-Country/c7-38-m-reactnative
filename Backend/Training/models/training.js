@@ -50,7 +50,11 @@ const trainingSchema = new mongoose.Schema({
         }
     },
 
-    
+    status: {
+        type: String,
+        default: 'active',
+    },
+
 });
 
 const Training = mongoose.model('Training', trainingSchema);
