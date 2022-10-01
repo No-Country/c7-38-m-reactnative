@@ -11,7 +11,7 @@ const userSchema = new Schema({
         default: 'active',
     }
 }); // fijate asi decias vos Jorge? o de otra manera era el status?
-
+  // si, haci esta bien.
 userSchema.methods.encryptPassword = (password) =>{
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 }

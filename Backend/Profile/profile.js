@@ -2,6 +2,9 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose;
 
 const profileSchema = new Schema({
+
+    //Seria bueno colocar a que schema hace referencia ya que esto es del usuario,
+    // seria algo como ref: 'User' para que traiga esa relacion User-->profileSchema
     age:{
         type: Number,
         requiere: true,

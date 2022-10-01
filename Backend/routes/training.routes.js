@@ -3,6 +3,7 @@ const express = require('express');
 const {
 	getAllTraining,
 	getTrainigById,
+	updateTraining,
 	createTrainig,
 	deleteTrainig
 } = require('../controllers/Training.controller');
@@ -10,11 +11,11 @@ const {
 
 const usersRouter = express.Router();
 
-usersRouter.post('/trainings/:id', getTrainigById);
+usersRouter.get( '/trainings/:id', getTrainigById );
 
-usersRouter.post('/trainings', getAllTraining);
+usersRouter.post( '/trainings', getAllTraining );
 
-usersRouter.post('/trainings', createTrainig);
+usersRouter.post( '/trainings', createTrainig, updateTraining );
 
-usersRouter.patch('/trainings/:id', deleteTrainig);
+usersRouter.patch( '/trainings/:id', deleteTrainig );
 
