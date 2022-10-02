@@ -5,7 +5,7 @@ import color from "../utils/colors";
 import { Ionicons } from "@expo/vector-icons";
 import Training from "../screens/Training";
 import Example from "../screens/Example";
-import Progress from "../screens/Progress"; /* borrar */
+import Progress from "../screens/Progress";
 const heightScreen = Dimensions.get("window").height;
 const widthScreen = Dimensions.get("window").width;
 //Instanciamos el stack
@@ -47,7 +47,6 @@ const MainStack = (props) => {
             tabBarInactiveTintColor: color.whiteType,
           }}
         />
-         {/* aca borrar */}
          <stack.Screen
           name="Progress"
           component={Progress}

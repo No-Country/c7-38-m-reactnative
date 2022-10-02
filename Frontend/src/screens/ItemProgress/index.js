@@ -1,6 +1,4 @@
 import { View, Text, Image } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import color from "../../utils/colors";
 import StylesItemProgress from "./style";
 
 const ItemProgress = ( {item, index} ) => {

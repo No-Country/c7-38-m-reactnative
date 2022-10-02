@@ -39,6 +39,4 @@ const StylesItemProgress = StyleSheet.create({
     
 }) 
     
-    
-    
 export default StylesItemProgress;

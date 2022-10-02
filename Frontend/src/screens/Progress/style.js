@@ -16,6 +16,24 @@ const StylesProgress = StyleSheet.create({
         fontWeight:font.h1.fontWeight,
         color:color.primary,
         marginLeft:20,
+    },
+    buttonPosition:{
+        position:'absolute',
+        right:60,
+        bottom:70
+    },
+    button:{
+        backgroundColor:color.primary,
+        color:color.secondary,
+        width:60,
+        height:60,
+        alignItems:'center',
+        justifyContent:'center',
+        borderRadius:50,
+    },
+    buttonText:{
+        fontSize:20,
+        fontWeight:'bold',
     }
 }) 
     

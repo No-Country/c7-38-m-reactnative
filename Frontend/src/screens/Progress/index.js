@@ -1,4 +1,4 @@
-import {Text, View, TextInput, FlatList, DrawerLayoutAndroidComponent} from "react-native";
+import {Text, View, FlatList, TouchableOpacity} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ItemProgress from "../ItemProgress";
 import StylesProgress from "./style";
@@ -17,7 +17,7 @@ const Progress = () => {
         {
             fecha: "20 octubre",
             img: "https://images.contentstack.io/v3/assets/blt45c082eaf9747747/blt6e242cc3466bd556/5de0b9c828027202b6a5ce0c/Blog-Fettwech-900x730-Gym.jpg?width=1232&auto=webp&format=progressive&quality=76",
-            descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam metus, pulvinar ac ultricies eu, consequat at sem. Aenean est ",
+            descripcion: "Lorem ipsum dolor sit amet. Vestibulum diam metus, pulvinar ac  eu, consequat at sem. Aenean est ",
             id:"002"
         },
         {
@@ -29,7 +29,7 @@ const Progress = () => {
         {
             fecha: "20 octubre",
             img: "https://images.contentstack.io/v3/assets/blt45c082eaf9747747/blt6e242cc3466bd556/5de0b9c828027202b6a5ce0c/Blog-Fettwech-900x730-Gym.jpg?width=1232&auto=webp&format=progressive&quality=76",
-            descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam metus, pulvinar ac ultricies eu, consequat at sem",
+            descripcion: "Lorem ipsum dolor. Vestibulum diam metus, pulvinar ac ultricies eu, consequat at sem",
             id:"004"
         },{
             fecha: "10 octubre",
@@ -40,12 +40,10 @@ const Progress = () => {
         {
             fecha: "20 octubre",
             img: "https://images.contentstack.io/v3/assets/blt45c082eaf9747747/blt6e242cc3466bd556/5de0b9c828027202b6a5ce0c/Blog-Fettwech-900x730-Gym.jpg?width=1232&auto=webp&format=progressive&quality=76",
-            descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum diam metus, pulvinar ac ultricies eu, consequat at sem",
+            descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum, consequat at sem",
             id:"006"
         }
     ]
-
-    {console.log(progreso)}
 
     return(
         <>
@@ -59,31 +57,13 @@ const Progress = () => {
                     ListHeaderComponent = {() => <Text style={style.title} >Mi Progreso</Text>}
                 />
 
-              {/*   <Text style={style.title}>Progress</Text>
-                <TextInput
-                    style={style.text}
-                    placeholder="Peso"
-                    onChangeText={newText => setText(newText)}
-                    defaultValue={text}
-                />
-                <TextInput
-                    style={style.text}
-                    placeholder="Cargar img"
-                    onChangeText={newText => setText(newText)}
-                    defaultValue={text}
-                />
-                <TextInput
-                    style={style.text}
-                    placeholder="Tiempo realizado"
-                    onChangeText={newText => setText(newText)}
-                    defaultValue={text}
-                />
-                <TextInput
-                    style={style.text}
-                    placeholder="Comentario"
-                    onChangeText={newText => setText(newText)}
-                    defaultValue={text}
-                /> */}
+                <TouchableOpacity 
+                    style={style.buttonPosition}
+                    onPress={() => {}}>
+                    <View style={style.button}>
+                        <Text style={style.buttonText}>+</Text>
+                    </View>
+                </TouchableOpacity>
             </SafeAreaView>
         </>
     )
