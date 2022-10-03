@@ -1,6 +1,7 @@
 const mongoose  = require('mongoose');
+const { Schema } = mongoose;
 
-const progressSchema = new mongoose.Schema({
+const progressSchema = new Schema({
     
     userId: {
 		type: mongoose.Schema.ObjectId,
@@ -46,5 +47,5 @@ const progressSchema = new mongoose.Schema({
     
 });
 
-const Progress = mongoose.model('Progress', progressSchema);
-module.exports = { Progress };
+
+module.exports = mongoose.model('Progress', progressSchema)

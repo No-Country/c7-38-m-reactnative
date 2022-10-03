@@ -1,7 +1,7 @@
 const mongoose  = require('mongoose');
+const { Schema } = mongoose;
 
-
-const trainingSchema = new mongoose.Schema({
+const trainingSchema = new Schema({
     
     userId: {
 		type: mongoose.Schema.ObjectId,
@@ -57,5 +57,4 @@ const trainingSchema = new mongoose.Schema({
     }
 });
 
-const Training = mongoose.model('Training', trainingSchema);
-module.exports = { Training };
+module.exports = mongoose.model('Training', trainingSchema)
