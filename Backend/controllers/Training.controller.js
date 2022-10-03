@@ -4,9 +4,10 @@ const { Progress } = require('../Progress/models/progress')
 
 
 const getAllTraining = (async (req, res, next) => {
+   
 	const trainings = await Training.findAll({
 		where: { status: 'active' },
-		include: [{ model: Progress }],
+		include: [{ model: Progress, include:{ model : User} }],
 	});
 
 	res.status(200).json({
@@ -17,7 +18,7 @@ const getAllTraining = (async (req, res, next) => {
 	
 });
 
- const getTrainigById = (async (req, res, next) => {
+const getTrainigById = (async (req, res, next) => {
 	const { training } = req;
 
 	res.status(200).json({
@@ -26,7 +27,7 @@ const getAllTraining = (async (req, res, next) => {
 	});
 });
 
- const createTrainig = (async (req, res, next) => {
+const createTrainig = (async (req, res, next) => {
 	const { nameTraining, category } = req.body;
 
 	const newTraining = await Training.create({
@@ -41,8 +42,16 @@ const getAllTraining = (async (req, res, next) => {
 	});
 });
 
+const updateTraining = (async (req, res, next) => {
+	const { nameTraining, category } = req.body;
+	const { training } = req;
 
- const deleteTrainig = (async (req, res, next) => {
+	await training.update({ nameTraining, category });
+
+	res.status(204).json({ status: 'success' });
+});
+
+const deleteTrainig = (async (req, res, next) => {
 	const { training } = req;
 
 	await training.update({ status: 'deleted' });
@@ -55,6 +64,7 @@ const getAllTraining = (async (req, res, next) => {
 module.exports = {
 	getAllTraining,
 	getTrainigById,
+	updateTraining,
 	createTrainig,
 	deleteTrainig,
 };
