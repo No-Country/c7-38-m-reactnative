@@ -6,7 +6,7 @@ const {
 	updateTraining,
 	createTrainig,
 	deleteTrainig
-} = require('../controllers/Training.controller');
+} = require('../controllers/training.controller');
 
 
 const usersRouter = express.Router();

@@ -4,9 +4,10 @@ const { Progress } = require('../Progress/models/progress')
 
 
 const getAllTraining = (async (req, res, next) => {
+   
 	const trainings = await Training.findAll({
 		where: { status: 'active' },
-		include: [{ model: Progress }],
+		include: [{ model: Progress, include:{ model : User} }],
 	});
 
 	res.status(200).json({
