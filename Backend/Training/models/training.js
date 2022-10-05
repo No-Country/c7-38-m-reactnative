@@ -3,6 +3,11 @@ const mongoose  = require('mongoose');
 
 const trainingSchema = new mongoose.Schema({
     
+    progreesId: {
+		type: mongoose.Schema.ObjectId,
+		ref: 'Progress',
+    },
+    
     userId: {
 		type: mongoose.Schema.ObjectId,
 		ref: 'User',
