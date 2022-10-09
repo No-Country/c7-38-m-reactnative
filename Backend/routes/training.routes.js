@@ -9,13 +9,14 @@ const {
 } = require('../controllers/training.controller');
 
 
-const usersRouter = express.Router();
+const trainingRoutes = express.Router();
 
-usersRouter.get( '/trainings/:id', getTrainigById );
+trainingRoutes.get( '/trainings/:id', getTrainigById );
 
-usersRouter.post( '/trainings', getAllTraining );
+trainingRoutes.post( '/trainings', getAllTraining );
 
-usersRouter.post( '/trainings', createTrainig, updateTraining );
+trainingRoutes.post( '/trainings', createTrainig, updateTraining );
 
-usersRouter.patch( '/trainings/:id', deleteTrainig );
+trainingRoutes.patch( '/trainings/:id', deleteTrainig );
 
+module.exports = { trainingRoutes}
