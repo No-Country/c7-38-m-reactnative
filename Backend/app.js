@@ -1,8 +1,27 @@
-const express = require('express')
+const express = require("express");
 
-const app = express()
+//Routers
+const { trainingRoutes } = require("./routes/training.routes");
+const { usersRouter } = require("./routes/user.routes.js");
 
-app.use(express.json())
+const app = express();
 
-module.exports= {app}
+app.use(express.json());
 
+//define  endpoints
+app.use("api/v1/trainings", trainingRoutes);
+app.use("api/v1/users", usersRouter);
+
+// catch non-existing endpoints
+app.all('*',(req, res) => {
+  
+    res.status(404).json({
+        status:'error',
+        message:`${req.method} ${req.url}does not exist in our server`,
+
+    })
+
+})
+
+
+module.exports = { app };
