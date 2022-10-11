@@ -26,7 +26,7 @@ const trainingSchema = new Schema({
     },
 
     days:{
-        type: Date(),
+        type: Date,
         require: true,
         allowNull: false,
     },
