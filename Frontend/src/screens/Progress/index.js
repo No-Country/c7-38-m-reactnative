@@ -1,10 +1,16 @@
 import {Text, View, FlatList, TouchableOpacity} from "react-native";
+import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ItemProgress from "../ItemProgress";
 import StylesProgress from "./style";
+import FormProgress from "../FormProgress";
+
+
 
 const Progress = () => {
 
+
+    
     const style = StylesProgress
 
     const progreso = [
@@ -43,7 +49,15 @@ const Progress = () => {
             descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum, consequat at sem",
             id:"006"
         }
-    ]
+    ];
+
+    const [modalVisible, setModalVisible] = useState(false);
+
+    function handleForm(){
+        setModalVisible(!modalVisible)
+    }
+
+
 
     return(
         <>
@@ -59,11 +73,12 @@ const Progress = () => {
 
                 <TouchableOpacity 
                     style={style.buttonPosition}
-                    onPress={() => {}}>
+                    onPress={() => {setModalVisible(!modalVisible)}}>
                     <View style={style.button}>
                         <Text style={style.buttonText}>+</Text>
                     </View>
                 </TouchableOpacity>
+                { modalVisible ? <FormProgress  visible={modalVisible} onAction={handleForm}/> : null}
             </SafeAreaView>
         </>
     )
