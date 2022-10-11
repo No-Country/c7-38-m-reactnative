@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import {Text, View} from 'react-native';
 import CircularProgress from 'react-native-circular-progress-indicator';
 import homeStyles from './style';
@@ -7,6 +8,7 @@ import homeStyles from './style';
 
 const Home = () => {
 
+  const { nombre } = useSelector((state) => state.nombre);
   const valor = 100;
   const peso = 88.5;
   const pesoIdeal = 82;
@@ -16,7 +18,7 @@ const Home = () => {
   return (
     <View style={homeStyles.container}>
         <Text style={homeStyles.titulo}>
-          Hola <Text style={homeStyles.nombre}>Jonathan!</Text>
+          Hola <Text style={homeStyles.nombre}>{nombre}</Text>
         </Text>
 
         <Text style={homeStyles.texto}>
