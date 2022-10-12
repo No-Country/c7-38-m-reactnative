@@ -5,8 +5,9 @@ import useDimensions from "../../../hooks/useDimensions";
 import color from "../../../utils/colors";
 import ManageButtonStyles from "./style";
 
-const ListButtons = () => {
+const ListButtons = props=> {
   const style = ManageButtonStyles;
+  const { trainingForm, setTrainingForm } = props;
   const { heightScreen, widthScreen } = useDimensions();
 
   return (
@@ -31,7 +32,7 @@ const ListButtons = () => {
           />
         </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity onPress={() => {setTrainingForm(!trainingForm)}}>
         <View style={style.view2}>
           <Ionicons
             name="add-circle-outline"
