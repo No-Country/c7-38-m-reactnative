@@ -7,7 +7,7 @@ import useDimensions from "../../../hooks/useDimensions";
 
 const ContainerList = (props) => {
   const { heightScreen } = useDimensions();
-  const { mockUp } = props;
+  const { mockUp,exercise,setExercise } = props;
   const { days } = mockUp;
   const style = ContainerListStyles;
   return (
@@ -18,7 +18,7 @@ const ContainerList = (props) => {
           return (
             <View style={style.list}>
               <View style={style.containerText}>
-                <TouchableOpacity style={style.addButton}>
+                <TouchableOpacity style={style.addButton} onPress={()=>{setExercise(!exercise)}}>
                   <Ionicons
                     name="add-circle-outline"
                     size={heightScreen * 0.02}

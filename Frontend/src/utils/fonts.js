@@ -17,13 +17,11 @@ export const font = {
     fontWeight: "500",
   },
   b1: {
-    fontSize: 16,
     fontSize: heightScreen * 0.018,
     fontWeight: "500",
   },
   b2: {
-    fontSize: 14,
-    fontSize: heightScreen * 0.017,
+    fontSize: heightScreen * 0.014,
     fontWeight: "500",
   },
 };
