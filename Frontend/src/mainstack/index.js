@@ -7,6 +7,7 @@ import Home from "../screens/Home";
 import Training from "../screens/Training";
 import Example from "../screens/Example";
 import Cronometro from "../screens/Cronometro/index";
+import Account from "../screens/Account";
 const heightScreen = Dimensions.get("window").height;
 const widthScreen = Dimensions.get("window").width;
 //Instanciamos el stack
@@ -17,7 +18,7 @@ const stack = createBottomTabNavigator();
 const MainStack = (props) => {
   return (
     <NavigationContainer>
-      <stack.Navigator initialRouteName="Training">
+      <stack.Navigator initialRouteName="Account">
         {/* Cada una de las screen reprensenta cada vistra que vayamos a asignar */}
         <stack.Screen
           name="Home"
@@ -40,10 +41,10 @@ const MainStack = (props) => {
             tabBarStyle: {
               borderTopWidth: 1,
               borderTopColor: color.secondary,
-              elevation:5,
+              elevation: 5,
               height: heightScreen * 0.12,
               paddingBottom: heightScreen * 0.019,
-              backgroundColor:color.secondary
+              backgroundColor: color.secondary,
             },
             tabBarActiveTintColor: color.primary,
             tabBarInactiveTintColor: color.whiteType,
@@ -70,10 +71,10 @@ const MainStack = (props) => {
             tabBarStyle: {
               borderTopWidth: 1,
               borderTopColor: color.secondary,
-              elevation:5,
+              elevation: 5,
               height: heightScreen * 0.12,
               paddingBottom: heightScreen * 0.019,
-              backgroundColor:color.secondary
+              backgroundColor: color.secondary,
             },
             tabBarActiveTintColor: color.primary,
             tabBarInactiveTintColor: color.whiteType,
@@ -100,24 +101,24 @@ const MainStack = (props) => {
             tabBarStyle: {
               borderTopWidth: 1,
               borderTopColor: color.secondary,
-              elevation:5,
+              elevation: 5,
               height: heightScreen * 0.12,
               paddingBottom: heightScreen * 0.019,
-              backgroundColor:color.secondary
+              backgroundColor: color.secondary,
             },
             tabBarActiveTintColor: color.primary,
             tabBarInactiveTintColor: color.whiteType,
           }}
         />
-            <stack.Screen
-          name="Example"
-          component={Example}
+        <stack.Screen
+          name="Account"
+          component={Account}
           options={{
             headerShown: false,
-            tabBarLabel: "Example",
+            tabBarLabel: "Account",
             tabBarIcon: ({ focused }) => (
               <Ionicons
-                name="ios-home"
+                name="person"
                 color={focused ? color.primary : color.whiteType}
                 size={heightScreen * 0.04}
                 style={{ marginTop: widthScreen * 0.01 }}
@@ -130,10 +131,10 @@ const MainStack = (props) => {
             tabBarStyle: {
               borderTopWidth: 1,
               borderTopColor: color.secondary,
-              elevation:5,
+              elevation: 5,
               height: heightScreen * 0.12,
               paddingBottom: heightScreen * 0.019,
-              backgroundColor:color.secondary
+              backgroundColor: color.secondary,
             },
             tabBarActiveTintColor: color.primary,
             tabBarInactiveTintColor: color.whiteType,

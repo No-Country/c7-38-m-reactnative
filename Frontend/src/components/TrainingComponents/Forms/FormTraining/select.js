@@ -59,7 +59,6 @@ const Select = (props) => {
       Form.training.length < 20
     ) {
       setcomplete(true);
-      console.log("complete");
     } else {
       setcomplete(false);
     }

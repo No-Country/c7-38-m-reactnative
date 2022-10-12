@@ -15,9 +15,7 @@ const HourPicker = (props) => {
   useEffect(() => {
     if (hourEnd.length > 4 && hourStart.length > 4) {
       setcomplete(true);
-      console.log("complete");
     } else {
-      console.log("incomplete");
       setcomplete(false);
     }
   }, [Form]);
