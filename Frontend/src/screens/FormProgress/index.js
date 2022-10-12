@@ -8,6 +8,11 @@ const FormProgress = ({visible, onAction}) => {
 
     const style = StyleFormProgress;
     const [mostar, setMostrar] = useState(visible.visible)
+    const [fecha, setFecha] = useState("")
+    const [descripcion, setDescripcion] = useState("")
+    const [peso, setPeso] = useState("")
+    const [imagen, setImagen] = useState("")
+
     return(
         <View>
             <Modal
@@ -25,22 +30,22 @@ const FormProgress = ({visible, onAction}) => {
                         <TextInput
                         style={style.containerText}
                         placeholder="Fecha"
-                       /*  onChangeText={newText => setText(newText)} */
+                        onChangeText={newText => setFecha(newText)} 
                         />
                         <TextInput
                             style={style.containerText}
                             placeholder="Peso"
-                        /*     onChangeText={newText => setText(newText)} */
+                            onChangeText={newText => setPeso(newText)}
                         />
                         <TextInput
                             style={style.containerText}
                             placeholder="Descripcion"
-                        /*     onChangeText={newText => setText(newText)} */
+                            onChangeText={newText => setDescripcion(newText)}
                         />
                         <TextInput
                             style={style.containerText}
                             placeholder="Cargar foto"
-                       /*      onChangeText={newText => setText(newText)} */
+                            onChangeText={newText => setImagen(newText)}
 
                         />
                         <Pressable
@@ -55,6 +60,7 @@ const FormProgress = ({visible, onAction}) => {
             </Modal>
         </View>
     )
+   
 }
 
 export default FormProgress

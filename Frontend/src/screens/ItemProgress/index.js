@@ -2,7 +2,6 @@ import { View, Text, Image } from "react-native";
 import StylesItemProgress from "./style";
 
 const ItemProgress = ( {item, index} ) => {
-    console.log(index)
     const style = StylesItemProgress; 
     
     return (
