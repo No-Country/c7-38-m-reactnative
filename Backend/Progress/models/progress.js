@@ -3,6 +3,7 @@ const { Schema } = mongoose;
 
 const progressSchema = new Schema({
     
+    
     userId: {
 		type: mongoose.Schema.ObjectId,
 		ref: 'User',
