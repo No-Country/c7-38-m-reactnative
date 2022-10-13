@@ -7,9 +7,8 @@ const manageModal = (
   inputChange,
   iconChange
 ) => {
-  console.log(icon, label, userInfo);
-  inputChange(label)
-  iconChange(icon)
+  inputChange(label);
+  iconChange(icon);
   set(!state);
 };
 

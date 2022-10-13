@@ -18,7 +18,7 @@ const stack = createBottomTabNavigator();
 const MainStack = (props) => {
   return (
     <NavigationContainer>
-      <stack.Navigator initialRouteName="Account">
+      <stack.Navigator initialRouteName="Home">
         {/* Cada una de las screen reprensenta cada vistra que vayamos a asignar */}
         <stack.Screen
           name="Home"
@@ -81,11 +81,11 @@ const MainStack = (props) => {
           }}
         />
         <stack.Screen
-          name="Cronometro"
+          name="Timer"
           component={Cronometro}
           options={{
             headerShown: false,
-            tabBarLabel: "Cronometro",
+            tabBarLabel: "Timer",
             tabBarIcon: ({ focused }) => (
               <Ionicons
                 name="stopwatch-sharp"
