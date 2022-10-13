@@ -6,7 +6,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Home from "../screens/Home";
 import Training from "../screens/Training";
 import Example from "../screens/Example";
-import Cronometro from "../screens/Cronometro/index";
+import Timer from "../screens/Timer/index";
 import Account from "../screens/Account";
 import InitialStack from "./initialStack";
 
@@ -84,7 +84,7 @@ const MainStack = (props) => {
         />
         <stack.Screen
           name="Timer"
-          component={Cronometro}
+          component={Timer}
           options={{
             headerShown: false,
             tabBarLabel: "Timer",
