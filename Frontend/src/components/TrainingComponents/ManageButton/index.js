@@ -6,15 +6,22 @@ import color from "../../../utils/colors";
 import ListButtons from "./ListButtons";
 import useDimensions from "../../../hooks/useDimensions";
 
-const ManageButton = () => {
+const ManageButton = (props) => {
   const style = ManageButtonStyles;
   const { heightScreen, widthScreen } = useDimensions();
   const [menuOpen, setmenuOpen] = useState(false);
-
+  const { trainingForm, setTrainingForm } = props;
   return (
     <View style={style.touchable}>
       <View style={menuOpen ? style.menuOpen : style.menuClose}>
-        {menuOpen ? <ListButtons /> : ""}
+        {menuOpen ? (
+          <ListButtons
+            trainingForm={trainingForm}
+            setTrainingForm={setTrainingForm}
+          />
+        ) : (
+          ""
+        )}
         <TouchableOpacity
           onPress={() => {
             setmenuOpen(!menuOpen);

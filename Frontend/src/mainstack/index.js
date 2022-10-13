@@ -110,6 +110,36 @@ const MainStack = (props) => {
             tabBarInactiveTintColor: color.whiteType,
           }}
         />
+        <stack.Screen
+          name="Progress"
+          component={Progress}
+          options={{
+            headerShown: false,
+            tabBarLabel: "Progress",
+            tabBarIcon: ({ focused }) => (
+              <Ionicons
+                name="ios-home"
+                color={focused ? color.primary : color.whiteType}
+                size={heightScreen * 0.04}
+                style={{ marginTop: widthScreen * 0.01 }}
+              />
+            ),
+            tabBarLabelStyle: {
+              fontSize: heightScreen * 0.02,
+            },
+            tabBarLabelPosition: "below-icon",
+            tabBarStyle: {
+              borderTopWidth: 1,
+              borderTopColor: color.secondary,
+              elevation:5,
+              height: heightScreen * 0.12,
+              paddingBottom: heightScreen * 0.019,
+              backgroundColor:color.secondary
+            },
+            tabBarActiveTintColor: color.primary,
+            tabBarInactiveTintColor: color.whiteType,
+          }}
+        />
             <stack.Screen
           name="Example"
           component={InitialStack}
