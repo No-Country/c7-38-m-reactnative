@@ -7,7 +7,7 @@ import Home from "../screens/Home";
 import Training from "../screens/Training";
 import Example from "../screens/Example";
 import Cronometro from "../screens/Cronometro/index";
-import Progress from "../screens/Progress";
+import InitialStack from './initialStack';
 const heightScreen = Dimensions.get("window").height;
 const widthScreen = Dimensions.get("window").width;
 //Instanciamos el stack
@@ -142,7 +142,7 @@ const MainStack = (props) => {
         />
             <stack.Screen
           name="Example"
-          component={Example}
+          component={InitialStack}
           options={{
             headerShown: false,
             tabBarLabel: "Example",

@@ -6,7 +6,7 @@ import { globalStyles } from './globalStyles'
 import { useState } from 'react';
 
 
-export default function LogIn (){
+export default function LogIn ({ navigation }){
     const[secure, setSecure] = useState(true)
 
     function changeSecure(){
@@ -21,18 +21,20 @@ export default function LogIn (){
   return(
     <TouchableOpacity  style={globalStyles.container} onPress={()=>Keyboard.dismiss}>
       <View style={styles.logo1}>
-            <MaterialCommunityIcons name="weight-lifter" size={84} color="black" />
+            <MaterialCommunityIcons name="weight-lifter" size={84} color="white" />
             <Text style={globalStyles.logoText}>Logo</Text>
             </View>
         <View style={styles.logContainer}>
             <TextInput
             placeholder='Email'
+            backgroundColor='#fff'
             style={globalStyles.input}
              />
             <View style={styles.inputStyle}>
              <TextInput
             style={styles.input1}
             placeholder='Contraseña'
+            backgroundColor='#fff'
             secureTextEntry={secure}
              />
              <TouchableWithoutFeedback onPress={changeSecure}>
@@ -42,7 +44,7 @@ export default function LogIn (){
              <TouchableOpacity>
                 <Text style={styles.button1}>Ingresar</Text>
             </TouchableOpacity>
-            <Text style={styles.text}>No tenes una cuenta?<Text style={styles.textColor}> Crear cuenta</Text></Text>
+            <Text style={styles.text}>No tenes una cuenta?<Text style={styles.textColor} onPress={() => navigation.navigate('Sign')}> Crear cuenta</Text></Text>
         </View>
     </TouchableOpacity>
   )
@@ -91,7 +93,8 @@ const styles = StyleSheet.create({
       },
       text:{
         marginLeft: 70,
-        marginTop: 15
+        marginTop: 15,
+        color:'#fff'
       },
       textColor:{
         color: 'yellow',
