@@ -7,8 +7,8 @@ import Home from "../screens/Home";
 import Training from "../screens/Training";
 import Example from "../screens/Example";
 import Cronometro from "../screens/Cronometro/index";
-
 import Account from "../screens/Account";
+import InitialStack from "./initialStack";
 
 const heightScreen = Dimensions.get("window").height;
 const widthScreen = Dimensions.get("window").width;
@@ -129,6 +129,34 @@ const MainStack = (props) => {
             tabBarLabelStyle: {
               fontSize: heightScreen * 0.02,
             },
+            tabBarLabelPosition: "below-icon",
+            tabBarStyle: {
+              borderTopWidth: 1,
+              borderTopColor: color.secondary,
+              elevation: 5,
+              height: heightScreen * 0.12,
+              paddingBottom: heightScreen * 0.019,
+              backgroundColor: color.secondary,
+            },
+            tabBarActiveTintColor: color.primary,
+            tabBarInactiveTintColor: color.whiteType,
+          }}
+        />
+        <stack.Screen
+          name="InitialStack"
+          component={InitialStack}
+          options={{
+            headerShown: false,
+            tabBarLabel: "InitialStack",
+            tabBarIcon: ({ focused }) => (
+              <Ionicons
+                name="ios-home"
+                color={focused ? color.primary : color.whiteType}
+                size={heightScreen * 0.04}
+                style={{ marginTop: widthScreen * 0.01 }}
+              />
+            ),
+            tabBarLabelStyle: { fontSize: heightScreen * 0.02 },
             tabBarLabelPosition: "below-icon",
             tabBarStyle: {
               borderTopWidth: 1,
