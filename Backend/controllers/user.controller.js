@@ -14,19 +14,19 @@ const getAllUsers = (async (req, res, next) => {
 
 	res.status(200).json({
 		status: 'success',
-		users,
+		data:{users},
 	});
 });
 
 const createUser = (async (req, res, next) => {
 	const { name, email, password } = req.body;
 
-	const userExists = await User.findOne({ email });
+	/* const userExists = await User.findOne({ email });
 
 	if (userExists) {
 		return next(new ('Email already taken'));
 	}
-
+ */
 	const newUser = await User.create({
 		name,
 		email,
@@ -36,7 +36,7 @@ const createUser = (async (req, res, next) => {
 
 	res.status(201).json({
 		status: 'success',
-		newUser,
+		data:{newUser},
 	});
 });
 
@@ -45,7 +45,7 @@ const getUserById = (async (req, res, next) => {
 
 	res.status(200).json({
 		status: 'success',
-		user,
+		data:{user},
 	});
 });
 

@@ -12,7 +12,7 @@ const getAllTraining = (async (req, res, next) => {
 
 	res.status(200).json({
 		status: 'success',
-		data: { actors },
+		data: { trainings },
 	});
 
 	

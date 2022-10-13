@@ -6,17 +6,19 @@ const {
 	updateTraining,
 	createTrainig,
 	deleteTrainig
-} = require('../controllers/training.controller');
+} = require('../controllers/Training.controller');
 
 
 const trainingRoutes = express.Router();
 
-trainingRoutes.get( '/trainings/:id', getTrainigById );
+trainingRoutes.get( '/:id', getTrainigById );
 
-trainingRoutes.post( '/trainings', getAllTraining );
+trainingRoutes.get( '/', getAllTraining );
 
-trainingRoutes.post( '/trainings', createTrainig, updateTraining );
+trainingRoutes.post( '/', createTrainig );
 
-trainingRoutes.patch( '/trainings/:id', deleteTrainig );
+trainingRoutes.patch('/:id',updateTraining)
+
+trainingRoutes.delete( '/:id', deleteTrainig );
 
 module.exports = { trainingRoutes}

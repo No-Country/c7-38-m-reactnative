@@ -9,11 +9,11 @@ const app = express();
 app.use(express.json());
 
 //define  endpoints
-app.use("api/v1/trainings", trainingRoutes);
-app.use("api/v1/users", usersRouter);
+app.use("/api/v1/trainings", trainingRoutes);
+app.use("/api/v1/users", usersRouter);
 
 // catch non-existing endpoints
-app.all('*',(req, res) => {
+ app.all('*',(req, res) => {
   
     res.status(404).json({
         status:'error',
@@ -21,7 +21,7 @@ app.all('*',(req, res) => {
 
     })
 
-})
+}) 
 
 
 module.exports = { app };
