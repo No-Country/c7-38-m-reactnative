@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 
 const userSchema = new Schema({
     
-    trainingId: {
+    /* trainingId: {
 		type: mongoose.Schema.ObjectId,
 		ref: 'Training',
     },
@@ -13,7 +13,7 @@ const userSchema = new Schema({
 		type: mongoose.Schema.ObjectId,
 		ref: 'Profile',
     },
-
+ */
     email: String,
     password: String,
     name: String,
@@ -29,6 +29,6 @@ userSchema.methods.encryptPassword = (password) =>{
 
 userSchema.methods.encryptPassword = function (password) {
     return bcrypt.compareSync(password, this.password)
-};
+}; 
 
 module.exports = mongoose.model('User', userSchema)
