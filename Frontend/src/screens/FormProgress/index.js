@@ -1,7 +1,7 @@
 import { View, Modal, TextInput, Text, Pressable } from "react-native";
 import StyleFormProgress from "./style";
 import { useState } from "react";
-
+import DatePicker from "../../components/TrainingComponents/Forms/FormTraining/datePicker";
 
 
 const FormProgress = ({visible, onAction}) => {
