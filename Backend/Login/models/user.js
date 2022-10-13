@@ -3,24 +3,10 @@ const { Schema } = mongoose;
 const bcrypt = require('bcrypt')
 
 const userSchema = new Schema({
-    
-    /* trainingId: {
-		type: mongoose.Schema.ObjectId,
-		ref: 'Training',
-    },
-
-    profileId: {
-		type: mongoose.Schema.ObjectId,
-		ref: 'Profile',
-    },
- */
-    email: String,
-    password: String,
-    name: String,
-    status: {
-        type: String,
-        default: 'active',
-    }
+    email: {type: String, requiere:true},
+    password: {type: String, requiere:true},
+    name: {type: String, requiere:true},
+    status: {type: String, default: 'active',}
 });
 
 userSchema.methods.encryptPassword = (password) =>{

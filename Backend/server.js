@@ -1,5 +1,5 @@
 const { app } = require("./app");
-
+require('./Config/config')
 
 
 const startServer = async () =>{
