@@ -11,14 +11,10 @@ const {
 
 const trainingRoutes = express.Router();
 
-trainingRoutes.get( '/:id', getTrainigById );
-
 trainingRoutes.get( '/', getAllTraining );
-
 trainingRoutes.post( '/', createTrainig );
-
+trainingRoutes.get( '/:id', getTrainigById );
 trainingRoutes.patch('/:id',updateTraining)
-
 trainingRoutes.delete( '/:id', deleteTrainig );
 
 module.exports = { trainingRoutes}
