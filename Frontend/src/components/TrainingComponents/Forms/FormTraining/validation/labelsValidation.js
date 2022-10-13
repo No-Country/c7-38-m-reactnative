@@ -52,7 +52,6 @@ export const validation = async (formValues, state, error) => {
       error(false);
     })
     .catch((err) => {
-      console.log("error: ", err.errors[0]);
       state(false);
       error(err.errors[0]);
     });

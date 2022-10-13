@@ -7,7 +7,7 @@ const FormTraining = (props) => {
   const style = FormTrainingStyles;
   const { state, setState } = props;
   return (
-    <Modal visible={!state} animationType="fade" transparent={true}>
+    <Modal visible={state} animationType="fade" transparent={true}>
       <View style={style.modal}>
         <View style={style.viewModal}>
           <View style={style.viewModalHeader}>
