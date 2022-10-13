@@ -8,27 +8,26 @@ import homeStyles from './style';
 
 const Home = () => {
 
-  const { nombre } = useSelector((state) => state.nombre);
-  const valor = 100;
-  const peso = 88.5;
-  const pesoIdeal = 82;
-  const diferencia = peso - pesoIdeal
-
+  const { name } = useSelector((state) => state.name);
+  const { weight } = useSelector((state) => state.weight);
+  const {idealWeight} = useSelector((state) => state.idealWeight)
+  const { training } = useSelector((state) => state.training);
+  const weightDif = weight - idealWeight
 
   return (
     <View style={homeStyles.container}>
-        <Text style={homeStyles.titulo}>
-          Hola <Text style={homeStyles.nombre}>{nombre}</Text>
+        <Text style={homeStyles.title}>
+          Hello <Text style={homeStyles.name}>{name}</Text>
         </Text>
 
-        <Text style={homeStyles.texto}>
-          Completaste el
+        <Text style={homeStyles.text}>
+          You completed
         </Text>
 
         <CircularProgress
           radius={120}
           valueSuffix={'%'}
-          value={valor}
+          value={training}
           textColor= '#222'
           fontSize={20}
           activeStrokeColor={'#ffe300'}
@@ -36,35 +35,35 @@ const Home = () => {
           inActiveStrokeOpacity={0.2} 
           duration={1500}
         />
-        <Text style={homeStyles.texto}>
-          De tu entrenamiento
+        <Text style={homeStyles.text}>
+          of your training
         </Text>
         
-        <View style={homeStyles.containerPeso}>
-          <Text style={homeStyles.peso}>
-            {peso} kg
+        <View style={homeStyles.containerWeight}>
+          <Text style={homeStyles.weight}>
+            {weight} kg
           </Text>
-          <Text  style={homeStyles.pesoTexto}>
-            Peso actual
+          <Text  style={homeStyles.weightText}>
+            Actual weight
           </Text>
         </View>
 
-        <View style={homeStyles.containerPesoIdeal}>
-          <View  style={homeStyles.pesoDiferencia1}>
-            <Text style={homeStyles.peso}>
-              {pesoIdeal} kg
+        <View style={homeStyles.containerIdealWeight}>
+          <View  style={homeStyles.weightDifference1}>
+            <Text style={homeStyles.weight}>
+              {idealWeight} kg
             </Text>
-            <Text style={homeStyles.pesoTexto}>
-              Peso ideal
+            <Text style={homeStyles.weightText}>
+              Ideal weight
             </Text>
           </View>
 
-          <View style={homeStyles.pesoDiferencia2}>
-            <Text style={homeStyles.peso}>
-              {diferencia} kg
+          <View style={homeStyles.weightDifference2}>
+            <Text style={homeStyles.weight}>
+              {weightDif} kg
             </Text>
-            <Text style={homeStyles.pesoTexto}>
-              Diferencia
+            <Text style={homeStyles.weightText}>
+              Difference
             </Text>
           </View>
         </View>

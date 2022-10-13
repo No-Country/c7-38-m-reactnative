@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import nameReducer from './name';
+import homeReducer from './home';
 
 export default configureStore ({
     reducer:{
-        nombre: nameReducer,
+        name: homeReducer,
+        weight: homeReducer,
+        idealWeight: homeReducer,
+        training: homeReducer
     },
 });

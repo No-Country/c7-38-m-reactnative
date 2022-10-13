@@ -9,59 +9,49 @@ const homeStyles = StyleSheet.create({
       justifyContent:'center',
       alignItems:'center',
     },
-    titulo: {
+    title: {
       color: color.whiteType,
       fontSize: 30,
     },
-    nombre:{
+    name:{
       color: color.primary,
     },
-    texto: {
+    text: {
       color: color.whiteType,
       fontSize: 25,
       paddingTop:25,
       paddingBottom:25,
     },
-    textoSecundario: {
-      color: color.primary,
-      fontSize: 25,
-    },
-    boton: {  
-      fontSize:20,
-      backgroundColor: color.primary,
-      padding:10,
-      borderRadius:20,
-      marginTop:25,
-    },
-    containerPeso:{
+
+    containerWeight:{
       backgroundColor: color.primary,
       width:'75%',
       height:'8%',
       justifyContent:'center',
       marginBottom:2
     },
-    peso:{
+    weight:{
       textAlign:'center',
       fontWeight:'bold',
       fontSize:16,
     },
-    pesoTexto:{
+    weightText:{
       textAlign:'center',
       fontSize:14,
     },
-    containerPesoIdeal:{
+    containerIdealWeight:{
       width:'74.5%',
       height:'8%',
       justifyContent:'center',
       flexDirection:'row',
     },
-    pesoDiferencia1:{
+    weightDifference1:{
       backgroundColor: color.primary,
       justifyContent:'center',
       width:'50%',
       marginRight:1,
     },
-    pesoDiferencia2:{
+    weightDifference2:{
       backgroundColor: color.primary,
       justifyContent:'center',
       width:'50%',
