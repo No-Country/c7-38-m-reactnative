@@ -7,7 +7,9 @@ import Home from "../screens/Home";
 import Training from "../screens/Training";
 import Example from "../screens/Example";
 import Cronometro from "../screens/Cronometro/index";
+
 import Account from "../screens/Account";
+
 const heightScreen = Dimensions.get("window").height;
 const widthScreen = Dimensions.get("window").width;
 //Instanciamos el stack

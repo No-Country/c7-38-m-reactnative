@@ -3,25 +3,25 @@ import { StyleSheet, View,Text ,ImageBackground, TouchableOpacity} from 'react-n
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 
-export default function Welcome (){
+export default function Welcome ({ navigation }){
   return (
-      <ImageBackground source={require('../assets/assests1.webp')} style={styles.container}>
+      <View style={styles.container}>
           <View style={styles.logo}>
-          <MaterialCommunityIcons name="weight-lifter" size={64} color="black" />
+          <MaterialCommunityIcons name="weight-lifter" size={64} color="white" />
           <Text style={styles.logoText}>Logo</Text>
           </View>
           <View style={styles.textContainer}>
           <Text style={styles.title}>Bienvenido a Fitness Club</Text>
           <Text style={styles.paragraph}>Una plataforma para poder llevar tu entrenamiento a otro nivel!</Text>
-          <TouchableOpacity style>
+          <TouchableOpacity style onPress={() => navigation.navigate('Sign')}>
               <Text style={styles.button}>Crear cuenta</Text>
           </TouchableOpacity>
           <TouchableOpacity style>
-              <Text style={styles.button1}>Ingresar</Text>
+              <Text style={styles.button1} onPress={() => navigation.navigate('LogIn')}>Ingresar</Text>
           </TouchableOpacity>
           </View>
           
-      </ImageBackground>
+      </View>
   )
 } 
 
@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
   container: {
       flex: 1,
       padding: 20,
+      backgroundColor: '#111'
     },
     title:{
       fontSize: 30,
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
       flexDirection: 'column',
       justifyContent:'center',
       alignItems: 'center',
-      marginVertical: '50%',
+      marginVertical: '20%',
       gap: 20
     },
     paragraph:{
@@ -47,8 +48,8 @@ const styles = StyleSheet.create({
       fontWeight: 'semibold',
       color: 'white',
       marginVertical: 10,
-      marginBottom: 15,
-      alignSelf: 'flex-start'
+      marginBottom: 0,
+      alignSelf: 'center'
     },
     button:{
       backgroundColor: "#FFE300",
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
       paddingVertical: 12,
       paddingHorizontal: 14,
       borderRadius: 15,
-      marginTop: 140,
+      marginTop: 60,
       fontSize: 18,
       fontWeight: 'bold',
       textTransform: 'uppercase'
@@ -77,10 +78,12 @@ const styles = StyleSheet.create({
     logo:{
       flexDirection: 'row',
       justifyContent:'center',
-      alignItems: 'center'
+      alignItems: 'center',
+      marginTop:40
     },
     logoText:{
       fontSize: 35,
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      color:'#fff'
     }
 })

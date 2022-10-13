@@ -15,7 +15,7 @@ const reviewSchema = yup.object({
         'Need one special character',).min(8).max(15),
      confirm: yup.string().oneOf([yup.ref('password'), null], 'Passwords must match')   
 })
-export default function Sign (){
+export default function Sign ({ navigation }){
   const[secure, setSecure] = useState(true)
 
   function changeSecure(){
@@ -30,7 +30,7 @@ export default function Sign (){
     return (
       <View style={globalStyles.container}>
         <View style={globalStyles.logo}>
-            <MaterialCommunityIcons name="weight-lifter" size={64} color="black" />
+            <MaterialCommunityIcons name="weight-lifter" size={64} color="white" />
             <Text style={globalStyles.logoText}>Logo</Text>
             </View>
       <Formik
@@ -46,6 +46,7 @@ export default function Sign (){
             <TextInput
              style={globalStyles.input}
              placeholder= 'Usuario'
+             backgroundColor='#fff'
              onChangeText={props.handleChange('username')}
              onBlur={props.handleBlur('username')} 
              value={props.values.username}
@@ -54,6 +55,7 @@ export default function Sign (){
              <TextInput
              style={globalStyles.input}
              placeholder= 'Email'
+             backgroundColor='#fff'
              onChangeText={props.handleChange('email')}
              onBlur={props.handleBlur('email')} 
              value={props.values.email}
@@ -64,6 +66,7 @@ export default function Sign (){
              <TextInput
              style={globalStyles.input1}
              placeholder= 'Contraseña'
+             backgroundColor='#fff'
              secureTextEntry ={secure}
              onChangeText={props.handleChange('password')}
              onBlur={props.handleBlur('password')} 
@@ -78,6 +81,7 @@ export default function Sign (){
              <TextInput
              style={globalStyles.input1}
              placeholder= 'Confirmar contraseña'
+             backgroundColor='#fff'
              secureTextEntry={secure}
              onChangeText={props.handleChange('confirm')}
              onBlur={props.handleBlur('confirm')} 
@@ -91,7 +95,7 @@ export default function Sign (){
              <TouchableOpacity  onPress={props.handleSubmit}>
                 <Text style={styles.button1}>Crear cuenta</Text>
             </TouchableOpacity>
-            <Text style={styles.text}>Ya tenes una cuenta?<Text style={styles.textColor}> Ingresa</Text></Text>
+            <Text style={styles.text}>Ya tenes una cuenta?<Text style={styles.textColor} onPress={() => navigation.navigate('LogIn')}> Ingresa</Text></Text>
 
         </View>
      )}
@@ -103,8 +107,8 @@ export default function Sign (){
 
 const styles = StyleSheet.create({
     form:{
-        marginTop: 80,
-        justifyContent:'center'
+        marginTop: 20,
+        justifyContent:'center',
     },
     button1:{
         backgroundColor: "#FFE300",
@@ -113,7 +117,6 @@ const styles = StyleSheet.create({
         paddingVertical: 12,
         paddingHorizontal: 14,
         borderRadius: 15,
-        marginTop: 30,
         fontSize: 18,
         marginLeft: 50,
         fontWeight: 'bold',
@@ -121,7 +124,8 @@ const styles = StyleSheet.create({
       },
       text:{
         marginLeft: 70,
-        marginTop: 15
+        marginTop: 15,
+        color:'#fff'
       },
       textColor:{
         color: 'yellow'

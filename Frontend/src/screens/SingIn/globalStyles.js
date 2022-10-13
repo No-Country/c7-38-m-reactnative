@@ -13,6 +13,7 @@ export const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
+    backgroundColor:'#111'
   },
   text:{
     fontSize: 18,
@@ -34,10 +35,11 @@ export const globalStyles = StyleSheet.create({
   },
   logoText:{
     fontSize: 35,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color:'#fff'
   },
   errorText:{
-    color: 'crimson',
+    color: '#fff300',
     fontWeight:'bold',
   },
   inputStyle:{
@@ -50,6 +52,7 @@ export const globalStyles = StyleSheet.create({
     padding: 15,
     fontSize: 18,
     borderRadius: 6,
-    marginBottom: 18
+    marginBottom: 18,
+    color:'#fff'
   },
 });
