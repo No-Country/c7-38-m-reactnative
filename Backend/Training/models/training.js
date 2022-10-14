@@ -1,65 +1,59 @@
-const mongoose  = require('mongoose');
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const trainingSchema = new Schema({
-    
-    progreesId: {
-		type: mongoose.Schema.ObjectId,
-		ref: 'Progress',
-    },
-    
-    userId: {
-		type: mongoose.Schema.ObjectId,
-		ref: 'User',
-    },
+  progreesId: {
+    type: mongoose.Schema.ObjectId,
+    ref: "Progress",
+  },
 
-    nameTraining: {
-        type: String,
-        requiere:true,
-        allowNull: false,
-    },
+  userId: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User",
+  },
 
-    category:{
-        type: String,
-        requiere: true,
-        allowNull: false,
-    },
+  nameTraining: {
+    type: String,
+    requiere: true,
+    allowNull: false,
+  },
 
-    days:{
-        type: Date,
-        require: true,
-        allowNull: false,
-    },
+  category: {
+    type: String,
+    requiere: true,
+    allowNull: false,
+  },
 
-    hours:{
-        startHour:{
-            type: Date,
-            requiere: true,
-        },
+  days: { type: Array, requiere: true },
 
-        endHour:{
-            type: Date,
-            requiere: true,
-        },
-        
+  hours: {
+    hourStart: {
+      type: String,
+      requiere: true,
     },
 
-    date: {
-        startDate:{
-            type: Date,
-            requiere: true,
-        },
+    hourEnd: {
+      type: String,
+      requiere: true,
+    },
+  },
 
-        endData: {
-            type: Date,
-            requiere:true,
-        }
+  date: {
+    dateStart: {
+      type: String,
+      requiere: true,
     },
 
-    status: {
-        type: String,
-        default: 'active',
-    }
+    dateEnd: {
+      type: String,
+      requiere: true,
+    },
+  },
+
+  status: {
+    type: String,
+    default: "active",
+  },
 });
 
-module.exports = mongoose.model('Training', trainingSchema)
+module.exports = mongoose.model("Training", trainingSchema);

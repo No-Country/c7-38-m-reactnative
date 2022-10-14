@@ -1,70 +1,68 @@
-const { User } = require('../Login/models/user');
-const { Training } = require('../Training/models/training');
-const { Progress } = require('../Progress/models/progress')
+const Training = require("../Training/models/training");
 
+const getAllTraining = async (req, res, next) => {
+  const trainings = await Training.find();
+  res.status(200).json({
+    status: "success",
+    data: { trainings },
+  });
+};
 
-const getAllTraining = (async (req, res, next) => {
-   
-	const trainings = await Training.findAll({
-		where: { status: 'active' },
-		include: [{ model: Progress, include:{ model : User} }],
-	});
+const getTrainigById = async (req, res, next) => {
+  const id = req.params.id;
+  const training = await Training.findById(id);
+  res.status(200).json({
+    status: "success",
+    data: { training },
+  });
+};
 
-	res.status(200).json({
-		status: 'success',
-		data: { trainings },
-	});
+const createTrainig = async (req, res, next) => {
+  const { nameTraining, category, days, hours, date } = req.body;
 
-	
-});
+  const newTraining = await Training.create({
+    nameTraining,
+    category,
+    days,
+    hours,
+    date,
+  });
 
-const getTrainigById = (async (req, res, next) => {
-	const { training } = req;
+  res.status(200).json({
+    status: "success",
+    data: { newTraining },
+  });
+};
 
-	res.status(200).json({
-		status: 'success',
-		data: { training },
-	});
-});
+const updateTraining = async (req, res, next) => {
+  const { nameTraining, category } = req.body;
+  const id = req.params.id;
 
-const createTrainig = (async (req, res, next) => {
-	const { nameTraining, category } = req.body;
+  const training = await Training.findByIdAndUpdate(id, {
+    nameTraining,
+    category,
+  });
 
-	const newTraining = await Training.create({
-		nameTraining,
-		category,
-		
-	});
+  res.status(204).json({ status: "success", data: { training } });
+};
 
-	res.status(200).json({
-		status: 'success',
-		data: { newTraining },
-	});
-});
+const deleteTrainig = async (req, res, next) => {
+  const { status } = req.body;
+  const id = req.params.id;
+  const training = await Training.findByIdAndUpdate(id, {
+    status,
+  });
 
-const updateTraining = (async (req, res, next) => {
-	const { nameTraining, category } = req.body;
-	const { training } = req;
-
-	await training.update({ nameTraining, category });
-
-	res.status(204).json({ status: 'success' });
-});
-
-const deleteTrainig = (async (req, res, next) => {
-	const { training } = req;
-
-	await training.update({ status: 'deleted' });
- 
-	res.status(204).json({
-		status: 'success',
-	});
-});
+  res.status(204).json({
+    status: "success",
+    data: { training },
+  });
+};
 
 module.exports = {
-	getAllTraining,
-	getTrainigById,
-	updateTraining,
-	createTrainig,
-	deleteTrainig,
+  getAllTraining,
+  getTrainigById,
+  updateTraining,
+  createTrainig,
+  deleteTrainig,
 };
