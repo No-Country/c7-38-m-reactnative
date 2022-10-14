@@ -27,6 +27,10 @@ const progressSchema = new Schema({
     requiere: true,
     allowNull: false,
   },
+  status: {
+     type: String, 
+     default: "active" 
+    },
 });
 
 module.exports = mongoose.model("Progress", progressSchema);
