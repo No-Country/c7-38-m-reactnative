@@ -1,8 +1,7 @@
-const User = require("../Login/models/user");
 const Progress = require("../Progress/models/progress")
 
 const getAllProgress = async (req, res, next) => {
-  const progress = await User.find();
+  const progress = await Progress.find();
 
   res.status(200).json({
     status: "success",

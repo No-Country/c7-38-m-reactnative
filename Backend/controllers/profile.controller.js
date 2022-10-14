@@ -1,4 +1,3 @@
-const User = require("../Login/models/user");
 const Profile = require("../Profile/profile")
 
 
@@ -42,7 +41,7 @@ const getProfileById = async (req, res, next) => {
 const updateProfile = async (req, res, next) => {
   const { phone, idealWeight } = req.body;
   const id = req.params.id;
-  const profile = await User.findByIdAndUpdate(id, { phone: phone, idealWeight: idealWeight });
+  const profile = await Profile.findByIdAndUpdate(id, { phone: phone, idealWeight: idealWeight });
 
   res.status(204).json({ status: "success", data: { profile } });
 };
