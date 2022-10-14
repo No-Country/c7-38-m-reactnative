@@ -27,6 +27,10 @@ const profileSchema = new Schema({
     require: true,
     allowNull: false,
   },
+  status: { 
+    type: String, 
+    default: "active"
+  }
 });
 
 module.exports = mongoose.model("Profile", profileSchema);
