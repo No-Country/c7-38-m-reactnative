@@ -1,5 +1,6 @@
-import { mongoose } from 'mongoose'
-import { mongodb } from '../Key/key/mongodb'
+const mongoose = require('mongoose')
+const { mongodb } = require('../Key/key')
+
 
 mongoose.connect(mongodb.Uri, {
   useNewUrlParser: true

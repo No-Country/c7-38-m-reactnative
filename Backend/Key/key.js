@@ -1,6 +1,6 @@
-export default {
+module.exports = {
     mongodb: {
-        Uri: 'mongodb+srv://admin-react:1122@cluster0.xt3mgur.mongodb.net/test'
+        Uri: 'mongodb+srv://valentin_ruggieri:3wSixuIMse94iPpz@cluster0.lur2f.mongodb.net/gym'
     }
 }
 
