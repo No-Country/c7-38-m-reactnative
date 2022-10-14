@@ -37,7 +37,7 @@ export const hourSchema = yup.object({
 });
 
 const schemaTrainingForm = yup.object().shape({
-  training: trainingSchema,
+  nameTraining: trainingSchema,
   category: categorySchema,
   date: dateSchema,
   days: daysSchema,

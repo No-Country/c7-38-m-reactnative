@@ -1,51 +1,59 @@
-import { Ionicons } from "@expo/vector-icons";
+import { MaterialCommunityIcons as Icon } from "@expo/vector-icons";
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
 import useDimensions from "../../../hooks/useDimensions";
+import {
+  setDeleteTraining,
+  setModalTraining,
+} from "../../../redux/slices/Training";
 import color from "../../../utils/colors";
 import ManageButtonStyles from "./style";
 
-const ListButtons = props=> {
+const ListButtons = (props) => {
   const style = ManageButtonStyles;
-  const { trainingForm, setTrainingForm } = props;
+  const { setmenuOpen } = props;
+  const dispatch = useDispatch();
   const { heightScreen, widthScreen } = useDimensions();
 
   return (
     <>
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity
+        onPress={() => {
+          setmenuOpen(false);
+        }}
+      >
         <View style={style.view2}>
-          <Ionicons
-            name="download-outline"
+          <Icon
+            name="file-download-outline"
             size={heightScreen * 0.03}
             color={color.primary}
             style={style.icon}
           />
         </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity
+        onPress={() => {
+          dispatch(setDeleteTraining()), setmenuOpen(false);
+        }}
+      >
         <View style={style.view2}>
-          <Ionicons
-            name="md-trash-bin-outline"
+          <Icon
+            name="delete-outline"
             size={heightScreen * 0.03}
             color={color.primary}
             style={style.icon}
           />
         </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => {setTrainingForm(!trainingForm)}}>
+      <TouchableOpacity
+        onPress={() => {
+          dispatch(setModalTraining(true), setmenuOpen(false));
+        }}
+      >
         <View style={style.view2}>
-          <Ionicons
-            name="add-circle-outline"
-            size={heightScreen * 0.03}
-            color={color.primary}
-            style={style.icon}
-          />
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => {}}>
-        <View style={style.view2}>
-          <Ionicons
-            name="create-outline"
+          <Icon
+            name="notebook-plus-outline"
             size={heightScreen * 0.03}
             color={color.primary}
             style={style.icon}

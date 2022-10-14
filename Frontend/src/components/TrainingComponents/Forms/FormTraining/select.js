@@ -2,6 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
 import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
+import { useDispatch } from "react-redux";
 import useDimensions from "../../../../hooks/useDimensions";
 import color from "../../../../utils/colors";
 import FormTrainingStyles from "./style";
@@ -15,8 +16,8 @@ const Select = (props) => {
   const [complete, setcomplete] = useState(false);
   const [items, setItems] = useState([
     {
-      label: "Weight training",
-      value: "weight training",
+      label: "Weight",
+      value: "weight",
       icon: () => (
         <Image
           source={{
@@ -55,8 +56,8 @@ const Select = (props) => {
   useEffect(() => {
     if (
       Form.category &&
-      Form.training.length > 5 &&
-      Form.training.length < 20
+      Form.nameTraining.length > 5 &&
+      Form.nameTraining.length < 20
     ) {
       setcomplete(true);
     } else {
@@ -115,7 +116,7 @@ const Select = (props) => {
         <TextInput
           style={style.textInput}
           onChangeText={(text) => {
-            setForm({ ...Form, training: text });
+            setForm({ ...Form, nameTraining: text });
           }}
           cursorColor={color.primary}
           placeholder="   Name Training   "
