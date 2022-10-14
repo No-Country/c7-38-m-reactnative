@@ -10,16 +10,19 @@ const heightScreen = Dimensions.get("window").height;
 const StyleFormProgress = StyleSheet.create({
     containerModal:{
         flex:1,
+        backgroundColor: "#0000004e",
         justifyContent:'center',
         alignItems:'center',
     },
     vistaModal:{
-        margin: widthScreen * 0.05,
-        height:heightScreen*0.7,
+      /*   margin: widthScreen * 0.05, */
+       /*  height:heightScreen*0.6, */
         width:widthScreen * 0.8,
         backgroundColor: "#c4cccce6",
+        backgroundColor: color.secondary,
         borderRadius: 20,
-        padding: widthScreen*0.1,
+        /* padding: widthScreen*0.1, */
+        justifyContent: "flex-start",
         alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
@@ -29,7 +32,8 @@ const StyleFormProgress = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 4,
         elevation: 5,
-        /* alignItems:'center', */
+        borderBottomEndRadius: 10,
+        borderBottomStartRadius: 10,
     },
     containerText:{
         marginVertical:heightScreen*0.02,
@@ -52,14 +56,19 @@ const StyleFormProgress = StyleSheet.create({
         borderRadius:10,
         marginTop:heightScreen*0.08,
     },
+    marginButton:{
+        marginBottom: widthScreen * 0.05,
+    },
     buttonText:{
         fontSize:20,
         fontWeight:'bold',
     },
     title:{
-        fontSize:font.h1.fontSize,
-        fontWeight:font.h1.fontWeight,
-        marginBottom:heightScreen*0.03,
+        fontSize: font.h2.fontSize,
+        fontWeight: font.h2.fontWeight,
+      /*   marginBottom:heightScreen*0.03, */
+        textTransform: "capitalize",
+        letterSpacing: 2,
     }
  })
 

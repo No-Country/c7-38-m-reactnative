@@ -52,6 +52,7 @@ const Progress = () => {
     ];
 
     const [modalVisible, setModalVisible] = useState(false);
+    const [progressForm, setProgressForm] = useState(false)
 
     function handleForm(){
         setModalVisible(!modalVisible)
@@ -68,7 +69,7 @@ const Progress = () => {
                     keyExtractor = {(item) => item.id}
                     renderItem = {({item, index}) => <ItemProgress item={item} index={index}/>}
                     ItemSeparatorComponent = {() => <View style={{marginBottom:10}} />}
-                    ListHeaderComponent = {() => <Text style={style.title} >Mi Progreso</Text>}
+                    ListHeaderComponent = {() => <Text style={style.title} >My Progress</Text>}
                 />
 
                 <TouchableOpacity 
@@ -78,7 +79,7 @@ const Progress = () => {
                         <Text style={style.buttonText}>+</Text>
                     </View>
                 </TouchableOpacity>
-                { modalVisible ? <FormProgress  visible={modalVisible} onAction={handleForm}/> : null}
+                { modalVisible ? <FormProgress  visible={modalVisible} onAction={handleForm} state={progressForm} setState={setProgressForm}/> : null}
             </SafeAreaView>
         </>
     )
