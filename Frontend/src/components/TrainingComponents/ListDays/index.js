@@ -5,9 +5,11 @@ import { Ionicons } from "@expo/vector-icons";
 import color from "../../../utils/colors";
 import useListClose from "../../../hooks/useListClose";
 import useDimensions from "../../../hooks/useDimensions";
+import { useSelector } from "react-redux";
 
 const ListDays = (props) => {
-  const { exercises, hours } = props.item;
+  const { exercises } = props.item;
+  const { hours } = useSelector((state) => state.Training);
   const style = ListDaysStyles;
   const { heightScreen } = useDimensions();
   const { closeList, setcloseList } = useListClose();
@@ -20,7 +22,7 @@ const ListDays = (props) => {
             size={heightScreen * 0.02}
             color={color.primary}
           />{" "}
-          {hours.startHour} - {hours.endHour}
+          {hours.hourStart} - {hours.hourEnd}
         </Text>
         {closeList ? (
           <>

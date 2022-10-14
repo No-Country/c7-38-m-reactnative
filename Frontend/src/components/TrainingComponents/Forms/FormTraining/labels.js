@@ -15,13 +15,18 @@ import Select from "./select";
 import Checks from "./checks";
 import DatePicker from "./datePicker";
 import HourPicker from "./hourPicker";
+import { useDispatch, useSelector } from "react-redux";
+import { setTrainingCategory, setTrainingDate, setTrainingHours, setTrainingName } from "../../../../redux/slices/Training";
 const { heightScreen, widthScreen } = useDimensions();
 const LabelsFormTraining = () => {
   const style = FormTrainingStyles;
+  const dispatch = useDispatch();
   const [toSend, setToSend] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const { Training } = useSelector((state) => state);
+
   const [Form, setForm] = useState({
-    training: "",
+    nameTraining: "",
     category: "",
     days: [],
     date: {
@@ -35,7 +40,7 @@ const LabelsFormTraining = () => {
   });
 
   useEffect(() => {
-    validation(Form, setToSend, setErrorMsg);
+    validation(Training, setToSend, setErrorMsg);
   }, [Form]);
 
   return (
@@ -57,9 +62,9 @@ const LabelsFormTraining = () => {
       <View style={style.label}>
         <TouchableOpacity
           style={toSend ? style.sendTouchOn : style.sendTouchOff}
-          disabled={!toSend}
+          disabled={toSend}
           onPress={() => {
-            console.log(Form);
+            dispatch(setTrainingDate(Form.date));
           }}
         >
           <Text style={toSend ? style.sendTextOn : style.sendTextOff}>

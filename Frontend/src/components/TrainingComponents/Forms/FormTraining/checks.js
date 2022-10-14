@@ -97,7 +97,7 @@ const Checks = (props) => {
               elevation: 5,
             }}
             onPress={(isChecked) => {
-              const data = { day: "monday", hours: "", excercise: [] };
+              const data = { day: "monday", excercise: [] };
               isChecked ? setDays([...days, { ...data }]) : deleteDay(data.day);
             }}
           />
@@ -119,7 +119,7 @@ const Checks = (props) => {
               elevation: 5,
             }}
             onPress={(isChecked) => {
-              const data = { day: "tuesday", hours: "", excercise: [] };
+              const data = { day: "tuesday", excercise: [] };
               isChecked ? setDays([...days, { ...data }]) : deleteDay(data.day);
             }}
           />
@@ -140,7 +140,7 @@ const Checks = (props) => {
               elevation: 5,
             }}
             onPress={(isChecked) => {
-              const data = { day: "wednesday", hours: "", excercise: [] };
+              const data = { day: "wednesday", excercise: [] };
               isChecked ? setDays([...days, { ...data }]) : deleteDay(data.day);
             }}
           />
@@ -159,7 +159,7 @@ const Checks = (props) => {
               elevation: 5,
             }}
             onPress={(isChecked) => {
-              const data = { day: "thursday", hours: "", excercise: [] };
+              const data = { day: "thursday", excercise: [] };
               isChecked ? setDays([...days, { ...data }]) : deleteDay(data.day);
             }}
           />
@@ -180,7 +180,7 @@ const Checks = (props) => {
               elevation: 5,
             }}
             onPress={(isChecked) => {
-              const data = { day: "friday", hours: "", excercise: [] };
+              const data = { day: "friday", excercise: [] };
               isChecked ? setDays([...days, { ...data }]) : deleteDay(data.day);
             }}
           />
@@ -199,7 +199,7 @@ const Checks = (props) => {
               elevation: 5,
             }}
             onPress={(isChecked) => {
-              const data = { day: "saturday", hours: "", excercise: [] };
+              const data = { day: "saturday", excercise: [] };
               isChecked ? setDays([...days, { ...data }]) : deleteDay(data.day);
             }}
           />

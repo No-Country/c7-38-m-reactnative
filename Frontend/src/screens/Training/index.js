@@ -1,6 +1,5 @@
 import { Text, View } from "react-native";
 import ContainerList from "../../components/TrainingComponents/ContainerList";
-import mockUpTraining from "../../components/TrainingComponents/ListDays/mockup";
 import TrainingStyles from "./style";
 import { Ionicons } from "@expo/vector-icons";
 import color from "../../utils/colors";
@@ -10,20 +9,23 @@ import HeaderTraining from "../../components/TrainingComponents/HeaderTraining";
 import FormExercise from "../../components/TrainingComponents/Forms/FormExercise";
 import FormTraining from "../../components/TrainingComponents/Forms/FormTraining";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Training = (props) => {
   const style = TrainingStyles;
   const { heightScreen } = useDimensions();
   const [trainingForm, setTrainingForm] = useState(false);
   const [exercise, setExercise] = useState(false);
-  const { date, nameTraining, category } = mockUpTraining;
+  const { date, nameTraining, category } = useSelector(
+    (state) => state.Training
+  );
   return (
     <View style={style.container}>
       <View style={style.textContainer}>
-        <FormExercise state={exercise} setState={setExercise}/>
+        <FormExercise state={exercise} setState={setExercise} />
         <FormTraining state={trainingForm} setState={setTrainingForm} />
         <Text style={style.title}>Training</Text>
-        {mockUpTraining ? (
+        {nameTraining ? (
           <>
             <HeaderTraining
               category={category}
@@ -35,9 +37,9 @@ const Training = (props) => {
           <></>
         )}
       </View>
-      {mockUpTraining ? (
+      {nameTraining ? (
         <>
-          <ContainerList mockUp={mockUpTraining} exercise={exercise} setExercise={setExercise} />
+          <ContainerList exercise={exercise} setExercise={setExercise} />
         </>
       ) : (
         <View style={style.emptyContainer}>

@@ -4,11 +4,12 @@ import ListDays from "../ListDays";
 import ContainerListStyles from "./style";
 import { Ionicons } from "@expo/vector-icons";
 import useDimensions from "../../../hooks/useDimensions";
+import { useSelector } from "react-redux";
 
 const ContainerList = (props) => {
   const { heightScreen } = useDimensions();
-  const { mockUp,exercise,setExercise } = props;
-  const { days } = mockUp;
+  const { exercise, setExercise } = props;
+  const { days } = useSelector((state) => state.Training);
   const style = ContainerListStyles;
   return (
     <View style={style.container}>
@@ -18,7 +19,12 @@ const ContainerList = (props) => {
           return (
             <View style={style.list}>
               <View style={style.containerText}>
-                <TouchableOpacity style={style.addButton} onPress={()=>{setExercise(!exercise)}}>
+                <TouchableOpacity
+                  style={style.addButton}
+                  onPress={() => {
+                    setExercise(!exercise);
+                  }}
+                >
                   <Ionicons
                     name="add-circle-outline"
                     size={heightScreen * 0.02}

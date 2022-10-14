@@ -1,5 +1,6 @@
 import * as ImagePicker from "expo-image-picker";
 import { Platform } from "react-native";
+import { setImage } from "../../../redux/slices/Account";
 
 export const cameraPick = async (image, setImage) => {
   const { status } = await ImagePicker.requestCameraPermissionsAsync();
@@ -35,6 +36,3 @@ export const libraryPick = async (image, setImage) => {
   }
 };
 
-export const saveImage = (setuserInfo, userInfo, image) => {
-  setuserInfo({ ...userInfo, image: image });
-};

@@ -10,13 +10,19 @@ import {
 } from "react-native";
 import ModalInputStyles from "./style";
 import { MaterialCommunityIcons as Icon } from "@expo/vector-icons";
-import editInput from "./editInput";
 import color from "../../../utils/colors";
 import { cameraPick, libraryPick, saveImage } from "./functionsCamera";
 import validation from "../InputsGroup/validations/validation";
+import { useDispatch } from "react-redux";
+import {
+  editInput,
+  setAccount,
+  setUserName,
+} from "../../../redux/slices/Account";
 
 const ModalInput = (props) => {
   const { icon, label, userInfo, setuserInfo, state, set } = props;
+  const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState();
   const [touchText, setTouchText] = useState(false);
   const [toSend, setToSend] = useState(false);
@@ -89,7 +95,7 @@ const ModalInput = (props) => {
             <TouchableOpacity
               style={style.pressableToSave}
               onPress={() => {
-                saveImage(setuserInfo, userInfo, image);
+                dispatch(editInput("Image", image));
                 set(!state);
               }}
             >
@@ -134,8 +140,8 @@ const ModalInput = (props) => {
               style={toSend ? style.pressableToSave : style.pressableDisable}
               disabled={!toSend}
               onPress={() => {
-                editInput(label, inputValue, userInfo, setuserInfo),
-                  set(!state);
+                dispatch(editInput(label, inputValue));
+                set(!state);
               }}
             >
               <Text style={toSend ? style.textToSave : style.textDisable}>
