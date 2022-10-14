@@ -1,13 +1,15 @@
-const { User } = require('../Login/models/user');
-const { Training } = require('../Training/models/training');
-const { Progress } = require('../Progress/models/progress')
+const userSchema = require('../Login/models/user');
+const trainingSchema = require('../Training/models/training')
+
+//const { Training } = require('../Training/models/training');
+//const { Progress } = require('../Progress/models/progress')
 
 
 const getAllTraining = (async (req, res, next) => {
    
-	const trainings = await Training.findAll({
+	const trainings = await trainingSchema.findAll({
 		where: { status: 'active' },
-		include: [{ model: Progress, include:{ model : User} }],
+		include: [{ model: Progress, include:{ model : userSchema} }],
 	});
 
 	res.status(200).json({
@@ -30,7 +32,7 @@ const getTrainigById = (async (req, res, next) => {
 const createTrainig = (async (req, res, next) => {
 	const { nameTraining, category } = req.body;
 
-	const newTraining = await Training.create({
+	const newTraining = await trainingSchema.create({
 		nameTraining,
 		category,
 		

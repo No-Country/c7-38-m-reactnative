@@ -1,14 +1,15 @@
-const { User } = require('../Login/models/user');
-const {Profile} = require('../Profile/profile')
-const { Training} = require('../Training/models/training')
+
+//const {Profile} = require('../Profile/profile')
+const userSchema = require('../Login/models/user')
+//const { Training} = require('../Training/models/training')
 
 
 const getAllUsers = (async (req, res, next) => {
-	 const users = await User.findAll({
-		include: [
+	 const users = await userSchema.findAll({
+		/* include: [
 		{ model: Profile, include: { model: Training, include: Progress } },
 	 		
-		],
+		], */
 	 });
 
 
@@ -27,7 +28,7 @@ const createUser = (async (req, res, next) => {
 		return next(new ('Email already taken'));
 	}
  */
-	const newUser = await User.create({
+	const newUser = await userSchema.create({
 		name,
 		email,
 		password,

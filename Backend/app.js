@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 //define  endpoints
-app.use("/api/v1/trainings", trainingRoutes);
+app.use("/api/v1/training", trainingRoutes);
 app.use("/api/v1/users", usersRouter);
 
 // catch non-existing endpoints
