@@ -3,96 +3,60 @@ import { createSlice } from "@reduxjs/toolkit";
 const trainingSlice = createSlice({
   name: "training",
   initialState: {
-    userId: "324sdfds234",
-    nameTraining: "full gym",
+    userId: "",
+    nameTraining: "",
     category: "",
-    days: [
-      {
-        day: "lunes",
-        hours: {
-          hourStart: "17:00",
-          hourEnd: "21:00",
-        },
-        exercises: [
-          {
-            nameExercise: "press de banca",
-            series: 3,
-            repetitions: 12,
-            break: 2,
-          },
-          {
-            nameExercise: "dominadas",
-            series: 3,
-            repetitions: 12,
-            break: 2,
-          },
-        ],
-      },
-      {
-        day: "martes",
-        hours: {
-          hourStart: "17:00",
-          hourEnd: "21:00",
-        },
-        exercises: [
-          {
-            nameExercise: "press de banca",
-            series: 3,
-            repetitions: 12,
-            break: 4,
-          },
-          {
-            nameExercise: "dominadas",
-            series: 3,
-            repetitions: 12,
-            break: 2,
-          },
-          {
-            nameExercise: "curl biceps",
-            series: 4,
-            repetitions: 10,
-            break: 3,
-          },
-        ],
-      },
-    ],
+    days: [],
     hours: {
-      hourStart: "17:00",
-      hourEnd: "21:00",
+      hourStart: "",
+      hourEnd: "",
     },
     date: {
-      dateStart: "10-09",
-      dateEnd: "20-09",
+      dateStart: "",
+      dateEnd: "",
     },
+    modalExercise: false,
+    modalTraining: false,
+    daySelected: "",
   },
   reducers: {
-    setTrainingName: (state, action) => {
-      state.nameTraining = action.payload;
+    setTrainingForm: (state, action) => {
+      state.nameTraining = action.payload.nameTraining;
+      state.category = action.payload.category;
+      state.days = action.payload.days;
+      state.date = action.payload.date;
+      state.hours = action.payload.hours;
     },
-    setTrainingCategory: (state, action) => {
-      state.category = action.payload;
+    setModalTraining: (state, action) => {
+      state.modalTraining = action.payload;
     },
-    setTrainingDays: (state, action) => {
-      state.days = action.payload;
+    setModalExercise: (state, action) => {
+      state.modalExercise = action.payload;
     },
-    setTrainingDate: (state, action) => {
-      state.date = action.payload;
+    setExercise: (state, action) => {
+      const dayIndex = state.days.map((e) => e.day).indexOf(state.daySelected);
+      const exercises = state.days[dayIndex].exercises;
+      exercises.push(action.payload);
     },
-    setTrainingHours: (state, action) => {
-      state.hours = action.payload;
+    setDaySelected: (state, action) => {
+      state.daySelected = action.payload;
     },
-    set: (state, action) => {},
-    set: (state, action) => {},
-    set: (state, action) => {},
-    set: (state, action) => {},
+    setDeleteTraining: (state, action) => {
+      state.nameTraining = "";
+      state.category = "";
+      state.days = "";
+      state.date = "";
+      state.hours = "";
+    },
   },
 });
 
 export const {
-  setTrainingCategory,
-  setTrainingDate,
-  setTrainingDays,
-  setTrainingHours,
-  setTrainingName,
+  setModalExercise,
+  setTrainingForm,
+  setExercise,
+  setDaySelected,
+  setModalTraining,
+  setDeleteTraining,
 } = trainingSlice.actions;
 export default trainingSlice.reducer;

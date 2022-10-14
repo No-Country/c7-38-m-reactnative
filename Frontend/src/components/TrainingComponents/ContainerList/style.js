@@ -33,7 +33,7 @@ const ContainerListStyles = StyleSheet.create({
     height: heightScreen * 0.04,
     alignItems: "center",
     flexDirection: "row",
-    justifyContent: "flex-start",
+    justifyContent: 'center',
   },
   addButton: {
     flex: 1 / 2,

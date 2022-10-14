@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { useDispatch } from "react-redux";
+import {
+  setExercise,
+  setModalExercise,
+} from "../../../../redux/slices/Training";
 import color from "../../../../utils/colors";
 import FormExerciseStyles from "./style";
 import { validation } from "./validation/labelsValidation";
 const LabelsForm = () => {
   const [toSend, setToSend] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const dispatch = useDispatch();
   const [Form, setForm] = useState({
-    exercise: "",
+    nameExercise: "",
     repetitions: "",
     series: "",
     break: "",
@@ -26,7 +32,7 @@ const LabelsForm = () => {
           <TextInput
             style={style.textInput}
             onChangeText={(text) => {
-              setForm({ ...Form, exercise: text });
+              setForm({ ...Form, nameExercise: text });
             }}
             cursorColor={color.primary}
           />
@@ -69,7 +75,8 @@ const LabelsForm = () => {
         style={toSend ? style.sendTouchOn : style.sendTouchOff}
         disabled={!toSend}
         onPress={() => {
-          console.log(Form);
+          dispatch(setExercise(Form));
+          dispatch(setModalExercise(false));
         }}
       >
         <Text style={toSend ? style.sendTextOn : style.sendTextOff}>

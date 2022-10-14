@@ -28,7 +28,7 @@ export const breakSchema = yup
   .required();
 
 const schemaExerciseForm = yup.object().shape({
-  exercise: exerciseSchema,
+  nameExercise: exerciseSchema,
   repetitions: repSchema,
   series: serieSchema,
   break: breakSchema,

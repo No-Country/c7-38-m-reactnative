@@ -14,32 +14,27 @@ import { useSelector } from "react-redux";
 const Training = (props) => {
   const style = TrainingStyles;
   const { heightScreen } = useDimensions();
-  const [trainingForm, setTrainingForm] = useState(false);
-  const [exercise, setExercise] = useState(false);
+
   const { date, nameTraining, category } = useSelector(
     (state) => state.Training
   );
   return (
     <View style={style.container}>
       <View style={style.textContainer}>
-        <FormExercise state={exercise} setState={setExercise} />
-        <FormTraining state={trainingForm} setState={setTrainingForm} />
+        <FormExercise />
+        <FormTraining />
         <Text style={style.title}>Training</Text>
-        {nameTraining ? (
+        {nameTraining && category && date ? (
           <>
-            <HeaderTraining
-              category={category}
-              nameTraining={nameTraining}
-              date={date}
-            />
+            <HeaderTraining />
           </>
         ) : (
           <></>
         )}
       </View>
-      {nameTraining ? (
+      {nameTraining && category && date ? (
         <>
-          <ContainerList exercise={exercise} setExercise={setExercise} />
+          <ContainerList />
         </>
       ) : (
         <View style={style.emptyContainer}>
@@ -51,10 +46,7 @@ const Training = (props) => {
           <Text style={style.emptyMessage}>Training is empty</Text>
         </View>
       )}
-      <ManageButton
-        trainingForm={trainingForm}
-        setTrainingForm={setTrainingForm}
-      />
+      <ManageButton />
     </View>
   );
 };

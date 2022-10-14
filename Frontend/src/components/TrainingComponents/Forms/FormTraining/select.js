@@ -16,8 +16,8 @@ const Select = (props) => {
   const [complete, setcomplete] = useState(false);
   const [items, setItems] = useState([
     {
-      label: "Weight training",
-      value: "weight training",
+      label: "Weight",
+      value: "weight",
       icon: () => (
         <Image
           source={{
