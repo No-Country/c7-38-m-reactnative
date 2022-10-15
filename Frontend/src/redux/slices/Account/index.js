@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import Axios from "axios";
 const accountSlice = createSlice({
   name: "account",
   initialState: {
-    profile: "4as34sad",
-    userName: "juancito",
+    profile: "",
+    userName: "",
     image: "https://cdn-icons-png.flaticon.com/512/3237/3237472.png",
-    email: "valeru.251@gmail.com",
-    age: "22",
-    phone: "3512505784",
-    weight: "84",
-    idealWeight: "64",
+    email: "",
+    age: "",
+    phone: "",
+    weight: "",
+    idealWeight: "",
   },
   reducers: {
     setUserName: (state, action) => {
@@ -34,6 +34,9 @@ const accountSlice = createSlice({
     setObjetive: (state, action) => {
       state.idealWeight = action.payload;
     },
+    // setGetPokemon: (state, action) => {
+    //   fetchAll();
+    // },
   },
 });
 export const {
@@ -44,7 +47,16 @@ export const {
   setPhone,
   setUserName,
   setWeight,
+  // setGetPokemon,
 } = accountSlice.actions;
+
+// export const fetchAll = async (training, category) => {
+//   await Axios.get("https://pokeapi.co/api/v2/pokemon/ditto")
+//     .then((res) => {
+//       console.log(res.data);
+//     })
+//     .catch((err) => console.log(err));
+// };
 
 export const editInput = (label, value) => {
   if (label == "User") {
