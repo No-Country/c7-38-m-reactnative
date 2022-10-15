@@ -21,7 +21,7 @@ import {
 } from "../../../redux/slices/Account";
 
 const ModalInput = (props) => {
-  const { icon, label, userInfo, setuserInfo, state, set } = props;
+  const { icon, label, setloading, setuserInfo, state, set } = props;
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState();
   const [touchText, setTouchText] = useState(false);
@@ -142,6 +142,7 @@ const ModalInput = (props) => {
               onPress={() => {
                 dispatch(editInput(label, inputValue));
                 set(!state);
+                setloading(true);
               }}
             >
               <Text style={toSend ? style.textToSave : style.textDisable}>

@@ -41,7 +41,7 @@ const trainingSlice = createSlice({
     setDaySelected: (state, action) => {
       state.daySelected = action.payload;
     },
-    setDeleteTraining: (state, action) => {
+    setDeleteTraining: (state) => {
       state.nameTraining = "";
       state.category = "";
       state.days = "";

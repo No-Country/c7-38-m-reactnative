@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ScrollView, Text, View } from "react-native";
+import Loader from "../../Loader";
 import ModalInput from "../ModalInput";
 import Input from "./Input";
 import InputsGroupStyles from "./style";
@@ -10,6 +11,8 @@ const InputsGroup = (props) => {
   const [inputSelect, setinputSelect] = useState();
   const [iconInput, setIconInput] = useState();
   const [modalVisible, setModalVisible] = useState(false);
+  const [loading, setloading] = useState(false);
+
   return (
     <View style={style.container}>
       <ModalInput
@@ -19,9 +22,15 @@ const InputsGroup = (props) => {
         state={modalVisible}
         set={setModalVisible}
         setuserInfo={setuserInfo}
+        setloading={setloading}
       />
+      {loading ? (
+        <Loader state={loading} stateEdit={setloading} iconLoad={iconInput} />
+      ) : (
+        <></>
+      )}
       <View>
-        <View style={style.DataContainer}>
+        <View>
           <Input
             userInfo={userInfo.userName}
             label={"User"}

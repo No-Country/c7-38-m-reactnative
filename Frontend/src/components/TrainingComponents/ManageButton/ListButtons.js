@@ -1,5 +1,5 @@
 import { MaterialCommunityIcons as Icon } from "@expo/vector-icons";
-import React from "react";
+import React, { useState } from "react";
 import { TouchableOpacity, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import useDimensions from "../../../hooks/useDimensions";
@@ -8,6 +8,7 @@ import {
   setModalTraining,
 } from "../../../redux/slices/Training";
 import color from "../../../utils/colors";
+import Loader from "../../Loader";
 import ManageButtonStyles from "./style";
 
 const ListButtons = (props) => {
@@ -15,12 +16,23 @@ const ListButtons = (props) => {
   const { setmenuOpen } = props;
   const dispatch = useDispatch();
   const { heightScreen, widthScreen } = useDimensions();
+  const [loading, setloading] = useState(false);
+  const [iconLoad, seticonLoad] = useState("arm-flex-outline");
 
   return (
     <>
+      {loading ? (
+        <Loader state={loading} stateEdit={setloading} iconLoad={iconLoad} />
+      ) : (
+        <></>
+      )}
       <TouchableOpacity
         onPress={() => {
-          setmenuOpen(false);
+          seticonLoad("file-download-outline");
+          setloading(true),
+            setTimeout(() => {
+              setmenuOpen(false);
+            }, 2100);
         }}
       >
         <View style={style.view2}>
@@ -34,7 +46,11 @@ const ListButtons = (props) => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          dispatch(setDeleteTraining()), setmenuOpen(false);
+          seticonLoad("delete-outline");
+          setloading(true),
+            setTimeout(() => {
+              dispatch(setDeleteTraining()), setmenuOpen(false);
+            }, 2100);
         }}
       >
         <View style={style.view2}>
@@ -48,7 +64,11 @@ const ListButtons = (props) => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          dispatch(setModalTraining(true), setmenuOpen(false));
+          seticonLoad("notebook-plus-outline");
+          setloading(true),
+            setTimeout(() => {
+              dispatch(setModalTraining(true), setmenuOpen(false));
+            }, 2100);
         }}
       >
         <View style={style.view2}>

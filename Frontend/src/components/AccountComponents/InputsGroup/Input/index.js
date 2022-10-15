@@ -30,8 +30,11 @@ const Input = (props) => {
       >
         <View style={style.inputLabel2}>
           <Text style={style.textValue}>
-            {userInfo}
-            {label == "Weight" || label == "Objetive" ? " kg" : ""}
+            {userInfo ? userInfo : `Add your ${label}`}
+            {(userInfo && label == "Weight") ||
+            (userInfo && label == "Objetive")
+              ? " kg"
+              : ""}
           </Text>
           <MaterialCommunityIcons
             name={"square-edit-outline"}
