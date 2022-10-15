@@ -109,53 +109,6 @@ const DatePickerProgress = (props) => {
             />
           </>
         )}
-        {/*
-        <View style={style.hour}>
-          <Text style={style.textHour}>
-            <Ionicons
-              name="ios-calendar-outline"
-              size={15}
-              color={color.redType}
-            />
-            {"   "}Date end
-          </Text>
-          <Text style={style.dataText}>{dateEnd}</Text>
-          <Ionicons
-            name="create-outline"
-            size={15}
-            color={color.greyType}
-            onPress={() => {
-              setDateEnd("");
-            }}
-          />
-        </View>
-        {dateEnd ? (
-          <></>
-        ) : (
-          <>
-            <Calendar
-              options={{
-                backgroundColor: color.secondary,
-                textHeaderColor: color.whiteType,
-                textDefaultColor: color.whiteType,
-                selectedTextColor: color.secondary,
-                mainColor: color.primary,
-                textSecondaryColor: color.primary,
-                borderColor: "#242424",
-              }}
-              onSelectedChange={(date) => {
-                setDateEnd(date);
-                setForm({
-                  ...Form,
-                  date: { dateStart: dateStart, dateEnd: date },
-                });
-              }}
-              mode="calendar"
-              minuteInterval={30}
-              style={style.calendar}
-            />
-          </>
-        )} */}
       </View>
     </View>
   );

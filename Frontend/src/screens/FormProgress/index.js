@@ -2,7 +2,6 @@ import { View, Modal, TextInput, Text, Pressable, TouchableOpacity } from "react
 import StyleFormProgress from "./style";
 import FormTrainingStyles from "../../components/TrainingComponents/Forms/FormTraining/style";
 import { useState } from "react";
-/* import DatePicker from "../../components/TrainingComponents/Forms/FormTraining/datePicker"; */
 import DatePickerProgress from "../../components/DatePickerProgress";
 import {Ionicons} from "@expo/vector-icons"
 import color from "../../utils/colors";
