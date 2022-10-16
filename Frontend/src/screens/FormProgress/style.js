@@ -14,6 +14,11 @@ const StyleFormProgress = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
     },
+    picker: {
+        flex:1,
+        flexDirection:'row',
+        backgroundColor:color.secondary
+      },
     vistaModal:{
       /*   margin: widthScreen * 0.05, */
        /*  height:heightScreen*0.6, */

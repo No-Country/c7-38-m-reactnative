@@ -1,10 +1,12 @@
-import { View, Modal, TextInput, Text, Pressable, TouchableOpacity } from "react-native";
+import { View, Modal, TextInput, Text, Pressable, TouchableOpacity, ScrollView } from "react-native";
 import StyleFormProgress from "./style";
 import FormTrainingStyles from "../../components/TrainingComponents/Forms/FormTraining/style";
 import { useState } from "react";
 import DatePickerProgress from "../../components/DatePickerProgress";
 import {Ionicons} from "@expo/vector-icons"
 import color from "../../utils/colors";
+import ImagePicker from "../../components/AccountComponents/ImagePicker";
+import { useSelector } from "react-redux";
 
 
 const FormProgress = ({visible, onAction}) => {
@@ -22,6 +24,10 @@ const FormProgress = ({visible, onAction}) => {
     const [descripcion, setDescripcion] = useState("")
     const [peso, setPeso] = useState("")
     const [imagen, setImagen] = useState("")
+
+    const [userInfo, setuserInfo] = useState({});
+    const { Account } = useSelector((state) => state);
+
     return(
         <View>
             <Modal
@@ -60,12 +66,15 @@ const FormProgress = ({visible, onAction}) => {
                             placeholderTextColor={color.greyType}
                             onChangeText={newText => setDescripcion(newText)}
                         />
-                        <TextInput
+                        {/* <TextInput
                             style={style.containerText}
                             placeholder="Cargar foto"
                             onChangeText={newText => setImagen(newText)}
 
-                        />
+                        /> */}
+                        <ScrollView style={style.picker}>
+                            <ImagePicker userInfo={Account} setuserInfo={setuserInfo} />
+                        </ScrollView>
                         <Pressable
                             style={[styleDate.sendTouchOn , , style.marginButton]}
                             onPress={() => {
