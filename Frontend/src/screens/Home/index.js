@@ -5,31 +5,32 @@ import CircularProgress from "react-native-circular-progress-indicator";
 import homeStyles from "./style";
 
 const Home = () => {
-  const { userName } = useSelector((state) => state.Training);
+  const { userName } = useSelector((state) => state.Account);
   const { weight } = useSelector((state) => state.Account);
   const { idealWeight } = useSelector((state) => state.Account);
   const { days } = useSelector((state) => state.Training);
+  const trainingDays = days.length
   const weightDif = weight - idealWeight;
+  
   return (
     <View style={homeStyles.container}>
       <Text style={homeStyles.title}>
         Hello <Text style={homeStyles.name}>{userName}</Text>
       </Text>
 
-      <Text style={homeStyles.text}>You completed</Text>
+      <Text style={homeStyles.text}>You are training</Text>
 
       <CircularProgress
         radius={120}
-        valueSuffix={"%"}
-        value={days.length}
-        textColor="#222"
-        fontSize={20}
+        value={trainingDays}
+        title= { 'Days' }
+        titleColor='#fff'
         activeStrokeColor={"#ffe300"}
         inActiveStrokeColor={"#ffe300"}
-        inActiveStrokeOpacity={0.2}
-        duration={1500}
+        inActiveStrokeOpacity={trainingDays != 0 ? 1 : 0.4}
+        duration={1}
       />
-      <Text style={homeStyles.text}>of your training</Text>
+      <Text style={homeStyles.text}>Per week</Text>
 
       <View style={homeStyles.containerWeight}>
         <Text style={homeStyles.weight}>{weight} kg</Text>
