@@ -1,33 +1,36 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const profileSchema = new Schema({
+  profile: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User",
+  },
 
-    profile: {
-		type: mongoose.Schema.ObjectId,
-		ref: 'User',
-    },
-
-    age:{
-        type: Number,
-        requiere: true,
-        allowNull: false,
-    },
-    phone:{
-        type: Number,
-        requiere: true,
-        allowNull: false,
-    },
-    weight:{
-        type: Number,
-        requiere: true,
-        allowNull: false,
-    },
-    idealWeight:{
-        type: Number,
-        requiere: true,
-        allowNull: false,
-    }
+  age: {
+    type: String,
+    require: true,
+    allowNull: false,
+  },
+  phone: {
+    type: String,
+    require: true,
+    allowNull: false,
+  },
+  weight: {
+    type: String,
+    require: true,
+    allowNull: false,
+  },
+  idealWeight: {
+    type: String,
+    require: true,
+    allowNull: false,
+  },
+  status: { 
+    type: String, 
+    default: "active"
+  }
 });
 
-module.exports = mongoose.model('Profile', profileSchema)
+module.exports = mongoose.model("Profile", profileSchema);
