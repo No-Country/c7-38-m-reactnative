@@ -5,7 +5,10 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Entypo } from '@expo/vector-icons';
 import { Formik } from 'formik'
 import * as yup from 'yup';
-import { globalStyles } from './globalStyles'
+import { globalStyles } from './globalStyles';
+import { useSelector, useDispatch } from "react-redux";
+import { setUser } from '../../redux/slices/Singup';
+
 
 
 const reviewSchema = yup.object({
@@ -17,7 +20,9 @@ const reviewSchema = yup.object({
 })
 export default function Sign ({ navigation }){
   const[secure, setSecure] = useState(true)
-
+  const[cuenta, setCuenta]= useState([]);
+  const{user} = useSelector((state)=>state.SingUp)
+  const dispatch = useDispatch();
   function changeSecure(){
       if(secure === false ){
           setSecure(true)
@@ -27,6 +32,8 @@ export default function Sign ({ navigation }){
           console.log(secure)
       }
   }
+  console.log(cuenta)
+  console.log(user)
     return (
       <View style={globalStyles.container}>
         <View style={globalStyles.logo}>
@@ -38,18 +45,20 @@ export default function Sign ({ navigation }){
       validationSchema={reviewSchema}
       onSubmit={(values,actions) => {
         actions.resetForm();
-        console.log(values);
+        setCuenta(values);
+        dispatch(setUser(values))
       }}
       >
      {(props)=>(
         <View style={styles.form}>
             <TextInput
              style={globalStyles.input}
-             placeholder= 'Usuario'
+             placeholder= 'Username'
              backgroundColor='#fff'
              onChangeText={props.handleChange('username')}
              onBlur={props.handleBlur('username')} 
              value={props.values.username}
+             name="username"
              />
         <Text style={globalStyles.errorText}>{props.touched.username && props.errors.username}</Text>
              <TextInput
@@ -59,18 +68,20 @@ export default function Sign ({ navigation }){
              onChangeText={props.handleChange('email')}
              onBlur={props.handleBlur('email')} 
              value={props.values.email}
+             name="email"
              />
              
         <Text style={globalStyles.errorText}>{props.touched.email && props.errors.email}</Text>
              <View style={globalStyles.inputStyle}>
              <TextInput
              style={globalStyles.input1}
-             placeholder= 'Contraseña'
+             placeholder= 'Password'
              backgroundColor='#fff'
              secureTextEntry ={secure}
              onChangeText={props.handleChange('password')}
              onBlur={props.handleBlur('password')} 
              value={props.values.password}
+             name="password"
              />
              <TouchableWithoutFeedback onPress={changeSecure}>
              <Entypo name="eye" size={24} color="black" style={styles.icon} />
@@ -80,12 +91,13 @@ export default function Sign ({ navigation }){
              <View style={globalStyles.inputStyle}>
              <TextInput
              style={globalStyles.input1}
-             placeholder= 'Confirmar contraseña'
+             placeholder= 'Confirm Password'
              backgroundColor='#fff'
              secureTextEntry={secure}
              onChangeText={props.handleChange('confirm')}
              onBlur={props.handleBlur('confirm')} 
              value={props.values.confirm}
+             name="confirm"
              />
              <TouchableWithoutFeedback onPress={changeSecure}>
               <Entypo name="eye" size={24} color="black" style={styles.icon} />
@@ -93,14 +105,14 @@ export default function Sign ({ navigation }){
              </View>
              <Text style={globalStyles.errorText}>{props.touched.confirm && props.errors.confirm}</Text>
              <TouchableOpacity  onPress={props.handleSubmit}>
-                <Text style={styles.button1}>Crear cuenta</Text>
+              {user.length !== 0 ?<Text style={styles.button1} onPress={()=>navigation.navigate('LogIn')}>Create Account</Text> :<Text style={styles.button1}>Create Account</Text>  }
             </TouchableOpacity>
-            <Text style={styles.text}>Ya tenes una cuenta?<Text style={styles.textColor} onPress={() => navigation.navigate('LogIn')}> Ingresa</Text></Text>
-
+            <Text style={styles.text}>Already have an Account?<Text style={styles.textColor} onPress={() => navigation.navigate('LogIn')}> Log In</Text></Text>
+  
         </View>
      )}
       </Formik>
-      
+       
       </View>
     )
 }

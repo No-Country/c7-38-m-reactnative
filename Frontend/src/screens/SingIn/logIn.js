@@ -4,11 +4,13 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Entypo } from '@expo/vector-icons';
 import { globalStyles } from './globalStyles'
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setId } from '../../redux/slices/Singup';
 
 
 export default function LogIn ({ navigation }){
     const[secure, setSecure] = useState(true)
-
+   const dispatch = useDispatch();
     function changeSecure(){
         if(secure === false ){
             setSecure(true)
@@ -33,7 +35,7 @@ export default function LogIn ({ navigation }){
             <View style={styles.inputStyle}>
              <TextInput
             style={styles.input1}
-            placeholder='Contraseña'
+            placeholder='Password'
             backgroundColor='#fff'
             secureTextEntry={secure}
              />
@@ -42,9 +44,9 @@ export default function LogIn ({ navigation }){
              </TouchableWithoutFeedback>
              </View>
              <TouchableOpacity>
-                <Text style={styles.button1}>Ingresar</Text>
+                <Text style={styles.button1} onPress={()=> dispatch(setId('hiefj36s') )}>Log In</Text>
             </TouchableOpacity>
-            <Text style={styles.text}>No tenes una cuenta?<Text style={styles.textColor} onPress={() => navigation.navigate('Sign')}> Crear cuenta</Text></Text>
+            <Text style={styles.text}>Don't have an Account?<Text style={styles.textColor} onPress={() => navigation.navigate('Sign')}> Create Account</Text></Text>
         </View>
     </TouchableOpacity>
   )

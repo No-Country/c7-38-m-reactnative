@@ -14,10 +14,10 @@ export default function Welcome ({ navigation }){
           <Text style={styles.title}>Bienvenido a Fitness Club</Text>
           <Text style={styles.paragraph}>Una plataforma para poder llevar tu entrenamiento a otro nivel!</Text>
           <TouchableOpacity style onPress={() => navigation.navigate('Sign')}>
-              <Text style={styles.button}>Crear cuenta</Text>
+              <Text style={styles.button}>Create Account</Text>
           </TouchableOpacity>
           <TouchableOpacity style>
-              <Text style={styles.button1} onPress={() => navigation.navigate('LogIn')}>Ingresar</Text>
+              <Text style={styles.button1} onPress={() => navigation.navigate('LogIn')}>LogIn</Text>
           </TouchableOpacity>
           </View>
           
