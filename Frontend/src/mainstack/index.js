@@ -10,15 +10,19 @@ import Progress from "../screens/Progress"
 import Timer from "../screens/Timer/index";
 import Account from "../screens/Account";
 import InitialStack from "./initialStack";
-
+import { useSelector } from "react-redux";
 const heightScreen = Dimensions.get("window").height;
 const widthScreen = Dimensions.get("window").width;
+
 //Instanciamos el stack
 //cambios
 const stack = createBottomTabNavigator();
-const userId = "sdf53425342";
+
+
 //Creamos el componente mainstack
 const MainStack = (props) => {
+  const{id} = useSelector((state)=>state.SingUp)
+  const userId= id;
   return (
     <NavigationContainer>
       {/* Cada una de las screen reprensenta cada vistra que vayamos a asignar */}
