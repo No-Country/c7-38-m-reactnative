@@ -3,7 +3,7 @@ const express = require("express");
 const { trainingRoutes } = require("./routes/training.routes");
 const { usersRouter } = require("./routes/user.routes.js");
 const { profilesRouter } = require('./routes/profile.routes')
-const { progressRouter } = require = ('./routes/progress.routes.js')
+const { progressRouter } = require ('./routes/progress.routes.js')
 
 const app = express();
 

@@ -1,9 +1,9 @@
-const userSchema = require ('../Login/models/user')
+const User = require ('../Login/models/user')
 
  
 const getAllUsers =    (async (req, res, next) => {
 
-  const users = await userSchema.findAll({ where:{ status:'active'}});
+  const users = await User.findAll({ where:{ status:'active'}});
   res.status(200).json({
       status: "success",
       data: {users},
@@ -15,7 +15,7 @@ const createUser = (async (req, res, next) => {
 
   const { name, email, password } = req.body;
 
-  const newUser = await userSchema.create({
+  const newUser = await User.create({
     name,
     email,
     password,
@@ -31,7 +31,7 @@ const createUser = (async (req, res, next) => {
 const getUserById = async (req, res, next) => {
 
   const { id } = req.params;
-  const user = await userSchema.findOne({ where: {id} }); 
+  const user = await User.findOne({ where: {id} }); 
   res.status(200).json({
     status: "success",
     data: { user },
@@ -45,7 +45,7 @@ const updateUser = async (req, res, next) => {
 
   const{ id }= req.params;
 
-  const user = await userSchema.findOne( { where: { id } });
+  const user = await User.findOne( { where: { id } });
 
   await user.update({name})
 
@@ -56,7 +56,7 @@ const updateUser = async (req, res, next) => {
 
   const { id } = req.params;
 
-  const user = await userSchema.findOne ({ where: { id } });
+  const user = await User.findOne ({ where: { id } });
 
   await user.update({status:'deleted'})
 

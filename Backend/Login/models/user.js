@@ -8,4 +8,5 @@ const userSchema = new Schema({
   status: { type: String, default: "active" },
 });
 
-module.exports = {userSchema};
+const User = mongoose.model("users", userSchema);
+module.exports = {User};
