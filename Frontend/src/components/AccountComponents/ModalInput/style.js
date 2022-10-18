@@ -87,8 +87,8 @@ const ModalInputStyles = StyleSheet.create({
     justifyContent: "center",
   },
   image: {
-    width: widthScreen * 0.34,
-    height: widthScreen * 0.34,
+    width: widthScreen * 0.24,
+    height: widthScreen * 0.24,
     borderRadius: 100,
     elevation: 5,
     zIndex: 5,
@@ -121,7 +121,7 @@ const ModalInputStyles = StyleSheet.create({
   containTouch: { flexDirection: "row" },
   icon: { marginHorizontal: widthScreen * 0.02 },
   containerErrorMsg: {
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
     alignItems: "center",
   },
   errorMsg: {
