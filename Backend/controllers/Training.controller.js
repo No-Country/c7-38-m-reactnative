@@ -1,6 +1,4 @@
-//const { User } = require('../Login/models/user');
-const { trainingSchema } = require('../Training/models/training');
-//const { Progress } = require('../Progress/models/progress')
+const trainingSchema  = require('../Training/models/training');
 
 
 const getAllTraining = (async (req, res, next) => {
@@ -8,8 +6,6 @@ const getAllTraining = (async (req, res, next) => {
 	const trainings = await trainingSchema.findAll({
 
 		where: { status: 'active' },
-		//include: [{ model: Progress, include:{ model : User} }],
-
 	});
 
 	res.status(200).json({

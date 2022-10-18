@@ -1,15 +1,9 @@
-//const {Profile} = require('../Profile/profile')
-const { userSchema } = require ('../Login/models/user')
-//const { Training} = require('../Training/models/training')
+const userSchema = require ('../Login/models/user')
 
  
 const getAllUsers =    (async (req, res, next) => {
 
   const users = await userSchema.findAll({ where:{ status:'active'}});
-		/* include: [
-		{ model: Profile, include: { model: Training, include: Progress } },
-	 		
-  ], */
   res.status(200).json({
       status: "success",
       data: {users},
@@ -27,9 +21,6 @@ const createUser = (async (req, res, next) => {
     password,
   });
 
-  /* if (userExists) {
-    return next(new ('Email already taken'));
-  } */
   res.status(201).json({
     status: "success",
     data: { newUser },
