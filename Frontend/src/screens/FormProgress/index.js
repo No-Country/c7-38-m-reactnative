@@ -11,7 +11,8 @@ import {
 } from "react-native";
 import StyleFormProgress from "./style";
 import FormTrainingStyles from "../../components/TrainingComponents/Forms/FormTraining/style";
-import { useState } from "react";
+import { validation } from '../../components/ProgressComponents/FormProgress/labelsValidation'
+import { useState, useEffect } from "react";
 import DatePickerProgress from "../../components/DatePickerProgress";
 import { Ionicons } from "@expo/vector-icons";
 import color from "../../utils/colors";
@@ -27,12 +28,18 @@ const FormProgress = ({ visible, onAction }) => {
   const style = StyleFormProgress;
   const styleDate = FormTrainingStyles;
   const dispatch = useDispatch();
-  const [fecha, setFecha] = useState("");
-  const [descripcion, setDescripcion] = useState("");
-  const [peso, setPeso] = useState("");
-  const [imagen, setImagen] = useState("");
+  const [date, setDate] = useState("");
+  const [description, setDescription] = useState("");
+  const [weight, setWeight] = useState("");
+  const [image, setImage] = useState("");
   const [userInfo, setuserInfo] = useState({});
   const { Account } = useSelector((state) => state);
+  const [toSend, setToSend] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+
+  useEffect(() => {
+    validation(date,weight,description, setToSend, setErrorMsg);
+  }, [date,weight,description]);
 
   return (
     <View>
@@ -47,37 +54,37 @@ const FormProgress = ({ visible, onAction }) => {
       >
         <View style={style.containerModal}>
           <View style={style.vistaModal}>
-            <View style={styleDate.viewModalHeader}>
-              <Text style={style.title}>Cargar progreso</Text>
+            <View style={style.viewModalHeader}>
+              <Text style={style.title}>Add Progress</Text>
               <TouchableOpacity
                 onPress={() => {
                   onAction(false);
                 }}
               >
-                <Ionicons name="close-circle-outline" size={18} color="black" />
+                <Ionicons name="close-circle-outline" size={18} color="black" style={style.closeModal} />
               </TouchableOpacity>
             </View>
-            <DatePickerProgress fecha={fecha} setFecha={setFecha} />
+            <DatePickerProgress date={date} setFecha={setDate} />
             <TextInput
-              style={styleDate.textInput}
-              placeholder="Peso"
+              style={style.textInput}
+              placeholder="Weight"
               cursorColor={color.primary}
               placeholderTextColor={color.greyType}
-              onChangeText={(newText) => setPeso(newText)}
+              onChangeText={(newText) => setWeight(newText)}
             />
             <TextInput
-              style={styleDate.textInput}
-              placeholder="Descripcion"
+              style={style.textInput}
+              placeholder="Description"
               cursorColor={color.primary}
               placeholderTextColor={color.greyType}
-              onChangeText={(newText) => setDescripcion(newText)}
+              onChangeText={(newText) => setDescription(newText)}
             />
-            <Text style={style.labelImage}>Add your progress image</Text>
+            <Text style={style.textInputImage}>Add your progress image</Text>
             <View style={style.containerImage}>
               <Image
                 source={{
-                  uri: imagen
-                    ? imagen
+                  uri: image
+                    ? image
                     : "https://cdn-icons-png.flaticon.com/512/5038/5038308.png",
                 }}
                 style={style.image}
@@ -87,13 +94,13 @@ const FormProgress = ({ visible, onAction }) => {
               <TouchableOpacity
                 style={style.touchableImage}
                 onPress={() => {
-                  cameraPick(imagen, setImagen);
+                  cameraPick(image, setImage);
                 }}
               >
                 <View style={style.containTouch}>
                   <Icon
                     name={"camera-image"}
-                    size={15}
+                    size={19}
                     color={color.primary}
                     style={style.icon}
                   />
@@ -103,13 +110,13 @@ const FormProgress = ({ visible, onAction }) => {
               <TouchableOpacity
                 style={style.touchableImage}
                 onPress={() => {
-                  libraryPick(imagen, setImagen);
+                  libraryPick(image, setImage);
                 }}
               >
                 <View style={style.containTouch}>
                   <Icon
                     name={"image-search"}
-                    size={15}
+                    size={19}
                     color={color.primary}
                     style={style.icon}
                   />
@@ -122,10 +129,11 @@ const FormProgress = ({ visible, onAction }) => {
               style={[styleDate.sendTouchOn, , style.marginButton]}
               onPress={() => {
                 onAction(false);
-                dispatch(setProgress({ fecha, peso, descripcion, imagen }));
+                dispatch(setProgress({ date, weight, description, image}));
+                
               }}
             >
-              <Text style={styleDate.sendTextOn}>Guardar</Text>
+              <Text style={styleDate.sendTextOn}>Save</Text>
             </Pressable>
           </View>
         </View>

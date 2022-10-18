@@ -1,4 +1,4 @@
-import { Text, View, FlatList, TouchableOpacity } from "react-native";
+import { Text, View, FlatList, TouchableOpacity, Alert } from "react-native";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ItemProgress from "../ItemProgress";
@@ -6,6 +6,8 @@ import StylesProgress from "./style";
 import FormProgress from "../FormProgress";
 import { useSelector } from "react-redux";
 import color from "../../utils/colors";
+import Ionicons from '@expo/vector-icons/Ionicons';
+
 
 const Progress = () => {
   const style = StylesProgress;
@@ -39,12 +41,15 @@ const Progress = () => {
               <Text style={style.buttonText}>+</Text>
             </View>
           </TouchableOpacity>
+
         </>
       ) : (
-        <View>
-          <Text style={{ color: color.primary }}>Progress is empty</Text>
+        <View style={style.containerProgressEmpty}>
+        <Text style={style.titleProgressEmpty}>Progress</Text>
+          <Ionicons name="body" size={38} color="#fff300" style={style.iconProgressEmpty} />
+          <Text style={{ color: color.primary, fontSize:20, letterSpacing:1 }}>Progress is empty</Text>
           <TouchableOpacity
-            style={style.buttonPosition}
+            style={style.buttonPositionProgressEmpty}
             onPress={() => {
               setModalVisible(true);
             }}
