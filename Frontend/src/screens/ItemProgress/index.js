@@ -1,17 +1,21 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import StylesItemProgress from "./style";
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { setDeleteProgress } from "../../redux/slices/Progress";
 
-const ItemProgress = ({ item, index }) => {
+const ItemProgress = ({ item,index }) => {
   const style = StylesItemProgress;
 
   return (
     <View style={style.container}>
-      <Image source={{ uri: item.imagen }} style={style.img} />
+      <Image source={{ uri: item.image }} style={style.img} />
       <View style={style.textContainer}>
-        <Text style={style.text}>{item.fecha}</Text>
-        <Text style={style.text}>{item.descripcion}</Text>
+        <Text style={style.text}>{item.date}</Text>
+        <Text style={style.text}>{item.description}</Text>
       </View>
-      <Text style={style.text}>{index + 1}</Text>
+      <TouchableOpacity key={index + 1}>
+        <Ionicons name="trash" size={30} color="#fff300" />
+      </TouchableOpacity>
     </View>
   );
 };

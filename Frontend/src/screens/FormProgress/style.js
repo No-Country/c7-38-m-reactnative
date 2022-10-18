@@ -38,6 +38,19 @@ const StyleFormProgress = StyleSheet.create({
     borderBottomEndRadius: 10,
     borderBottomStartRadius: 10,
   },
+  viewModalHeader:{
+    backgroundColor: color.primary,
+    flexDirection:"row",
+    width: widthScreen * 0.7,
+    borderRadius: 10,
+    marginVertical: heightScreen * 0.02,
+    justifyContent:'center'
+  },
+  closeModal:{
+    position:'absolute',
+    marginLeft: widthScreen * 0.09,
+    marginTop: heightScreen * 0.005
+  },
   containerText: {
     marginVertical: heightScreen * 0.02,
     height: heightScreen * 0.05,
@@ -74,7 +87,10 @@ const StyleFormProgress = StyleSheet.create({
   },
   icon: { marginHorizontal: widthScreen * 0.02 },
   touchableText: { color: color.greyType },
-  containTouch: { flexDirection: "row" },
+  containTouch: {
+    flexDirection: "row" ,
+
+  },
   touchableImage: {
     backgroundColor: color.secondary,
     borderRadius: 10,
@@ -102,11 +118,23 @@ const StyleFormProgress = StyleSheet.create({
     height: heightScreen * 0.2,
   },
   image: {
-    width: widthScreen * 0.34,
-    height: widthScreen * 0.34,
+    width: widthScreen * 0.30,
+    height: widthScreen * 0.30,
     borderRadius: 100,
     elevation: 5,
     zIndex: 5,
+  },
+  textInput: {
+    backgroundColor: color.secondary,
+    color: color.whiteType,
+    margin:8,
+    textAlign:'center'
+  },
+  textInputImage: {
+    backgroundColor: color.secondary,
+    color: color.primary,
+    margin:8,
+    textAlign:'center'
   },
 });
 
