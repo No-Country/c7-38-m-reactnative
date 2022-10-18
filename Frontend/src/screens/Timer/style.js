@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import color from '../../utils/colors';
 
-const cronometroStyles = StyleSheet.create({
+const timerStyles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: color.whiteType,
@@ -9,36 +9,32 @@ const cronometroStyles = StyleSheet.create({
       justifyContent:'center',
       backgroundColor: color.secondary
     },
-    titulo: {
+    title: {
       color: color.whiteType,
       fontSize: 30,
       marginBottom: 10
     },
-    minutos: {
+    minutes: {
       color: color.whiteType,
       fontSize:100,
       marginBottom:-30
     },
-    segundos: {
+    seconds: {
       color: color.primary,
       fontSize:70,
       marginRight:-30,
       marginBottom: 10
     },
-    containerBotones: {
+    containerButton: {
       flexDirection: 'row'
     },
-    botones: {
+    button: {
       backgroundColor: color.primary,
       padding:20,
       margin:20,
       borderRadius: 50,
       textAlign: 'center',
     },
-    desaparecerBotones: {
-      display: 'none'
-    }
-  
 });
 
-export default cronometroStyles;
+export default timerStyles;
