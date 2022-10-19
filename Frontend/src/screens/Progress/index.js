@@ -1,12 +1,13 @@
 import { Text, View, FlatList, TouchableOpacity, Alert } from "react-native";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ItemProgress from "../ItemProgress";
 import StylesProgress from "./style";
 import FormProgress from "../FormProgress";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import color from "../../utils/colors";
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { setIdProgress } from "../../redux/slices/Progress/index";
 
 
 const Progress = () => {
@@ -14,6 +15,14 @@ const Progress = () => {
   const { progress } = useSelector((state) => state.Progress);
   const [modalVisible, setModalVisible] = useState(false);
   const [progressForm, setProgressForm] = useState(false);
+  const { _id } = useSelector((state) => state.Progress);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if(_id == '' ) {
+      dispatch(setIdProgress('6348c470e2832a1de7c79afa'))
+    }
+  }, []);
 
   return (
     <SafeAreaView style={style.container}>

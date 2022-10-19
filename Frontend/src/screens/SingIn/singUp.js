@@ -20,19 +20,19 @@ import { setPostUser, setUser } from "../../redux/slices/Singup";
 
 const reviewSchema = yup.object({
   username: yup.string().required().min(4).max(10),
-  email: yup.string().email("Invalid Email").required("required"),
+  email: yup.string().email("invalid Email").required("required"),
   password: yup
     .string()
     .required()
     .matches(
       /^[0-9A-Za-z]*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?][0-9a-zA-Z]*$/,
-      "Need one special character"
+      "need one special character"
     )
     .min(8)
     .max(15),
   confirm: yup
     .string()
-    .oneOf([yup.ref("password"), null], "Passwords must match"),
+    .oneOf([yup.ref("password"), null], "passwords must match"),
 });
 export default function Sign({ navigation }) {
   const [secure, setSecure] = useState(true);
@@ -53,8 +53,7 @@ export default function Sign({ navigation }) {
   return (
     <View style={globalStyles.container}>
       <View style={globalStyles.logo}>
-        <MaterialCommunityIcons name="weight-lifter" size={64} color="white" />
-        <Text style={globalStyles.logoText}>Logo</Text>
+        <Text style={globalStyles.logoText}>Fitness Club</Text>
       </View>
       <Formik
         initialValues={{ username: "", email: "", password: "", confirm: "" }}
@@ -169,7 +168,7 @@ export default function Sign({ navigation }) {
 
 const styles = StyleSheet.create({
   form: {
-    marginTop: 20,
+    marginTop: 60,
     justifyContent: "center",
   },
   button1: {
@@ -180,14 +179,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     borderRadius: 15,
     fontSize: 18,
-    marginLeft: 50,
+    alignSelf:'center',
     fontWeight: "bold",
     textTransform: "uppercase",
   },
   text: {
-    marginLeft: 70,
     marginTop: 15,
     color: "#fff",
+    textAlign:'center',
   },
   textColor: {
     color: "yellow",

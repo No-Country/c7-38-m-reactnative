@@ -1,14 +1,12 @@
 import React from 'react'
 import { StyleSheet, View,Text ,ImageBackground, TouchableOpacity} from 'react-native'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 
 export default function Welcome ({ navigation }){
   return (
       <View style={styles.container}>
           <View style={styles.logo}>
-          <MaterialCommunityIcons name="weight-lifter" size={64} color="white" />
-          <Text style={styles.logoText}>Logo</Text>
+          <Text style={styles.logoText}>Fitness Club</Text>
           </View>
           <View style={styles.textContainer}>
           <Text style={styles.title}>Bienvenido a Fitness Club</Text>
@@ -29,12 +27,13 @@ const styles = StyleSheet.create({
   container: {
       flex: 1,
       padding: 20,
-      backgroundColor: '#111'
+      backgroundColor: '#111',
+      justifyContent:'center'
     },
     title:{
-      fontSize: 30,
+      fontSize: 28,
       fontWeight: 'bold',
-      color: 'white'
+      color: 'white',
     },
     textContainer:{
       flexDirection: 'column',
@@ -44,12 +43,14 @@ const styles = StyleSheet.create({
       gap: 20
     },
     paragraph:{
-      fontSize: 22,
+      fontSize: 20,
       fontWeight: 'semibold',
       color: 'white',
       marginVertical: 10,
       marginBottom: 0,
-      alignSelf: 'center'
+      alignSelf: 'center',
+      textAlign:'center',
+      marginTop:65
     },
     button:{
       backgroundColor: "#FFE300",

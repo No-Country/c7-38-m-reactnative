@@ -13,7 +13,8 @@ export const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor:'#111'
+    backgroundColor:'#111',
+    paddingTop:50
   },
   text:{
     fontSize: 18,
@@ -26,7 +27,15 @@ export const globalStyles = StyleSheet.create({
     padding: 15,
     fontSize: 18,
     borderRadius: 6,
-    marginBottom: 18
+    marginBottom: 5,
+  },
+  inputLogin: {
+    borderWidth: 1,
+    borderColor: '#ddd',
+    padding: 15,
+    fontSize: 18,
+    borderRadius: 6,
+    marginBottom: 40,
   },
   logo:{
     flexDirection: 'row',
@@ -41,6 +50,7 @@ export const globalStyles = StyleSheet.create({
   errorText:{
     color: '#fff300',
     fontWeight:'bold',
+    marginBottom:18
   },
   inputStyle:{
     flexDirection:'row',
@@ -52,7 +62,7 @@ export const globalStyles = StyleSheet.create({
     padding: 15,
     fontSize: 18,
     borderRadius: 6,
-    marginBottom: 18,
-    color:'#fff'
+    marginBottom: 5,
+    color:'#111'
   },
 });

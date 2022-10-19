@@ -9,8 +9,6 @@ const ItemProgress = ({ item,index }) => {
   const dispatch = useDispatch();
 
 
-
-
   return (
     <View style={style.container}>
       <Image source={{ uri: item.image }} style={style.img} />

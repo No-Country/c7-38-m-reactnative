@@ -7,15 +7,15 @@ import homeStyles from "./style";
 const Home = () => {
   const { userName } = useSelector((state) => state.Account);
   const { weight } = useSelector((state) => state.Account);
-  const { idealWeight } = useSelector((state) => state.Account);
+  const { objetive } = useSelector((state) => state.Account);
   const { days } = useSelector((state) => state.Training);
   const trainingDays = days.length
-  const weightDif = weight - idealWeight;
+  const weightDif = weight - objetive;
   
   return (
     <View style={homeStyles.container}>
       <Text style={homeStyles.title}>
-        Hello <Text style={homeStyles.name}>{userName}</Text>
+        Hello <Text style={homeStyles.name}>{ userName }</Text>
       </Text>
 
       <Text style={homeStyles.text}>You are training</Text>
@@ -33,18 +33,18 @@ const Home = () => {
       <Text style={homeStyles.text}>Per week</Text>
 
       <View style={homeStyles.containerWeight}>
-        <Text style={homeStyles.weight}>{weight} kg</Text>
+        <Text style={homeStyles.weight}>{ weight } kg</Text>
         <Text style={homeStyles.weightText}>Actual weight</Text>
       </View>
 
       <View style={homeStyles.containerIdealWeight}>
         <View style={homeStyles.weightDifference1}>
-          <Text style={homeStyles.weight}>{idealWeight} kg</Text>
+          <Text style={homeStyles.weight}>{ objetive } kg</Text>
           <Text style={homeStyles.weightText}>Ideal weight</Text>
         </View>
 
         <View style={homeStyles.weightDifference2}>
-          <Text style={homeStyles.weight}>{weightDif} kg</Text>
+          <Text style={homeStyles.weight}>{ weightDif } kg</Text>
           <Text style={homeStyles.weightText}>Difference</Text>
         </View>
       </View>
