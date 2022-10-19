@@ -15,7 +15,7 @@ export default function Welcome ({ navigation }){
               <Text style={styles.button}>Create Account</Text>
           </TouchableOpacity>
           <TouchableOpacity style>
-              <Text style={styles.button1} onPress={() => navigation.navigate('LogIn')}>LogIn</Text>
+              <Text style={styles.button1} onPress={() => navigation.navigate('LogIn')}>Log In</Text>
           </TouchableOpacity>
           </View>
           

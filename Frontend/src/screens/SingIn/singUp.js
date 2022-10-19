@@ -19,7 +19,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setPostUser, setUser } from "../../redux/slices/Singup";
 
 const reviewSchema = yup.object({
-  username: yup.string().required().min(4).max(10),
+  name: yup.string().required().min(4).max(10),
   email: yup.string().email("invalid Email").required("required"),
   password: yup
     .string()
@@ -56,7 +56,7 @@ export default function Sign({ navigation }) {
         <Text style={globalStyles.logoText}>Fitness Club</Text>
       </View>
       <Formik
-        initialValues={{ username: "", email: "", password: "", confirm: "" }}
+        initialValues={{ name: "", email: "", password: "", confirm: "" }}
         validationSchema={reviewSchema}
         onSubmit={(values, actions) => {
           actions.resetForm();
@@ -70,13 +70,13 @@ export default function Sign({ navigation }) {
               style={globalStyles.input}
               placeholder="Username"
               backgroundColor="#fff"
-              onChangeText={props.handleChange("username")}
-              onBlur={props.handleBlur("username")}
-              value={props.values.username}
+              onChangeText={props.handleChange("name")}
+              onBlur={props.handleBlur("name")}
+              value={props.values.name}
               name="username"
             />
             <Text style={globalStyles.errorText}>
-              {props.touched.username && props.errors.username}
+              {props.touched.name && props.errors.name}
             </Text>
             <TextInput
               style={globalStyles.input}
@@ -138,16 +138,7 @@ export default function Sign({ navigation }) {
               {props.touched.confirm && props.errors.confirm}
             </Text>
             <TouchableOpacity onPress={props.handleSubmit}>
-              {user.length !== 0 ? (
-                <Text
-                  style={styles.button1}
-                  onPress={() => navigation.navigate("LogIn")}
-                >
-                  Create Account
-                </Text>
-              ) : (
                 <Text style={styles.button1}>Create Account</Text>
-              )}
             </TouchableOpacity>
             <Text style={styles.text}>
               Already have an Account?
