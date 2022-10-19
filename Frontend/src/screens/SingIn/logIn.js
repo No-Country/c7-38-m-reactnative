@@ -6,6 +6,8 @@ import { globalStyles } from './globalStyles'
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setId } from '../../redux/slices/Singup';
+import { Formik } from "formik";
+import { logInUser } from '../../redux/slices/Singup/singupAPI';
 
 
 export default function LogIn ({ navigation }){
@@ -25,28 +27,46 @@ export default function LogIn ({ navigation }){
       <View style={styles.logo1}>
             <Text style={globalStyles.logoText}>Fitness Club</Text>
             </View>
-        <View style={styles.logContainer}>
-            <TextInput
-            placeholder='Email'
-            backgroundColor='#fff'
-            style={globalStyles.inputLogin}
-             />
-            <View style={styles.inputStyle}>
-             <TextInput
-            style={styles.input1}
-            placeholder='Password'
-            backgroundColor='#fff'
-            secureTextEntry={secure}
-             />
-             <TouchableWithoutFeedback onPress={changeSecure}>
-             <Entypo name="eye" size={24} color="black" style={styles.icon} />
-             </TouchableWithoutFeedback>
-             </View>
-             <TouchableOpacity>
-                <Text style={styles.button1} onPress={()=> dispatch(setId('hiefj36s') )}>Log In</Text>
-            </TouchableOpacity>
-            <Text style={styles.text}>Don't have an Account?<Text style={styles.textColor} onPress={() => navigation.navigate('Sign')}> Create Account</Text></Text>
-        </View>
+        <Formik
+        initialValues={{ email: "", password: "", }}
+        onSubmit={(values, actions) => {
+          actions.resetForm();
+          dispatch(setId('3ddfkdflsd'));
+          logInUser(values)
+        }}
+        >
+        {(props)=>(
+                <View style={styles.logContainer}>
+                <TextInput
+                placeholder='Email'
+                onChangeText={props.handleChange("email")}
+                value={props.values.confirm}
+                backgroundColor='#fff'
+                style={globalStyles.inputLogin}
+                name ='email'
+                 />
+                <View style={styles.inputStyle}>
+                 <TextInput
+                style={styles.input1}
+                onChangeText={props.handleChange("password")}
+                placeholder='Password'
+                backgroundColor='#fff'
+                name="password"
+                value={props.values.password}
+                secureTextEntry={secure}
+                 />
+                 <TouchableWithoutFeedback onPress={changeSecure}>
+                 <Entypo name="eye" size={24} color="black" style={styles.icon} />
+                 </TouchableWithoutFeedback>
+                 </View>
+                 <TouchableOpacity>
+                    <Text style={styles.button1} onPress={props.handleSubmit}>Log In</Text>
+                </TouchableOpacity>
+                <Text style={styles.text}>Don't have an Account?<Text style={styles.textColor} onPress={() => navigation.navigate('Sign')}> Create Account</Text></Text>
+            </View>
+        )}
+        </Formik>
+      
     </View>
   )
 }

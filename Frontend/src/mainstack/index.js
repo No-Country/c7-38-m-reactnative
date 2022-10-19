@@ -22,11 +22,10 @@ const stack = createBottomTabNavigator();
 //Creamos el componente mainstack
 const MainStack = (props) => {
   const{id} = useSelector((state)=>state.SingUp)
-  const userId= id;
   return (
     <NavigationContainer>
       {/* Cada una de las screen reprensenta cada vistra que vayamos a asignar */}
-      {userId ? (
+      {id ? (
         <stack.Navigator initialRouteName={"Home"}>
           <stack.Screen
             name="Home"
