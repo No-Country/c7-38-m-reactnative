@@ -13,7 +13,7 @@ import { MaterialCommunityIcons as Icon } from "@expo/vector-icons";
 import color from "../../../utils/colors";
 import { cameraPick, libraryPick, saveImage } from "./functionsCamera";
 import validation from "../InputsGroup/validations/validation";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   editInput,
   setAccount,
@@ -23,6 +23,7 @@ import {
 const ModalInput = (props) => {
   const { icon, label, setloading, setuserInfo, state, set } = props;
   const dispatch = useDispatch();
+  const { _id } = useSelector((state) => state.Account);
   const [inputValue, setInputValue] = useState();
   const [touchText, setTouchText] = useState(false);
   const [toSend, setToSend] = useState(false);
@@ -95,7 +96,7 @@ const ModalInput = (props) => {
             <TouchableOpacity
               style={style.pressableToSave}
               onPress={() => {
-                dispatch(editInput("Image", image));
+                dispatch(editInput("Image", image, _id));
                 set(!state);
               }}
             >
@@ -140,7 +141,7 @@ const ModalInput = (props) => {
               style={toSend ? style.pressableToSave : style.pressableDisable}
               disabled={!toSend}
               onPress={() => {
-                dispatch(editInput(label, inputValue));
+                dispatch(editInput(label, inputValue, _id));
                 set(!state);
                 setloading(true);
               }}

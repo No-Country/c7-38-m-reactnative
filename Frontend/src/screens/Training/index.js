@@ -8,16 +8,24 @@ import useDimensions from "../../hooks/useDimensions";
 import HeaderTraining from "../../components/TrainingComponents/HeaderTraining";
 import FormExercise from "../../components/TrainingComponents/Forms/FormExercise";
 import FormTraining from "../../components/TrainingComponents/Forms/FormTraining";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setIdT } from "../../redux/slices/Training";
 
 const Training = (props) => {
   const style = TrainingStyles;
   const { heightScreen } = useDimensions();
-
-  const { date, nameTraining, category } = useSelector(
+  const dispatch = useDispatch();
+  const { date, nameTraining, category, _id } = useSelector(
     (state) => state.Training
   );
+
+  useEffect(() => {
+    if (_id == "") {
+      dispatch(setIdT("6348c470e2832a1de7c79afa"));
+    }
+  }, []);
+
   return (
     <View style={style.container}>
       <View style={style.textContainer}>

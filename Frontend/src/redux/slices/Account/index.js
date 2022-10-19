@@ -1,5 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import Axios from "axios";
+import {
+  emailUpdate,
+  imageUpdate,
+  objetiveUpdate,
+  phoneUpdate,
+  userUpdate,
+  weightUpdate,
+} from "./accountAPI";
 const accountSlice = createSlice({
   name: "account",
   initialState: {
@@ -10,7 +18,8 @@ const accountSlice = createSlice({
     age: "",
     phone: "",
     weight: "",
-    idealWeight: "",
+    objetive: "",
+    _id: "",
   },
   reducers: {
     setUserName: (state, action) => {
@@ -32,11 +41,11 @@ const accountSlice = createSlice({
       state.weight = action.payload;
     },
     setObjetive: (state, action) => {
-      state.idealWeight = action.payload;
+      state.objetive = action.payload;
     },
-    // setGetPokemon: (state, action) => {
-    //   fetchAll();
-    // },
+    setId: (state, action) => {
+      state._id = action.payload;
+    },
   },
 });
 export const {
@@ -47,34 +56,32 @@ export const {
   setPhone,
   setUserName,
   setWeight,
-  // setGetPokemon,
+  setId,
 } = accountSlice.actions;
 
-// export const fetchAll = async (training, category) => {
-//   await Axios.get("https://pokeapi.co/api/v2/pokemon/ditto")
-//     .then((res) => {
-//       console.log(res.data);
-//     })
-//     .catch((err) => console.log(err));
-// };
-
-export const editInput = (label, value) => {
+export const editInput = (label, value, _id) => {
   if (label == "User") {
+    userUpdate(value, _id);
     return setUserName(value);
   }
   if (label == "Email") {
+    emailUpdate(value, _id);
     return setEmail(value);
   }
   if (label == "Phone") {
+    phoneUpdate(value, _id);
     return setPhone(value);
   }
   if (label == "Weight") {
+    weightUpdate(value, _id);
     return setWeight(value);
   }
   if (label == "Objetive") {
+    objetiveUpdate(value, _id);
     return setObjetive(value);
   }
   if (label == "Image") {
+    imageUpdate(value, _id);
     return setImage(value);
   }
 };

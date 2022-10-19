@@ -24,12 +24,14 @@ import {
   setTrainingHours,
   setTrainingName,
 } from "../../../../redux/slices/Training";
-const { heightScreen, widthScreen } = useDimensions();
+import { trainingUpdate } from "../../../../redux/slices/Training/trainingAPI";
+
 const LabelsFormTraining = () => {
   const style = FormTrainingStyles;
   const dispatch = useDispatch();
   const [toSend, setToSend] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const { _id } = useSelector((state) => state.Training);
   const [Form, setForm] = useState({
     nameTraining: "",
     category: "",
@@ -71,6 +73,7 @@ const LabelsFormTraining = () => {
           onPress={() => {
             dispatch(setTrainingForm(Form));
             dispatch(setModalTraining(false));
+            trainingUpdate(Form, _id);
           }}
         >
           <Text style={toSend ? style.sendTextOn : style.sendTextOff}>

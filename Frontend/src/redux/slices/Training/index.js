@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { exerciseUpdate } from "./trainingAPI";
 
 const trainingSlice = createSlice({
   name: "training",
@@ -18,6 +19,7 @@ const trainingSlice = createSlice({
     modalExercise: false,
     modalTraining: false,
     daySelected: "",
+    _id: "",
   },
   reducers: {
     setTrainingForm: (state, action) => {
@@ -37,6 +39,7 @@ const trainingSlice = createSlice({
       const dayIndex = state.days.map((e) => e.day).indexOf(state.daySelected);
       const exercises = state.days[dayIndex].exercises;
       exercises.push(action.payload);
+      exerciseUpdate(state.days, state._id);
     },
     setDaySelected: (state, action) => {
       state.daySelected = action.payload;
@@ -48,6 +51,10 @@ const trainingSlice = createSlice({
       state.date = "";
       state.hours = "";
     },
+    setIdT: (state, action) => {
+      console.log(action.payload);
+      state._id = action.payload;
+    },
   },
 });
 
@@ -58,5 +65,6 @@ export const {
   setDaySelected,
   setModalTraining,
   setDeleteTraining,
+  setIdT,
 } = trainingSlice.actions;
 export default trainingSlice.reducer;

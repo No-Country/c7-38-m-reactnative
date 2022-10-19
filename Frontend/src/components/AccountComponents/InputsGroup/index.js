@@ -69,7 +69,7 @@ const InputsGroup = (props) => {
             iconChange={setIconInput}
           />
           <Input
-            userInfo={userInfo.idealWeight}
+            userInfo={userInfo.objetive}
             label={"Objetive"}
             icon={"account-check"}
             state={modalVisible}
