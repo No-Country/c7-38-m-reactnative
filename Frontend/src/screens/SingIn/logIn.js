@@ -21,16 +21,15 @@ export default function LogIn ({ navigation }){
         }
     }
   return(
-    <TouchableOpacity  style={globalStyles.container} onPress={()=>Keyboard.dismiss}>
+    <View  style={globalStyles.container}>
       <View style={styles.logo1}>
-            <MaterialCommunityIcons name="weight-lifter" size={84} color="white" />
-            <Text style={globalStyles.logoText}>Logo</Text>
+            <Text style={globalStyles.logoText}>Fitness Club</Text>
             </View>
         <View style={styles.logContainer}>
             <TextInput
             placeholder='Email'
             backgroundColor='#fff'
-            style={globalStyles.input}
+            style={globalStyles.inputLogin}
              />
             <View style={styles.inputStyle}>
              <TextInput
@@ -48,7 +47,7 @@ export default function LogIn ({ navigation }){
             </TouchableOpacity>
             <Text style={styles.text}>Don't have an Account?<Text style={styles.textColor} onPress={() => navigation.navigate('Sign')}> Create Account</Text></Text>
         </View>
-    </TouchableOpacity>
+    </View>
   )
 }
 
@@ -73,8 +72,8 @@ const styles = StyleSheet.create({
         marginTop: 30,
         fontSize: 18,
         fontWeight: 'bold',
-        marginLeft: 50,
-        textTransform:'uppercase'
+        textTransform:'uppercase',
+        alignSelf:'center'
       },
       inputStyle:{
         flexDirection:'row',
@@ -94,9 +93,9 @@ const styles = StyleSheet.create({
         top: 15
       },
       text:{
-        marginLeft: 70,
         marginTop: 15,
-        color:'#fff'
+        color:'#fff',
+        textAlign:'center'
       },
       textColor:{
         color: 'yellow',

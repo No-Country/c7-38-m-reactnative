@@ -15,9 +15,13 @@ const progressSlice = createSlice({
       newState.splice(action.payload,1)
       state.progress = newState
       console.log(action.payload)
-    }
+    },
+    setIdProgress: (state,action) => {
+      console.log(action.payload);
+      state._id(action.payload);
+    },
   },
 });
 
-export const { setProgress, setDeleteProgress } = progressSlice.actions;
+export const { setProgress, setDeleteProgress, setIdProgress } = progressSlice.actions;
 export default progressSlice.reducer;
