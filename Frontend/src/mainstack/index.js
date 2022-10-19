@@ -126,7 +126,7 @@ const MainStack = (props) => {
             tabBarLabel: "Progress",
             tabBarIcon: ({ focused }) => (
               <Ionicons
-                name="ios-home"
+                name="albums"
                 color={focused ? color.primary : color.whiteType}
                 size={heightScreen * 0.04}
                 style={{ marginTop: widthScreen * 0.01 }}

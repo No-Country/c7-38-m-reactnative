@@ -5,15 +5,13 @@ import {
   Text,
   Pressable,
   TouchableOpacity,
-  ScrollView,
-  TouchableOpacityComponent,
   Image,
 } from "react-native";
 import StyleFormProgress from "./style";
 import FormTrainingStyles from "../../components/TrainingComponents/Forms/FormTraining/style";
 import { validation } from '../../components/ProgressComponents/FormProgress/labelsValidation'
 import { useState, useEffect } from "react";
-import DatePickerProgress from "../../components/DatePickerProgress";
+import DatePickerProgressComponent from "../../components/DatePickerProgressComponent/index";
 import { Ionicons } from "@expo/vector-icons";
 import color from "../../utils/colors";
 import { MaterialCommunityIcons as Icon } from "@expo/vector-icons";
@@ -29,17 +27,22 @@ const FormProgress = ({ visible, onAction }) => {
   const styleDate = FormTrainingStyles;
   const dispatch = useDispatch();
   const [date, setDate] = useState("");
-  const [description, setDescription] = useState("");
-  const [weight, setWeight] = useState("");
   const [image, setImage] = useState("");
-  const [userInfo, setuserInfo] = useState({});
   const { Account } = useSelector((state) => state);
   const [toSend, setToSend] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const [Form, setForm] = useState({
+    date:'',
+    weight:'',
+    description:'',
+  })
 
   useEffect(() => {
-    validation(date,weight,description, setToSend, setErrorMsg);
-  }, [date,weight,description]);
+    if(date !== '') {
+      validation(Form, setToSend, setErrorMsg);
+    }
+  }, [Form]);
+
 
   return (
     <View>
@@ -64,20 +67,20 @@ const FormProgress = ({ visible, onAction }) => {
                 <Ionicons name="close-circle-outline" size={18} color="black" style={style.closeModal} />
               </TouchableOpacity>
             </View>
-            <DatePickerProgress date={date} setFecha={setDate} />
+            <DatePickerProgressComponent date={date} setFecha={setDate} />
             <TextInput
               style={style.textInput}
               placeholder="Weight"
               cursorColor={color.primary}
               placeholderTextColor={color.greyType}
-              onChangeText={(newText) => setWeight(newText)}
+              onChangeText={(newText) => setForm({...Form,weight: newText})}
             />
             <TextInput
               style={style.textInput}
               placeholder="Description"
               cursorColor={color.primary}
               placeholderTextColor={color.greyType}
-              onChangeText={(newText) => setDescription(newText)}
+              onChangeText={(newText) => setForm({...Form,description: newText})}
             />
             <Text style={style.textInputImage}>Add your progress image</Text>
             <View style={style.containerImage}>
@@ -126,15 +129,24 @@ const FormProgress = ({ visible, onAction }) => {
             </View>
 
             <Pressable
-              style={[styleDate.sendTouchOn, , style.marginButton]}
+              style={toSend ? style.sendTouchOn : style.sendTouchOff}
+              disabled={!toSend}
               onPress={() => {
                 onAction(false);
-                dispatch(setProgress({ date, weight, description, image}));
-                
+                dispatch(setProgress({ weight: Form.weight, description: Form.description, date:date, image: image }));
+                setForm({
+                  date:'',
+                  weight:'',
+                  description:'',
+                })
+                setImage('')
               }}
             >
-              <Text style={styleDate.sendTextOn}>Save</Text>
+              <Text style={toSend ? style.sendTextOn : style.sendTextOff}>Save</Text>
             </Pressable>
+            <View style={toSend ? "" : style.viewError}>
+              <Text style={style.textError}>{errorMsg}</Text>
+            </View>
           </View>
         </View>
       </Modal>

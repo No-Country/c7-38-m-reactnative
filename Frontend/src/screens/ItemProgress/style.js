@@ -16,11 +16,20 @@ const StylesItemProgress = StyleSheet.create({
     textContainer:{
         flex:1,
         flexDirection:"column",
+        justifyContent:'space-around',
         paddingRight:10,
     },
-    text:{
+    textDescription:{
         color:color.primary,
-        marginBottom:20,
+        fontSize:11
+    },
+    textWeight:{
+        color:color.whiteType,
+        fontSize:11
+    },
+    textDate:{
+        color:color.whiteType,
+        fontSize:11
     },
     title:{
         fontSize:font.h1.fontSize,

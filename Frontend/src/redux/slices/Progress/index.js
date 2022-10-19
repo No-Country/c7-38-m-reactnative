@@ -10,8 +10,14 @@ const progressSlice = createSlice({
       console.log(action.payload);
       state.progress.push(action.payload);
     },
+    setDeleteProgress: (state,action) => {
+      const newState = state.progress
+      newState.splice(action.payload,1)
+      state.progress = newState
+      console.log(action.payload)
+    }
   },
 });
 
-export const { setProgress } = progressSlice.actions;
+export const { setProgress, setDeleteProgress } = progressSlice.actions;
 export default progressSlice.reducer;
