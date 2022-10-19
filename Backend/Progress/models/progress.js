@@ -33,4 +33,5 @@ const progressSchema = new Schema({
     },
 });
 
-module.exports = mongoose.model("Progress", progressSchema);
+const Progress = mongoose.model('progress',progressSchema)
+module.exports = Progress;

@@ -1,11 +1,10 @@
-//const { User } = require('../Login/models/user');
-const { trainingSchema } = require('../Training/models/training');
-//const { Progress } = require('../Progress/models/progress')
+const Training  = require('../Training/models/training');
+
 
 
 const getAllTraining = (async (req, res, next) => {
    
-	const trainings = await trainingSchema.findAll({
+	const trainings = await Training.findAll({
 
 		where: { status: 'active' },
 		//include: [{ model: Progress, include:{ model : User} }],
@@ -19,7 +18,7 @@ const getAllTraining = (async (req, res, next) => {
  })
 const getTrainigById = (async (req, res, next) => {
   const id = req.params;
-  const training = await trainingSchema.findById(id);
+  const training = await Training.findById(id);
   res.status(200).json({
     status: "success",
     data: { training },
@@ -29,7 +28,7 @@ const getTrainigById = (async (req, res, next) => {
 const createTrainig = (async (req, res, next) => {
   const { nameTraining, category, days, hours, date } = req.body;
 
-	const newTraining = await trainingSchema.create({
+	const newTraining = await Training.create({
 		nameTraining,
 		category,
     days,
@@ -47,7 +46,7 @@ const updateTraining = (async (req, res, next) => {
   const { nameTraining, category } = req.body;
   const { id } = req.params;
 
-  const training = await trainingSchema.Update(id,{
+  const training = await Training.Update(id,{
     nameTraining,
     category,
   });
@@ -58,7 +57,7 @@ const updateTraining = (async (req, res, next) => {
 const deleteTrainig = (async (req, res, next) => {
   const { status } = req.body;
   const { id }= req.params;
-  const training = await trainingSchema.Update( id,{status,});
+  const training = await Training.Update( id,{status,});
 
   res.status(204).json({
     status: "success",
