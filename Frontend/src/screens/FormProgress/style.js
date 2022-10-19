@@ -136,6 +136,34 @@ const StyleFormProgress = StyleSheet.create({
     margin:8,
     textAlign:'center'
   },
+  sendTextOff: { color: color.primary },
+  sendTextOn: { color: color.secondary },
+  sendTouchOn: {
+    backgroundColor: color.primary,
+    width: widthScreen * 0.45,
+    height: heightScreen * 0.05,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10,
+  },
+  sendTouchOff: {
+    backgroundColor: color.secondary,
+    width: widthScreen * 0.45,
+    height: heightScreen * 0.05,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 5,
+    borderColor: color.primary,
+    borderWidth: 0.2,
+    elevation: 10,
+  },
+  viewError: {
+    justifyContent: "center",
+    alignItems: "center",
+    height: widthScreen * 0.08,
+    width: widthScreen * 0.45,
+  },
+  textError: { color: color.redType, fontSize: 10 },
 });
 
 export default StyleFormProgress;
