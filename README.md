@@ -1,12 +1,12 @@
-#C7-38-M-React Native
-#Fitness Club
+# C7-38-M-React Native
+# Fitness Club
 [Español](#ES) - [English](#EN)
-####Español
+#### Español
 <a name="ES"></a>
-###Descripcion del Proyecto
+### Descripcion del Proyecto
 Fitness Club es una aplicacion movil de entrenamiento la cual cuenta con todas las herramientas para tener un entreno y registro de progreso eficiente, todo dentro de las misma App.
 ******
-##Stack y tecnologias aplicadas
+## Stack y tecnologias aplicadas
 
 | Frontend      | Backend           
 | ------------- |:-------------:
@@ -17,11 +17,11 @@ Fitness Club es una aplicacion movil de entrenamiento la cual cuenta con todas l
 | Redux | Passport         
 
 --------
-##Demo:
+## Demo:
   
 ------
 
-#Desarrolladores
+# Desarrolladores
 Miembros del Cohorte 7, Grupo 38, Fullstack de NoCountry
 
 | Desarrolladores | Roles| Github  | linkedin |
@@ -37,12 +37,12 @@ Miembros del Cohorte 7, Grupo 38, Fullstack de NoCountry
 
 ------
 <a name="EN"></a>
-####English
+#### English
 
-###Proyect Description:
+### Proyect Description:
 Fitness Club is a training mobile application that counts with all the tools for an efficient  training and keeps track of your progress, all within the App
 ******
-##Stack & Technologies
+## Stack & Technologies
 
 | Frontend      | Backend           
 | ------------- |:-------------:
@@ -53,11 +53,11 @@ Fitness Club is a training mobile application that counts with all the tools for
 | Redux | Passport         
 
 --------
-##Demo:
+## Demo:
 
 ------
 <a name="ES"></a>
-#Developers:
+# Developers:
 Members of the Cohorte 7, Group 38, Fullstack  NoCountry
 
 | Developers | Roles| Github  | Linkedin |
