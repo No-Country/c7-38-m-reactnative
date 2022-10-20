@@ -10,7 +10,7 @@ const Loader = (props) => {
   const [text, setText] = useState("");
   const animationFade = useRef(new Animated.Value(0)).current;
   const animationScale = useRef(new Animated.Value(0)).current;
-  const { heightScreen, widthScreen } = useDimensions();
+  const { heightScreen } = useDimensions();
   useEffect(() => {
     Animated.timing(animationFade, {
       toValue: 1,

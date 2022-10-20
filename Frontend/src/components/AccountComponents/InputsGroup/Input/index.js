@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import InputStyles from "./style";
 import color from "../../../../utils/colors";
-import ModalInput from "../../ModalInput";
 import manageModal from "./manageModal";
 const Input = (props) => {
   const { icon, label, userInfo, state, set, inputChange, iconChange } = props;

@@ -1,11 +1,10 @@
-import { useState } from "react";
-import { View, Text, Modal, TouchableOpacity, ScrollView } from "react-native";
+import { View, Text, Modal, TouchableOpacity } from "react-native";
 import FormTrainingStyles from "./style";
 import { Ionicons } from "@expo/vector-icons";
 import LabelsFormTraining from "./labels";
 import { useDispatch, useSelector } from "react-redux";
 import { setModalTraining } from "../../../../redux/slices/Training";
-const FormTraining = (props) => {
+const FormTraining = () => {
   const style = FormTrainingStyles;
   const { modalTraining } = useSelector((state) => state.Training);
   const dispatch = useDispatch()

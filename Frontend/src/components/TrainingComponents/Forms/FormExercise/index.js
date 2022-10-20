@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { View, Text, Modal, TouchableOpacity } from "react-native";
 import LabelsForm from "./labels";
 import FormExerciseStyles from "./style";

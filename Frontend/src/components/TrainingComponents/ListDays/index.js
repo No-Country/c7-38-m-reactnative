@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import ListDaysStyles from "./style";
 import { Ionicons,MaterialCommunityIcons } from "@expo/vector-icons";

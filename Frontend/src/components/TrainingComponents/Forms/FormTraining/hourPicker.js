@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Modal, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { default as Time } from "react-native-modern-datepicker";
 import color from "../../../../utils/colors";
 import FormTrainingStyles from "./style";

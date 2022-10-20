@@ -1,30 +1,21 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Text,
-  TextInput,
   TouchableOpacity,
   View,
   CheckBox,
-  Image,
 } from "react-native";
-import color from "../../../../utils/colors";
 import FormTrainingStyles from "./style";
 import { validation } from "./validation/labelsValidation";
-import useDimensions from "../../../../hooks/useDimensions";
 import Select from "./select";
 import Checks from "./checks";
 import DatePicker from "./datePicker";
 import HourPicker from "./hourPicker";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   setModalTraining,
-  setTrainingCategory,
-  setTrainingDate,
   setTrainingForm,
-  setTrainingHours,
-  setTrainingName,
 } from "../../../../redux/slices/Training";
-import { trainingUpdate } from "../../../../redux/slices/Training/trainingAPI";
 
 const LabelsFormTraining = () => {
   const style = FormTrainingStyles;

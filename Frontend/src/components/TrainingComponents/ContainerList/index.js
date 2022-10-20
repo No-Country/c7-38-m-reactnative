@@ -1,9 +1,7 @@
 import React from "react";
-import { FlatList, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import ListDays from "../ListDays";
 import ContainerListStyles from "./style";
-import { Ionicons } from "@expo/vector-icons";
-import useDimensions from "../../../hooks/useDimensions";
 import { useSelector } from "react-redux";
 
 const ContainerList = () => {
