@@ -14,7 +14,6 @@ const singSlice = createSlice({
       }
     },
     setId: (state, action) => {
-      console.log(action.payload);
       state.idUser = action.payload;
     },
     setSignIn: (state, action) => {
