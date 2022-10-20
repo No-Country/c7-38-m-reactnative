@@ -6,11 +6,12 @@ import { Ionicons } from "@expo/vector-icons";
 import Home from "../screens/Home";
 import Training from "../screens/Training";
 import Example from "../screens/Example";
-import Progress from "../screens/Progress"
+import Progress from "../screens/Progress";
 import Timer from "../screens/Timer/index";
 import Account from "../screens/Account";
 import InitialStack from "./initialStack";
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 const heightScreen = Dimensions.get("window").height;
 const widthScreen = Dimensions.get("window").width;
 
@@ -18,14 +19,14 @@ const widthScreen = Dimensions.get("window").width;
 //cambios
 const stack = createBottomTabNavigator();
 
-
 //Creamos el componente mainstack
 const MainStack = (props) => {
-  const{id} = useSelector((state)=>state.SingUp)
+  const { idUser } = useSelector((state) => state.SingUp);
+
   return (
     <NavigationContainer>
       {/* Cada una de las screen reprensenta cada vistra que vayamos a asignar */}
-      {id ? (
+      {idUser ? (
         <stack.Navigator initialRouteName={"Home"}>
           <stack.Screen
             name="Home"
@@ -118,35 +119,35 @@ const MainStack = (props) => {
             }}
           />
           <stack.Screen
-          name="Progress"
-          component={Progress}
-          options={{
-            headerShown: false,
-            tabBarLabel: "Progress",
-            tabBarIcon: ({ focused }) => (
-              <Ionicons
-                name="albums"
-                color={focused ? color.primary : color.whiteType}
-                size={heightScreen * 0.04}
-                style={{ marginTop: widthScreen * 0.01 }}
-              />
-            ),
-            tabBarLabelStyle: {
-              fontSize: heightScreen * 0.02,
-            },
-            tabBarLabelPosition: "below-icon",
-            tabBarStyle: {
-              borderTopWidth: 1,
-              borderTopColor: color.secondary,
-              elevation:5,
-              height: heightScreen * 0.12,
-              paddingBottom: heightScreen * 0.019,
-              backgroundColor:color.secondary
-            },
-            tabBarActiveTintColor: color.primary,
-            tabBarInactiveTintColor: color.whiteType,
-          }}
-        />
+            name="Progress"
+            component={Progress}
+            options={{
+              headerShown: false,
+              tabBarLabel: "Progress",
+              tabBarIcon: ({ focused }) => (
+                <Ionicons
+                  name="albums"
+                  color={focused ? color.primary : color.whiteType}
+                  size={heightScreen * 0.04}
+                  style={{ marginTop: widthScreen * 0.01 }}
+                />
+              ),
+              tabBarLabelStyle: {
+                fontSize: heightScreen * 0.02,
+              },
+              tabBarLabelPosition: "below-icon",
+              tabBarStyle: {
+                borderTopWidth: 1,
+                borderTopColor: color.secondary,
+                elevation: 5,
+                height: heightScreen * 0.12,
+                paddingBottom: heightScreen * 0.019,
+                backgroundColor: color.secondary,
+              },
+              tabBarActiveTintColor: color.primary,
+              tabBarInactiveTintColor: color.whiteType,
+            }}
+          />
           <stack.Screen
             name="Account"
             component={Account}

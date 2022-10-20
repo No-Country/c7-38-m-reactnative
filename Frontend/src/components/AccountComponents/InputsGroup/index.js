@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ScrollView, Text, View } from "react-native";
+import { useSelector } from "react-redux";
 import Loader from "../../Loader";
 import ModalInput from "../ModalInput";
 import Input from "./Input";
@@ -12,6 +13,7 @@ const InputsGroup = (props) => {
   const [iconInput, setIconInput] = useState();
   const [modalVisible, setModalVisible] = useState(false);
   const [loading, setloading] = useState(false);
+  const { name, email } = useSelector((state) => state.SingUp);
 
   return (
     <View style={style.container}>
@@ -32,7 +34,7 @@ const InputsGroup = (props) => {
       <View>
         <View>
           <Input
-            userInfo={userInfo.userName}
+            userInfo={name}
             label={"User"}
             icon={"account"}
             state={modalVisible}
@@ -41,7 +43,7 @@ const InputsGroup = (props) => {
             iconChange={setIconInput}
           />
           <Input
-            userInfo={userInfo.email}
+            userInfo={email}
             label={"Email"}
             icon={"email"}
             state={modalVisible}

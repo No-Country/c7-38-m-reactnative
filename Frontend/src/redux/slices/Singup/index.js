@@ -1,25 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
-import Axios from "axios";
-import { postUser } from "./singupAPI";
+
 const singSlice = createSlice({
   name: "SingUp",
   initialState: {
-    user: "",
-    id: "",
+    name: "",
+    email: "",
+    idUser: "",
   },
   reducers: {
     setUser: (state, action) => {
-      state.user = action.payload;
+      if (!state.email) {
+        state.email = action.payload.email;
+      }
     },
     setId: (state, action) => {
-      state.id = action.payload;
+      console.log(action.payload);
+      state.idUser = action.payload;
     },
-    setPostUser: (state, action) => {
-      postUser(action.payload);
+    setSignIn: (state, action) => {
+      console.log(action.payload);
+      if (!state.email && !state.name) {
+        state.email = action.payload.email;
+        state.name = action.payload.name;
+      }
     },
   },
 });
 
-
-export const { setUser, setId, setPostUser } = singSlice.actions;
+export const { setUser, setId, setSignIn } = singSlice.actions;
 export default singSlice.reducer;

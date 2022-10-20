@@ -16,7 +16,13 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { globalStyles } from "./globalStyles";
 import { useSelector, useDispatch } from "react-redux";
-import { setPostUser, setUser } from "../../redux/slices/Singup";
+import {
+  setId,
+  setPostUser,
+  setSignIn,
+  setUser,
+} from "../../redux/slices/Singup";
+import { postUser } from "../../redux/slices/Singup/singupAPI";
 
 const reviewSchema = yup.object({
   name: yup.string().required().min(4).max(10),
@@ -37,7 +43,8 @@ const reviewSchema = yup.object({
 export default function Sign({ navigation }) {
   const [secure, setSecure] = useState(true);
   const [cuenta, setCuenta] = useState([]);
-  const { user } = useSelector((state) => state.SingUp);
+  const [idUser, setidUser] = useState();
+  const [msgError, setMsgError] = useState();
   const dispatch = useDispatch();
   function changeSecure() {
     if (secure === false) {
@@ -48,8 +55,7 @@ export default function Sign({ navigation }) {
       console.log(secure);
     }
   }
-  console.log(cuenta);
-  console.log(user);
+
   return (
     <View style={globalStyles.container}>
       <View style={globalStyles.logo}>
@@ -58,10 +64,11 @@ export default function Sign({ navigation }) {
       <Formik
         initialValues={{ name: "", email: "", password: "", confirm: "" }}
         validationSchema={reviewSchema}
-        onSubmit={(values, actions) => {
-          actions.resetForm();
+        onSubmit={async (values, actions) => {
           setCuenta(values);
-          dispatch(setPostUser(values));
+          await postUser(values, setidUser, setMsgError, dispatch, setId);
+          dispatch(setSignIn(values));
+          actions.resetForm();
         }}
       >
         {(props) => (
@@ -138,8 +145,18 @@ export default function Sign({ navigation }) {
               {props.touched.confirm && props.errors.confirm}
             </Text>
             <TouchableOpacity onPress={props.handleSubmit}>
-                <Text style={styles.button1}>Create Account</Text>
+              <Text style={styles.button1}>Create Account</Text>
             </TouchableOpacity>
+            <Text
+              style={{
+                color: "red",
+                textAlign: "center",
+                fontSize: 15,
+                marginVertical: 20,
+              }}
+            >
+              {msgError ? msgError : ""}
+            </Text>
             <Text style={styles.text}>
               Already have an Account?
               <Text
@@ -170,14 +187,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     borderRadius: 15,
     fontSize: 18,
-    alignSelf:'center',
+    alignSelf: "center",
     fontWeight: "bold",
     textTransform: "uppercase",
   },
   text: {
     marginTop: 15,
     color: "#fff",
-    textAlign:'center',
+    textAlign: "center",
   },
   textColor: {
     color: "yellow",
