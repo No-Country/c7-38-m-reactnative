@@ -5,11 +5,13 @@ import CircularProgress from "react-native-circular-progress-indicator";
 import homeStyles from "./style";
 import { initAccount } from "../../redux/slices/Account/accountAPI";
 import { initApp } from "../../redux/slices/initApp";
-import { setIdT } from "../../redux/slices/Training";
-import { setIdP } from "../../redux/slices/Progress";
-import { setIdA } from "../../redux/slices/Account";
+import { setIdT, setTrainingForm } from "../../redux/slices/Training";
+import { setIdP, setAllProgress } from "../../redux/slices/Progress";
+import { setAccount, setIdA } from "../../redux/slices/Account";
 import { trainingPost } from "../../redux/slices/Training/trainingAPI";
 import { progressPost } from "../../redux/slices/Progress/progressAPI";
+import { getData } from "../../redux/slices/getData";
+import { setSignIn } from "../../redux/slices/Singup";
 
 const Home = () => {
   const { name } = useSelector((state) => state.SingUp);
@@ -22,6 +24,18 @@ const Home = () => {
   const { idUser } = useSelector((state) => state.SingUp);
   const { Account, Training, Progress } = useSelector((state) => state);
 
+  const sets = {
+    setAccount,
+    setTrainingForm,
+    setAllProgress,
+    setSignIn,
+  };
+  const states = {
+    Account,
+    Training,
+    Progress,
+  };
+
   useEffect(() => {
     if (
       idUser != "" &&
@@ -30,11 +44,7 @@ const Home = () => {
       Progress.idUser == ""
     ) {
       initApp(idUser, dispatch, setIdT, setIdP, setIdA);
-      setTimeout(() => {
-        initAccount(Account, idUser);
-        trainingPost(Training, idUser);
-        progressPost(Progress, idUser);
-      }, 2000);
+      getData(dispatch, idUser, states, sets);
     }
   }, []);
 

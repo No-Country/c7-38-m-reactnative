@@ -58,7 +58,7 @@ export default function Sign({ navigation }) {
         validationSchema={reviewSchema}
         onSubmit={async (values, actions) => {
           setCuenta(values);
-          await postUser(values, dispatch, setId);
+          await postUser(values, dispatch, setId, setMsgError);
           dispatch(setSignIn(values));
           actions.resetForm();
         }}

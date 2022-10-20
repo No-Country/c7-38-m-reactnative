@@ -36,7 +36,6 @@ export default function LogIn({ navigation }) {
       <Formik
         initialValues={{ email: "", password: "" }}
         onSubmit={async (values, actions) => {
-          dispatch(setUser(values));
           await logInUser(values, setMsgError, dispatch, setId);
           actions.resetForm();
         }}

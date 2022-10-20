@@ -34,7 +34,7 @@ const InputsGroup = (props) => {
       <View>
         <View>
           <Input
-            userInfo={name}
+            userInfo={userInfo.userName ? userInfo.userName : name}
             label={"User"}
             icon={"account"}
             state={modalVisible}
@@ -43,7 +43,7 @@ const InputsGroup = (props) => {
             iconChange={setIconInput}
           />
           <Input
-            userInfo={email}
+            userInfo={userInfo.email ? userInfo.email : email}
             label={"Email"}
             icon={"email"}
             state={modalVisible}

@@ -40,10 +40,30 @@ export const userUpdate = async (value, idUser) => {
     .catch((err) => {
       console.log(err);
     });
+  await Axios.patch(`https://fitnessclub38.herokuapp.com/api/v1/users`, {
+    name: value,
+    idUser,
+  })
+    .then((result) => {
+      console.log(result.status);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 export const emailUpdate = async (value, idUser) => {
   await Axios.patch(`https://fitnessclub38.herokuapp.com/api/v1/profiles`, {
+    email: value,
+    idUser,
+  })
+    .then((result) => {
+      console.log(result.status);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  await Axios.patch(`https://fitnessclub38.herokuapp.com/api/v1/users`, {
     email: value,
     idUser,
   })

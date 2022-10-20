@@ -47,6 +47,15 @@ const accountSlice = createSlice({
       console.log("change account id", action.payload);
       state.idUser = action.payload;
     },
+    setAccount: (state, action) => {
+      state.userName = action.payload.userName;
+      state.image = action.payload.image;
+      state.age = action.payload.age;
+      state.email = action.payload.email;
+      state.objetive = action.payload.objetive;
+      state.weight = action.payload.weight;
+      state.phone = action.payload.phone;
+    },
   },
 });
 export const {
@@ -58,15 +67,14 @@ export const {
   setUserName,
   setWeight,
   setIdA,
+  setAccount,
 } = accountSlice.actions;
 
 export const editInput = (label, value, idUser) => {
   if (label == "User") {
-    userUpdate(value, idUser);
     return setUserName(value);
   }
   if (label == "Email") {
-    emailUpdate(value, idUser);
     return setEmail(value);
   }
   if (label == "Phone") {

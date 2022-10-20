@@ -17,7 +17,6 @@ const singSlice = createSlice({
       state.idUser = action.payload;
     },
     setSignIn: (state, action) => {
-      console.log(action.payload);
       if (!state.email && !state.name) {
         state.email = action.payload.email;
         state.name = action.payload.name;

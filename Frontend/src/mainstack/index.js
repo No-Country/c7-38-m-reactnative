@@ -1,17 +1,16 @@
-import { Dimensions, Text, useWindowDimensions, View } from "react-native";
+import { Dimensions } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import color from "../utils/colors";
 import { Ionicons } from "@expo/vector-icons";
 import Home from "../screens/Home";
 import Training from "../screens/Training";
-import Example from "../screens/Example";
 import Progress from "../screens/Progress";
 import Timer from "../screens/Timer/index";
 import Account from "../screens/Account";
 import InitialStack from "./initialStack";
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+
 const heightScreen = Dimensions.get("window").height;
 const widthScreen = Dimensions.get("window").width;
 
