@@ -2,19 +2,15 @@ import React from "react";
 import {
   StyleSheet,
   View,
-  Button,
   Text,
-  ImageBackground,
   TouchableWithoutFeedback,
   TouchableOpacity,
   TextInput,
-  Keyboard,
 } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { globalStyles } from "./globalStyles";
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setId, setUser } from "../../redux/slices/Singup";
 import { Formik } from "formik";
 import { logInUser } from "../../redux/slices/Singup/singupAPI";

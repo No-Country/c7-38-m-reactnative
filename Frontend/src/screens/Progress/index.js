@@ -1,13 +1,12 @@
-import { Text, View, FlatList, TouchableOpacity, Alert } from "react-native";
+import { Text, View, FlatList, TouchableOpacity } from "react-native";
 import { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ItemProgress from "../ItemProgress";
 import StylesProgress from "./style";
 import FormProgress from "../FormProgress";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import color from "../../utils/colors";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { setIdProgress } from "../../redux/slices/Progress/index";
 import { progressUpdate } from "../../redux/slices/Progress/progressAPI";
 
 const Progress = () => {

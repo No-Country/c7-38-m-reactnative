@@ -2,7 +2,6 @@ import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
 import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
-import { useDispatch } from "react-redux";
 import useDimensions from "../../../../hooks/useDimensions";
 import color from "../../../../utils/colors";
 import FormTrainingStyles from "./style";

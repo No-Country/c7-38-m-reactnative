@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import FormTrainingStyles from "./style";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
-import BouncyCheckboxGroup, {
-  ICheckboxButton,
-} from "react-native-bouncy-checkbox-group";
 import color from "../../../../utils/colors";
 import { Ionicons } from "@expo/vector-icons";
 

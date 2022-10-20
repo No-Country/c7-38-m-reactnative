@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ScrollView, Text, View } from "react-native";
+import { View } from "react-native";
 import { useSelector } from "react-redux";
 import Loader from "../../Loader";
 import ModalInput from "../ModalInput";

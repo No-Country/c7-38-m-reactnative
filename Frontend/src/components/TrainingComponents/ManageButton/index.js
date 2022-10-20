@@ -8,7 +8,7 @@ import useDimensions from "../../../hooks/useDimensions";
 
 const ManageButton = () => {
   const style = ManageButtonStyles;
-  const { heightScreen, widthScreen } = useDimensions();
+  const { heightScreen } = useDimensions();
   const [menuOpen, setmenuOpen] = useState(false);
 
   return (

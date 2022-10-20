@@ -1,7 +1,6 @@
 import { Dimensions } from "react-native";
 
 const heightScreen = Dimensions.get("screen").height;
-const widthScreen = Dimensions.get("screen").width;
 
 export const font = {
   h1: {

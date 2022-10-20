@@ -31,7 +31,6 @@ const Home = () => {
     ) {
       initApp(idUser, dispatch, setIdT, setIdP, setIdA);
       setTimeout(() => {
-        console.log(idUser, "  iduserrrrrr");
         initAccount(Account, idUser);
         trainingPost(Training, idUser);
         progressPost(Progress, idUser);

@@ -15,17 +15,13 @@ import DatePickerProgressComponent from "../../components/DatePickerProgressComp
 import { Ionicons } from "@expo/vector-icons";
 import color from "../../utils/colors";
 import { MaterialCommunityIcons as Icon } from "@expo/vector-icons";
-import ImagePicker from "../../components/AccountComponents/ImagePicker";
 import { useDispatch, useSelector } from "react-redux";
 import {
   cameraPick,
   libraryPick,
 } from "../../components/AccountComponents/ModalInput/functionsCamera";
 import { setProgress } from "../../redux/slices/Progress";
-import {
-  progressUpdate,
-  progressUptdate,
-} from "../../redux/slices/Progress/progressAPI";
+
 const FormProgress = ({ visible, onAction }) => {
   const style = StyleFormProgress;
   const styleDate = FormTrainingStyles;

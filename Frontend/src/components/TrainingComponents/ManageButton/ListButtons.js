@@ -1,7 +1,7 @@
 import { MaterialCommunityIcons as Icon } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { TouchableOpacity, View } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import useDimensions from "../../../hooks/useDimensions";
 import {
   setDeleteTraining,
@@ -15,7 +15,7 @@ const ListButtons = (props) => {
   const style = ManageButtonStyles;
   const { setmenuOpen } = props;
   const dispatch = useDispatch();
-  const { heightScreen, widthScreen } = useDimensions();
+  const { heightScreen } = useDimensions();
   const [loading, setloading] = useState(false);
   const [iconLoad, seticonLoad] = useState("arm-flex-outline");
 
