@@ -6,23 +6,19 @@ import StylesProgress from "./style";
 import FormProgress from "../FormProgress";
 import { useSelector, useDispatch } from "react-redux";
 import color from "../../utils/colors";
-import Ionicons from '@expo/vector-icons/Ionicons';
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { setIdProgress } from "../../redux/slices/Progress/index";
-
+import { progressUpdate } from "../../redux/slices/Progress/progressAPI";
 
 const Progress = () => {
   const style = StylesProgress;
-  const { progress } = useSelector((state) => state.Progress);
   const [modalVisible, setModalVisible] = useState(false);
   const [progressForm, setProgressForm] = useState(false);
-  const { _id } = useSelector((state) => state.Progress);
-  const dispatch = useDispatch();
+  const { progress, idUser } = useSelector((state) => state.Progress);
 
   useEffect(() => {
-    if(_id == '' ) {
-      dispatch(setIdProgress('6348c470e2832a1de7c79afa'))
-    }
-  }, []);
+    progressUpdate(progress, idUser);
+  }, [progress]);
 
   return (
     <SafeAreaView style={style.container}>
@@ -50,13 +46,21 @@ const Progress = () => {
               <Text style={style.buttonText}>+</Text>
             </View>
           </TouchableOpacity>
-
         </>
       ) : (
         <View style={style.containerProgressEmpty}>
-        <Text style={style.titleProgressEmpty}>Progress</Text>
-          <Ionicons name="body" size={38} color="#fff300" style={style.iconProgressEmpty} />
-          <Text style={{ color: color.primary, fontSize:20, letterSpacing:1 }}>Progress is empty</Text>
+          <Text style={style.titleProgressEmpty}>Progress</Text>
+          <Ionicons
+            name="body"
+            size={38}
+            color="#fff300"
+            style={style.iconProgressEmpty}
+          />
+          <Text
+            style={{ color: color.primary, fontSize: 20, letterSpacing: 1 }}
+          >
+            Progress is empty
+          </Text>
           <TouchableOpacity
             style={style.buttonPositionProgressEmpty}
             onPress={() => {

@@ -31,7 +31,6 @@ const LabelsFormTraining = () => {
   const dispatch = useDispatch();
   const [toSend, setToSend] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
-  const { _id } = useSelector((state) => state.Training);
   const [Form, setForm] = useState({
     nameTraining: "",
     category: "",
@@ -73,7 +72,6 @@ const LabelsFormTraining = () => {
           onPress={() => {
             dispatch(setTrainingForm(Form));
             dispatch(setModalTraining(false));
-            trainingUpdate(Form, _id);
           }}
         >
           <Text style={toSend ? style.sendTextOn : style.sendTextOff}>

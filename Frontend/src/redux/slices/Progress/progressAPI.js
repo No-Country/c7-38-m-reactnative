@@ -1,25 +1,28 @@
-import Axios from 'axios'
+import Axios from "axios";
 
-export const progressPost = async (form, _id) => {
-    await Axios.post(`https://fitnessclub38.herokuapp.com/api/v1/progress`,{
-        ...form
+export const progressPost = async (form, idUser) => {
+  await Axios.post(`https://fitnessclub38.herokuapp.com/api/v1/progress`, {
+    ...form,
+    idUser: idUser,
+  })
+    .then((result) => {
+      console.log(result.status);
     })
-        .then((result) => {
-            console.log(result.status);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
-export const progressUptdate = async (form, _id) => {
-    await Axios.patch(`https://fitnessclub38.herokuapp.com/api/v1/progress/${_id}`),{
-        ...form
-    }
-        .then((result) => {
-            console.log(result.status);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+export const progressUpdate = async (progress, idUser) => {
+  await Axios.patch(`https://fitnessclub38.herokuapp.com/api/v1/progress`, {
+    progress,
+    idUser,
+  })
+
+    .then((result) => {
+      console.log(result.status);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };

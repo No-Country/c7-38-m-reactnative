@@ -1,10 +1,11 @@
 import Axios from "axios";
 
-export const initAccount = async (account) => {
+export const initAccount = async (account, idUser) => {
   const data = await Axios.post(
     `https://fitnessclub38.herokuapp.com/api/v1/profiles`,
     {
       ...account,
+      idUser: idUser,
     }
   )
     .then(async (result) => {
@@ -16,11 +17,11 @@ export const initAccount = async (account) => {
     });
 };
 
-export const phoneUpdate = async (value, _id) => {
-  await Axios.patch(
-    `https://fitnessclub38.herokuapp.com/api/v1/profiles/${_id}`,
-    { phone: value }
-  )
+export const phoneUpdate = async (value, idUser) => {
+  await Axios.patch(`https://fitnessclub38.herokuapp.com/api/v1/profiles`, {
+    phone: value,
+    idUser,
+  })
     .then((result) => {
       console.log(result.status);
     })
@@ -28,24 +29,11 @@ export const phoneUpdate = async (value, _id) => {
       console.log(err);
     });
 };
-export const userUpdate = async (value, _id) => {
-  await Axios.patch(
-    `https://fitnessclub38.herokuapp.com/api/v1/profiles/${_id}`,
-    { userName: value }
-  )
-    .then((result) => {
-      console.log(result.status);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
-export const emailUpdate = async (value, _id) => {
-  await Axios.patch(
-    `https://fitnessclub38.herokuapp.com/api/v1/profiles/${_id}`,
-    { email: value }
-  )
+export const userUpdate = async (value, idUser) => {
+  await Axios.patch(`https://fitnessclub38.herokuapp.com/api/v1/profiles`, {
+    userName: value,
+    idUser,
+  })
     .then((result) => {
       console.log(result.status);
     })
@@ -54,11 +42,11 @@ export const emailUpdate = async (value, _id) => {
     });
 };
 
-export const weightUpdate = async (value, _id) => {
-  await Axios.patch(
-    `https://fitnessclub38.herokuapp.com/api/v1/profiles/${_id}`,
-    { weight: value }
-  )
+export const emailUpdate = async (value, idUser) => {
+  await Axios.patch(`https://fitnessclub38.herokuapp.com/api/v1/profiles`, {
+    email: value,
+    idUser,
+  })
     .then((result) => {
       console.log(result.status);
     })
@@ -67,11 +55,11 @@ export const weightUpdate = async (value, _id) => {
     });
 };
 
-export const objetiveUpdate = async (value, _id) => {
-  await Axios.patch(
-    `https://fitnessclub38.herokuapp.com/api/v1/profiles/${_id}`,
-    { objetive: value }
-  )
+export const weightUpdate = async (value, idUser) => {
+  await Axios.patch(`https://fitnessclub38.herokuapp.com/api/v1/profiles`, {
+    weight: value,
+    idUser,
+  })
     .then((result) => {
       console.log(result.status);
     })
@@ -79,14 +67,25 @@ export const objetiveUpdate = async (value, _id) => {
       console.log(err);
     });
 };
-export const imageUpdate = async (value, _id) => {
+
+export const objetiveUpdate = async (value, idUser) => {
+  await Axios.patch(`https://fitnessclub38.herokuapp.com/api/v1/profiles`, {
+    objetive: value,
+    idUser,
+  })
+    .then((result) => {
+      console.log(result.status);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+export const imageUpdate = async (value, idUser) => {
   console.log(typeof value);
-  await Axios.patch(
-    `https://fitnessclub38.herokuapp.com/api/v1/profiles/${_id}`,
-    {
-      image: value ? value : "",
-    }
-  )
+  await Axios.patch(`https://fitnessclub38.herokuapp.com/api/v1/profiles`, {
+    image: value ? value : "",
+    idUser,
+  })
     .then((result) => {
       console.log(result.status);
     })

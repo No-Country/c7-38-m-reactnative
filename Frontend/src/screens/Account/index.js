@@ -13,14 +13,6 @@ const Account = () => {
   const [userInfo, setuserInfo] = useState({});
   const { Account } = useSelector((state) => state);
 
-  useEffect(() => {
-    // if (Account._id == "") {
-    //   console.log("no hay id, crear cuenta");
-    //   initAccount({ ...Account });
-    // }
-    dispatch(setId("634f97daa4bdc69aa96242c3"));
-  }, []);
-
   return (
     <ScrollView style={style.main}>
       <ImagePicker userInfo={Account} setuserInfo={setuserInfo} />

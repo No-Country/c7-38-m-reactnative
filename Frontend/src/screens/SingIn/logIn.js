@@ -21,9 +21,7 @@ import { logInUser } from "../../redux/slices/Singup/singupAPI";
 
 export default function LogIn({ navigation }) {
   const [secure, setSecure] = useState(true);
-  const [idUser, setidUser] = useState();
   const [msgError, setMsgError] = useState();
-  const { name, email } = useSelector((state) => state.SingUp);
   const dispatch = useDispatch();
   function changeSecure() {
     if (secure === false) {
@@ -43,8 +41,7 @@ export default function LogIn({ navigation }) {
         initialValues={{ email: "", password: "" }}
         onSubmit={async (values, actions) => {
           dispatch(setUser(values));
-          await logInUser(values, setidUser, setMsgError);
-          idUser ? dispatch(setId(idUser)) : "";
+          await logInUser(values, setMsgError, dispatch, setId);
           actions.resetForm();
         }}
       >

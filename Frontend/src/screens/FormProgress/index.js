@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import StyleFormProgress from "./style";
 import FormTrainingStyles from "../../components/TrainingComponents/Forms/FormTraining/style";
-import { validation } from '../../components/ProgressComponents/FormProgress/labelsValidation'
+import { validation } from "../../components/ProgressComponents/FormProgress/labelsValidation";
 import { useState, useEffect } from "react";
 import DatePickerProgressComponent from "../../components/DatePickerProgressComponent/index";
 import { Ionicons } from "@expo/vector-icons";
@@ -22,27 +22,30 @@ import {
   libraryPick,
 } from "../../components/AccountComponents/ModalInput/functionsCamera";
 import { setProgress } from "../../redux/slices/Progress";
+import {
+  progressUpdate,
+  progressUptdate,
+} from "../../redux/slices/Progress/progressAPI";
 const FormProgress = ({ visible, onAction }) => {
   const style = StyleFormProgress;
   const styleDate = FormTrainingStyles;
   const dispatch = useDispatch();
   const [date, setDate] = useState("");
   const [image, setImage] = useState("");
-  const { Account } = useSelector((state) => state);
+  const { Progress } = useSelector((state) => state);
   const [toSend, setToSend] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [Form, setForm] = useState({
-    date:'',
-    weight:'',
-    description:'',
-  })
+    date: "",
+    weight: "",
+    description: "",
+  });
 
   useEffect(() => {
-    if(date !== '') {
+    if (date !== "") {
       validation(Form, setToSend, setErrorMsg);
     }
   }, [Form]);
-
 
   return (
     <View>
@@ -64,7 +67,12 @@ const FormProgress = ({ visible, onAction }) => {
                   onAction(false);
                 }}
               >
-                <Ionicons name="close-circle-outline" size={18} color="black" style={style.closeModal} />
+                <Ionicons
+                  name="close-circle-outline"
+                  size={18}
+                  color="black"
+                  style={style.closeModal}
+                />
               </TouchableOpacity>
             </View>
             <DatePickerProgressComponent date={date} setFecha={setDate} />
@@ -73,14 +81,16 @@ const FormProgress = ({ visible, onAction }) => {
               placeholder="Weight"
               cursorColor={color.primary}
               placeholderTextColor={color.greyType}
-              onChangeText={(newText) => setForm({...Form,weight: newText})}
+              onChangeText={(newText) => setForm({ ...Form, weight: newText })}
             />
             <TextInput
               style={style.textInput}
               placeholder="Description"
               cursorColor={color.primary}
               placeholderTextColor={color.greyType}
-              onChangeText={(newText) => setForm({...Form,description: newText})}
+              onChangeText={(newText) =>
+                setForm({ ...Form, description: newText })
+              }
             />
             <Text style={style.textInputImage}>Add your progress image</Text>
             <View style={style.containerImage}>
@@ -133,16 +143,27 @@ const FormProgress = ({ visible, onAction }) => {
               disabled={!toSend}
               onPress={() => {
                 onAction(false);
-                dispatch(setProgress({ weight: Form.weight, description: Form.description, date:date, image: image }));
+                dispatch(
+                  setProgress({
+                    weight: Form.weight,
+                    description: Form.description,
+                    date: date,
+                    image: image,
+                  })
+                );
+
                 setForm({
-                  date:'',
-                  weight:'',
-                  description:'',
-                })
-                setImage('')
+                  date: "",
+                  weight: "",
+                  description: "",
+                });
+
+                setImage("");
               }}
             >
-              <Text style={toSend ? style.sendTextOn : style.sendTextOff}>Save</Text>
+              <Text style={toSend ? style.sendTextOn : style.sendTextOff}>
+                Save
+              </Text>
             </Pressable>
             <View style={toSend ? "" : style.viewError}>
               <Text style={style.textError}>{errorMsg}</Text>

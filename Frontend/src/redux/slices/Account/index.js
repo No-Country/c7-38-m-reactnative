@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import Axios from "axios";
+import { useSelector } from "react-redux";
 import {
   emailUpdate,
   imageUpdate,
@@ -8,6 +9,7 @@ import {
   userUpdate,
   weightUpdate,
 } from "./accountAPI";
+
 const accountSlice = createSlice({
   name: "account",
   initialState: {
@@ -19,7 +21,7 @@ const accountSlice = createSlice({
     phone: "",
     weight: "",
     objetive: "",
-    _id: "",
+    idUser: "",
   },
   reducers: {
     setUserName: (state, action) => {
@@ -43,8 +45,9 @@ const accountSlice = createSlice({
     setObjetive: (state, action) => {
       state.objetive = action.payload;
     },
-    setId: (state, action) => {
-      state._id = action.payload;
+    setIdA: (state, action) => {
+      console.log("change account id", action.payload);
+      state.idUser = action.payload;
     },
   },
 });
@@ -56,32 +59,32 @@ export const {
   setPhone,
   setUserName,
   setWeight,
-  setId,
+  setIdA,
 } = accountSlice.actions;
 
-export const editInput = (label, value, _id) => {
+export const editInput = (label, value, idUser) => {
   if (label == "User") {
-    userUpdate(value, _id);
+    userUpdate(value, idUser);
     return setUserName(value);
   }
   if (label == "Email") {
-    emailUpdate(value, _id);
+    emailUpdate(value, idUser);
     return setEmail(value);
   }
   if (label == "Phone") {
-    phoneUpdate(value, _id);
+    phoneUpdate(value, idUser);
     return setPhone(value);
   }
   if (label == "Weight") {
-    weightUpdate(value, _id);
+    weightUpdate(value, idUser);
     return setWeight(value);
   }
   if (label == "Objetive") {
-    objetiveUpdate(value, _id);
+    objetiveUpdate(value, idUser);
     return setObjetive(value);
   }
   if (label == "Image") {
-    imageUpdate(value, _id);
+    imageUpdate(value, idUser);
     return setImage(value);
   }
 };

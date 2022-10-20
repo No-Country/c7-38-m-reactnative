@@ -3,25 +3,18 @@ import { useState } from "react";
 import {
   StyleSheet,
   View,
-  Button,
   Text,
-  ImageBackground,
   TouchableOpacity,
   TextInput,
   TouchableWithoutFeedback,
 } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+
 import { Entypo } from "@expo/vector-icons";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { globalStyles } from "./globalStyles";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  setId,
-  setPostUser,
-  setSignIn,
-  setUser,
-} from "../../redux/slices/Singup";
+import { useDispatch } from "react-redux";
+import { setId, setSignIn } from "../../redux/slices/Singup";
 import { postUser } from "../../redux/slices/Singup/singupAPI";
 
 const reviewSchema = yup.object({
@@ -43,7 +36,6 @@ const reviewSchema = yup.object({
 export default function Sign({ navigation }) {
   const [secure, setSecure] = useState(true);
   const [cuenta, setCuenta] = useState([]);
-  const [idUser, setidUser] = useState();
   const [msgError, setMsgError] = useState();
   const dispatch = useDispatch();
   function changeSecure() {
@@ -66,7 +58,7 @@ export default function Sign({ navigation }) {
         validationSchema={reviewSchema}
         onSubmit={async (values, actions) => {
           setCuenta(values);
-          await postUser(values, setidUser, setMsgError, dispatch, setId);
+          await postUser(values, dispatch, setId);
           dispatch(setSignIn(values));
           actions.resetForm();
         }}

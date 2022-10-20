@@ -23,7 +23,7 @@ import {
 const ModalInput = (props) => {
   const { icon, label, setloading, setuserInfo, state, set } = props;
   const dispatch = useDispatch();
-  const { _id } = useSelector((state) => state.Account);
+  const { idUser } = useSelector((state) => state.Account);
   const [inputValue, setInputValue] = useState();
   const [touchText, setTouchText] = useState(false);
   const [toSend, setToSend] = useState(false);
@@ -96,7 +96,7 @@ const ModalInput = (props) => {
             <TouchableOpacity
               style={style.pressableToSave}
               onPress={() => {
-                dispatch(editInput("Image", image, _id));
+                dispatch(editInput("Image", image, idUser));
                 set(!state);
               }}
             >
@@ -141,7 +141,7 @@ const ModalInput = (props) => {
               style={toSend ? style.pressableToSave : style.pressableDisable}
               disabled={!toSend}
               onPress={() => {
-                dispatch(editInput(label, inputValue, _id));
+                dispatch(editInput(label, inputValue, idUser));
                 set(!state);
                 setloading(true);
               }}

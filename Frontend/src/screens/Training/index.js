@@ -11,20 +11,19 @@ import FormTraining from "../../components/TrainingComponents/Forms/FormTraining
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setIdT } from "../../redux/slices/Training";
+import { trainingUpdate } from "../../redux/slices/Training/trainingAPI";
 
 const Training = (props) => {
   const style = TrainingStyles;
   const { heightScreen } = useDimensions();
-  const dispatch = useDispatch();
-  const { date, nameTraining, category, _id } = useSelector(
+  const { Training } = useSelector((state) => state);
+  const { date, nameTraining, category, idUser, days, hours } = useSelector(
     (state) => state.Training
   );
 
   useEffect(() => {
-    if (_id == "") {
-      dispatch(setIdT("6348c470e2832a1de7c79afa"));
-    }
-  }, []);
+    trainingUpdate(Training, idUser);
+  }, [Training]);
 
   return (
     <View style={style.container}>
