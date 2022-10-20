@@ -42,10 +42,8 @@ const FormProgress = ({ visible, onAction }) => {
   });
 
   useEffect(() => {
-    if (date !== "") {
-      validation(Form, setToSend, setErrorMsg);
-    }
-  }, [Form]);
+      validation({...Form,image,date}, setToSend, setErrorMsg);
+  }, [Form,image,date]);
 
   return (
     <View>
@@ -75,23 +73,6 @@ const FormProgress = ({ visible, onAction }) => {
                 />
               </TouchableOpacity>
             </View>
-            <DatePickerProgressComponent date={date} setFecha={setDate} />
-            <TextInput
-              style={style.textInput}
-              placeholder="Weight"
-              cursorColor={color.primary}
-              placeholderTextColor={color.greyType}
-              onChangeText={(newText) => setForm({ ...Form, weight: newText })}
-            />
-            <TextInput
-              style={style.textInput}
-              placeholder="Description"
-              cursorColor={color.primary}
-              placeholderTextColor={color.greyType}
-              onChangeText={(newText) =>
-                setForm({ ...Form, description: newText })
-              }
-            />
             <Text style={style.textInputImage}>Add your progress image</Text>
             <View style={style.containerImage}>
               <Image
@@ -138,6 +119,24 @@ const FormProgress = ({ visible, onAction }) => {
               </TouchableOpacity>
             </View>
 
+            <DatePickerProgressComponent date={date} setFecha={setDate} />
+            <TextInput
+              style={style.textInput}
+              placeholder="Weight"
+              cursorColor={color.primary}
+              placeholderTextColor={color.greyType}
+              onChangeText={(newText) => setForm({ ...Form, weight: newText })}
+            />
+            <TextInput
+              style={style.textInput}
+              placeholder="Description"
+              cursorColor={color.primary}
+              placeholderTextColor={color.greyType}
+              onChangeText={(newText) =>
+                setForm({ ...Form, description: newText })
+              }
+            />
+            
             <Pressable
               style={toSend ? style.sendTouchOn : style.sendTouchOff}
               disabled={!toSend}

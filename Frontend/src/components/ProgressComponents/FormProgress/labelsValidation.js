@@ -13,9 +13,14 @@ export const descriptionSchema = yup
     .max(80, "Description must not exceed 80 digits")
     .required('Description is required')
 
+export const imageSchema = yup
+    .string()
+    .required('Image is required')
+
 const schemaProgressForm = yup.object().shape({
     weight : weightSchema,
     description :descriptionSchema,
+    image : imageSchema,
 })
 
 export const validation = async (Form, state, error) => {
@@ -30,4 +35,7 @@ export const validation = async (Form, state, error) => {
         error(err.errors[0]);
       });
   };
+
+
+
 

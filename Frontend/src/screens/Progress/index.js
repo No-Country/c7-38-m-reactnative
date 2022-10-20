@@ -26,9 +26,8 @@ const Progress = () => {
         <>
           <FlatList
             data={progress}
-            keyExtractor={(item) => item.id}
             renderItem={({ item, index }) => (
-              <ItemProgress item={item} index={index} />
+              <ItemProgress item={item} key={index} />
             )}
             ItemSeparatorComponent={() => <View style={{ marginBottom: 10 }} />}
             ListHeaderComponent={() => (
