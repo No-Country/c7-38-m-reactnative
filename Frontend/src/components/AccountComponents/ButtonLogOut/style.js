@@ -7,7 +7,7 @@ const ButtonLogOutStyles = StyleSheet.create({
   icon: {
     position: "absolute",
     top: heightScreen * 0.07,
-    left: widthScreen * 0.84,
+    left: widthScreen * 0.82,
     backgroundColor: color.secondary,
     borderRadius: 100,
     borderColor: color.secondary,

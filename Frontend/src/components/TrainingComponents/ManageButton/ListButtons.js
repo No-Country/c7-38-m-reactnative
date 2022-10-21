@@ -28,24 +28,6 @@ const ListButtons = (props) => {
       )}
       <TouchableOpacity
         onPress={() => {
-          seticonLoad("file-download-outline");
-          setloading(true),
-            setTimeout(() => {
-              setmenuOpen(false);
-            }, 2100);
-        }}
-      >
-        <View style={style.view2}>
-          <Icon
-            name="file-download-outline"
-            size={heightScreen * 0.03}
-            color={color.primary}
-            style={style.icon}
-          />
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => {
           seticonLoad("delete-outline");
           setloading(true),
             setTimeout(() => {

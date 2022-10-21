@@ -53,6 +53,16 @@ export default function Sign({ navigation }) {
       <View style={globalStyles.logo}>
         <Text style={globalStyles.logoText}>Fitness Club</Text>
       </View>
+      <Text
+        style={{
+          color: "red",
+          textAlign: "center",
+          fontSize: 15,
+          marginTop:10
+        }}
+      >
+        {msgError ? msgError : ""}
+      </Text>
       <Formik
         initialValues={{ name: "", email: "", password: "", confirm: "" }}
         validationSchema={reviewSchema}
@@ -139,16 +149,6 @@ export default function Sign({ navigation }) {
             <TouchableOpacity onPress={props.handleSubmit}>
               <Text style={styles.button1}>Create Account</Text>
             </TouchableOpacity>
-            <Text
-              style={{
-                color: "red",
-                textAlign: "center",
-                fontSize: 15,
-                marginVertical: 20,
-              }}
-            >
-              {msgError ? msgError : ""}
-            </Text>
             <Text style={styles.text}>
               Already have an Account?
               <Text
@@ -168,7 +168,7 @@ export default function Sign({ navigation }) {
 
 const styles = StyleSheet.create({
   form: {
-    marginTop: 60,
+    marginTop: 30,
     justifyContent: "center",
   },
   button1: {

@@ -21,15 +21,15 @@ const StylesItemProgress = StyleSheet.create({
     },
     textDescription:{
         color:color.primary,
-        fontSize:11
+        fontSize:12
     },
     textWeight:{
         color:color.whiteType,
-        fontSize:11
+        fontSize:12
     },
     textDate:{
         color:color.whiteType,
-        fontSize:11
+        fontSize:12
     },
     title:{
         fontSize:font.h1.fontSize,

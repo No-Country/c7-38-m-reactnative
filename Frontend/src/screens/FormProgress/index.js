@@ -48,7 +48,6 @@ const FormProgress = ({ visible, onAction }) => {
         transparent={true}
         visible={visible}
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
           setModalVisible(!mostar);
         }}
       >
