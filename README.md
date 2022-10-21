@@ -18,8 +18,11 @@ Fitness Club es una aplicacion movil de entrenamiento la cual cuenta con todas l
 
 --------
 ## Demo:
-  
+Toca en la Imagen para ir al video
+
+ [<img src="https://user-images.githubusercontent.com/106752020/197092048-6c0425cc-8ae7-481f-bd49-e26d6373261f.png" width="30%">](https://www.youtube.com/watch?v=9UCH6CcP7G8)
 ------
+
 
 # Desarrolladores
 Miembros del Cohorte 7, Grupo 38, Fullstack de NoCountry
@@ -54,7 +57,9 @@ Fitness Club is a training mobile application that counts with all the tools for
 
 --------
 ## Demo:
+Touch the image to go to the video
 
+ [<img src="https://user-images.githubusercontent.com/106752020/197092048-6c0425cc-8ae7-481f-bd49-e26d6373261f.png" width="30%">](https://www.youtube.com/watch?v=9UCH6CcP7G8)
 ------
 <a name="ES"></a>
 # Developers:
