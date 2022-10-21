@@ -8,7 +8,6 @@ const progressSlice = createSlice({
   },
   reducers: {
     setProgress: (state, action) => {
-      console.log(action.payload);
       state.progress.push(action.payload);
     },
     setAllProgress: (state, action) => {
@@ -18,10 +17,8 @@ const progressSlice = createSlice({
       const newState = state.progress;
       newState.splice(action.payload, 1);
       state.progress = newState;
-      console.log(action.payload);
     },
     setIdP: (state, action) => {
-      console.log("change progress id", action.payload);
       state.idUser = action.payload;
     },
   },

@@ -5,11 +5,9 @@ export const progressPost = async (form, idUser) => {
     ...form,
     idUser: idUser,
   })
-    .then((result) => {
-      console.log(result.status);
-    })
+    .then((result) => {})
     .catch((err) => {
-      console.log(err);
+      showToastWithGravity(err);
     });
 };
 
@@ -19,10 +17,8 @@ export const progressUpdate = async (progress, idUser) => {
     idUser,
   })
 
-    .then((result) => {
-      console.log(result.status);
-    })
+    .then((result) => {})
     .catch((err) => {
-      console.log(err);
+      showToastWithGravity(err);
     });
 };

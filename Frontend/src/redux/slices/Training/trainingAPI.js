@@ -5,11 +5,9 @@ export const trainingPost = async (form, idUser) => {
     ...form,
     idUser: idUser,
   })
-    .then((result) => {
-      console.log(result.status);
-    })
+    .then((result) => {})
     .catch((err) => {
-      console.log(err);
+      showToastWithGravity(err);
     });
 };
 export const trainingUpdate = async (form, idUser) => {
@@ -23,10 +21,8 @@ export const trainingUpdate = async (form, idUser) => {
     hours,
     idUser,
   })
-    .then((result) => {
-      console.log(result.status);
-    })
+    .then((result) => {})
     .catch((err) => {
-      console.log(err);
+      showToastWithGravity(err);
     });
 };

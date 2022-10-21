@@ -1,5 +1,8 @@
 import Axios from "axios";
-
+import { ToastAndroid } from "react-native";
+const showToastWithGravity = (msg) => {
+  ToastAndroid.showWithGravity(msg, ToastAndroid.SHORT, ToastAndroid.BOTTOM);
+};
 export const initAccount = async (account, idUser) => {
   const data = await Axios.post(
     `https://fitnessclub38.herokuapp.com/api/v1/profiles`,
@@ -8,12 +11,9 @@ export const initAccount = async (account, idUser) => {
       idUser: idUser,
     }
   )
-    .then(async (result) => {
-      console.log(result.status);
-      return result.data;
-    })
+    .then((result) => {})
     .catch((err) => {
-      console.log(err);
+      showToastWithGravity(err);
     });
 };
 
@@ -23,10 +23,10 @@ export const phoneUpdate = async (value, idUser) => {
     idUser,
   })
     .then((result) => {
-      console.log(result.status);
+      showToastWithGravity("Phone update is a success");
     })
     .catch((err) => {
-      console.log(err);
+      showToastWithGravity(err);
     });
 };
 export const userUpdate = async (value, idUser) => {
@@ -35,20 +35,18 @@ export const userUpdate = async (value, idUser) => {
     idUser,
   })
     .then((result) => {
-      console.log(result.status);
+      showToastWithGravity("Name update is a success");
     })
     .catch((err) => {
-      console.log(err);
+      showToastWithGravity(err);
     });
   await Axios.patch(`https://fitnessclub38.herokuapp.com/api/v1/users`, {
     name: value,
     idUser,
   })
-    .then((result) => {
-      console.log(result.status);
-    })
+    .then((result) => {})
     .catch((err) => {
-      console.log(err);
+      showToastWithGravity(err);
     });
 };
 
@@ -58,20 +56,18 @@ export const emailUpdate = async (value, idUser) => {
     idUser,
   })
     .then((result) => {
-      console.log(result.status);
+      showToastWithGravity("Email update is a success");
     })
     .catch((err) => {
-      console.log(err);
+      showToastWithGravity(err);
     });
   await Axios.patch(`https://fitnessclub38.herokuapp.com/api/v1/users`, {
     email: value,
     idUser,
   })
-    .then((result) => {
-      console.log(result.status);
-    })
+    .then((result) => {})
     .catch((err) => {
-      console.log(err);
+      showToastWithGravity(err);
     });
 };
 
@@ -81,10 +77,10 @@ export const weightUpdate = async (value, idUser) => {
     idUser,
   })
     .then((result) => {
-      console.log(result.status);
+      showToastWithGravity("Weight update is a success");
     })
     .catch((err) => {
-      console.log(err);
+      showToastWithGravity(err);
     });
 };
 
@@ -94,22 +90,21 @@ export const objetiveUpdate = async (value, idUser) => {
     idUser,
   })
     .then((result) => {
-      console.log(result.status);
+      showToastWithGravity("Objetive update is a success");
     })
     .catch((err) => {
-      console.log(err);
+      showToastWithGravity(err);
     });
 };
 export const imageUpdate = async (value, idUser) => {
-  console.log(typeof value);
   await Axios.patch(`https://fitnessclub38.herokuapp.com/api/v1/profiles`, {
     image: value ? value : "",
     idUser,
   })
     .then((result) => {
-      console.log(result.status);
+      showToastWithGravity("Image update is a success");
     })
     .catch((err) => {
-      console.log(err);
+      showToastWithGravity(err);
     });
 };

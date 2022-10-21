@@ -41,10 +41,8 @@ export default function Sign({ navigation }) {
   function changeSecure() {
     if (secure === false) {
       setSecure(true);
-      console.log(secure);
     } else if (secure === true) {
       setSecure(false);
-      console.log(secure);
     }
   }
 

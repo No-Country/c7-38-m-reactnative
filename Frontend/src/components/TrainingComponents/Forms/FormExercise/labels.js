@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  Text,
+  TextInput,
+  ToastAndroid,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { useDispatch } from "react-redux";
 import {
   setExercise,
@@ -12,6 +18,9 @@ const LabelsForm = () => {
   const [toSend, setToSend] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const dispatch = useDispatch();
+  const showToastWithGravity = (msg) => {
+    ToastAndroid.showWithGravity(msg, ToastAndroid.SHORT, ToastAndroid.BOTTOM);
+  };
   const [Form, setForm] = useState({
     nameExercise: "",
     repetitions: "",
@@ -77,6 +86,7 @@ const LabelsForm = () => {
         onPress={() => {
           dispatch(setExercise(Form));
           dispatch(setModalExercise(false));
+          showToastWithGravity("Exercises update is a success");
         }}
       >
         <Text style={toSend ? style.sendTextOn : style.sendTextOff}>

@@ -1,18 +1,20 @@
 import * as ImagePicker from "expo-image-picker";
-import { Platform } from "react-native";
-import { setImage } from "../../../redux/slices/Account";
+import { Platform, ToastAndroid } from "react-native";
 
+const showToastWithGravity = (msg) => {
+  ToastAndroid.showWithGravity(msg, ToastAndroid.SHORT, ToastAndroid.BOTTOM);
+};
 export const cameraPick = async (image, setImage) => {
   const { status } = await ImagePicker.requestCameraPermissionsAsync();
   if (status !== "granted") {
-    console.log("no hay permisos");
+    showToastWithGravity("You don't have permissions");
   } else {
     const result = await ImagePicker.launchCameraAsync();
     if (Platform.OS == "web") {
-      console.log("cancelado, solo disponible en movil");
+      showToastWithGravity("Only available on mobile");
     }
     if (result.cancelled) {
-      console.log("cancelado");
+      showToastWithGravity("Camera capture cancelled");
     }
     if (!result.cancelled && result.uri) {
       setImage(result.uri);
@@ -29,10 +31,9 @@ export const libraryPick = async (image, setImage) => {
   });
 
   if (result.cancelled) {
-    console.log("cancelado");
+    showToastWithGravity("Library capture cancelled");
   }
   if (!result.cancelled && result.uri) {
     setImage(result.uri);
   }
 };
-

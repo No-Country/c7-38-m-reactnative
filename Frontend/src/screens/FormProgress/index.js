@@ -6,6 +6,7 @@ import {
   Pressable,
   TouchableOpacity,
   Image,
+  ToastAndroid,
 } from "react-native";
 import StyleFormProgress from "./style";
 import FormTrainingStyles from "../../components/TrainingComponents/Forms/FormTraining/style";
@@ -24,13 +25,14 @@ import { setProgress } from "../../redux/slices/Progress";
 
 const FormProgress = ({ visible, onAction }) => {
   const style = StyleFormProgress;
-  const styleDate = FormTrainingStyles;
   const dispatch = useDispatch();
   const [date, setDate] = useState("");
   const [image, setImage] = useState("");
-  const { Progress } = useSelector((state) => state);
   const [toSend, setToSend] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const showToastWithGravity = (msg) => {
+    ToastAndroid.showWithGravity(msg, ToastAndroid.SHORT, ToastAndroid.BOTTOM);
+  };
   const [Form, setForm] = useState({
     date: "",
     weight: "",
@@ -38,8 +40,8 @@ const FormProgress = ({ visible, onAction }) => {
   });
 
   useEffect(() => {
-      validation({...Form,image,date}, setToSend, setErrorMsg);
-  }, [Form,image,date]);
+    validation({ ...Form, image, date }, setToSend, setErrorMsg);
+  }, [Form, image, date]);
 
   return (
     <View>
@@ -131,7 +133,7 @@ const FormProgress = ({ visible, onAction }) => {
                 setForm({ ...Form, description: newText })
               }
             />
-            
+
             <Pressable
               style={toSend ? style.sendTouchOn : style.sendTouchOff}
               disabled={!toSend}
@@ -153,6 +155,7 @@ const FormProgress = ({ visible, onAction }) => {
                 });
 
                 setImage("");
+                showToastWithGravity("Progress update is a success");
               }}
             >
               <Text style={toSend ? style.sendTextOn : style.sendTextOff}>

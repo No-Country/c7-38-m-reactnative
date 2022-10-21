@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Text,
-  TouchableOpacity,
-  View,
-  CheckBox,
-} from "react-native";
+import { Text, TouchableOpacity, View, CheckBox } from "react-native";
 import FormTrainingStyles from "./style";
 import { validation } from "./validation/labelsValidation";
 import Select from "./select";
@@ -16,10 +11,14 @@ import {
   setModalTraining,
   setTrainingForm,
 } from "../../../../redux/slices/Training";
+import { ToastAndroid } from "react-native";
 
 const LabelsFormTraining = () => {
   const style = FormTrainingStyles;
   const dispatch = useDispatch();
+  const showToastWithGravity = (msg) => {
+    ToastAndroid.showWithGravity(msg, ToastAndroid.SHORT, ToastAndroid.BOTTOM);
+  };
   const [toSend, setToSend] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [Form, setForm] = useState({
@@ -63,6 +62,7 @@ const LabelsFormTraining = () => {
           onPress={() => {
             dispatch(setTrainingForm(Form));
             dispatch(setModalTraining(false));
+            showToastWithGravity("Training update is a success");
           }}
         >
           <Text style={toSend ? style.sendTextOn : style.sendTextOff}>

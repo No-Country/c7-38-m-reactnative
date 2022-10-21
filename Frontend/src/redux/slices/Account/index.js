@@ -44,7 +44,6 @@ const accountSlice = createSlice({
       state.objetive = action.payload;
     },
     setIdA: (state, action) => {
-      console.log("change account id", action.payload);
       state.idUser = action.payload;
     },
     setAccount: (state, action) => {

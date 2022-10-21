@@ -50,7 +50,6 @@ const trainingSlice = createSlice({
       state.hours = "";
     },
     setIdT: (state, action) => {
-      console.log("change training id", action.payload);
       state.idUser = action.payload;
     },
   },
