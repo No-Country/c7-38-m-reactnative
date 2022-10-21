@@ -21,7 +21,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const trainingDays = days.length;
   const weightDif = weight - objetive;
-  const weightDifMore = objetive -weight;
+  const weightDifMore = objetive - weight;
   const { idUser } = useSelector((state) => state.SingUp);
   const { Account, Training, Progress } = useSelector((state) => state);
 
@@ -47,7 +47,7 @@ const Home = () => {
       initApp(idUser, dispatch, setIdT, setIdP, setIdA);
       getData(dispatch, idUser, states, sets);
     }
-  }, []);
+  }, [idUser]);
 
   return (
     <View style={homeStyles.container}>
@@ -81,7 +81,9 @@ const Home = () => {
         </View>
 
         <View style={homeStyles.weightDifference2}>
-          <Text style={homeStyles.weight}>{weight >= objetive? ('-' + weightDif) : ('+' + weightDifMore)} kg</Text>
+          <Text style={homeStyles.weight}>
+            {weight >= objetive ? "-" + weightDif : "+" + weightDifMore} kg
+          </Text>
           <Text style={homeStyles.weightText}>Difference</Text>
         </View>
       </View>
