@@ -9,8 +9,8 @@ export default function Welcome ({ navigation }){
           <Text style={styles.logoText}>Fitness Club</Text>
           </View>
           <View style={styles.textContainer}>
-          <Text style={styles.title}>Bienvenido a Fitness Club</Text>
-          <Text style={styles.paragraph}>Una plataforma para poder llevar tu entrenamiento a otro nivel!</Text>
+          <Text style={styles.title}>Welcome to Fitness Club</Text>
+          <Text style={styles.paragraph}>Take your training to the next level</Text>
           <TouchableOpacity style onPress={() => navigation.navigate('Sign')}>
               <Text style={styles.button}>Create Account</Text>
           </TouchableOpacity>
