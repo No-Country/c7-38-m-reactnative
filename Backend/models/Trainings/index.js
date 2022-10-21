@@ -2,16 +2,6 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const trainingSchema = new Schema({
-  progreesId: {
-    type: mongoose.Schema.ObjectId,
-    ref: "Progress",
-  },
-
-  userId: {
-    type: mongoose.Schema.ObjectId,
-    ref: "User",
-  },
-
   nameTraining: {
     type: String,
     requiere: true,
@@ -50,10 +40,11 @@ const trainingSchema = new Schema({
     },
   },
 
-  status: {
+  idUser: {
     type: String,
-    default: "active",
+    require: true,
+    allowNull: false,
   },
 });
 
-module.exports = mongoose.model("Training", trainingSchema);
+module.exports = mongoose.model("training", trainingSchema);

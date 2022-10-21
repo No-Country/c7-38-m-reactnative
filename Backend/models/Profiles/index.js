@@ -2,11 +2,9 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const profileSchema = new Schema({
-  profile: {
-    type: mongoose.Schema.ObjectId,
-    ref: "User",
-  },
-
+  userName: { type: String, require: true, allowNull: false },
+  image: { type: String },
+  email: { type: String, require: true, allowNull: false },
   age: {
     type: String,
     require: true,
@@ -22,15 +20,16 @@ const profileSchema = new Schema({
     require: true,
     allowNull: false,
   },
-  idealWeight: {
+  objetive: {
     type: String,
     require: true,
     allowNull: false,
   },
-  status: { 
-    type: String, 
-    default: "active"
-  }
+  idUser: {
+    type: String,
+    require: true,
+    allowNull: false,
+  },
 });
 
 module.exports = mongoose.model("Profile", profileSchema);
