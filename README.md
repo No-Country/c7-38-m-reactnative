@@ -60,13 +60,13 @@ Fitness Club is a training mobile application that counts with all the tools for
 # Developers:
 Members of the Cohorte 7, Group 38, Fullstack  NoCountry
 
-| Developers | Roles| Github  | Linkedin |
-| ------------- |:-------------:| -----:|:------- |
-| Jonathan Alexander Poblet| Front-end   | link | link |
-|Valentín Ruggieri |Front-end    | link |link|
-| Augusto Silva | Front-end     |  link | link|
-| Francisco Santos | Front-end     |  link | link|
-| Ignacio Irusta | Back-end   |  link | link|
-|  Jorge Herrera | Back-end   |  link | link|
-| Julio Gayaso Herrera | Back-end     |  link | link|
-| Jeremy Vallejo | Back-end     |  link | link|
+| Desarrolladores | Roles| Github  | linkedin |
+| ------------- |:-------------:| -----|------- |
+| Jonathan Alexander Poblet| Front-end   |[link](https://github.com/jonathanpoblet?tab=repositories)|[link](https://www.linkedin.com/in/jonathan-poblet-0893a623a/) |
+|Valentín Ruggieri |Front-end    | [link](https://github.com/valen-ruggieri) |[link](https://www.linkedin.com/in/valentinruggieri/)|
+| Augusto Silva | Front-end |   | |
+| Francisco Santos | Front-end     |  [link](https://github.com/FranciscoSantos01) | [link](https://www.linkedin.com/in/francisco-santos-a6973a1ab/)|
+| Ignacio Irusta | Back-end   |  [link](https://github.com/Ignacio-Irusta) | [link](https://www.linkedin.com/in/ignacio-irusta-07b90821b/)|
+|  Jorge Herrera | Back-end   |  [link](https://github.com/Jorgeheag) | [link](https://www.linkedin.com/in/jorge-herrera-88780314a)|
+| Julio Gayaso Herrera | Back-end     |   | |
+| Jeremy Vallejo | Back-end     |   | |
