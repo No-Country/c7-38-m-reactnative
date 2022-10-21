@@ -66,7 +66,7 @@ const LabelsFormTraining = () => {
           }}
         >
           <Text style={toSend ? style.sendTextOn : style.sendTextOff}>
-            Enviar
+            Send
           </Text>
         </TouchableOpacity>
       </View>
