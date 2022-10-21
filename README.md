@@ -21,6 +21,7 @@ Fitness Club es una aplicacion movil de entrenamiento la cual cuenta con todas l
 Toca en la Imagen para ir al video
 
  [<img src="https://user-images.githubusercontent.com/106752020/197092048-6c0425cc-8ae7-481f-bd49-e26d6373261f.png" width="30%">](https://www.youtube.com/watch?v=9UCH6CcP7G8)
+ [![Demo](https://img.youtube.com/vi/--b-9HrKK6w/0.jpg)](http://www.youtube.com/watch?v=--b-9HrKK6w)
 ------
 
 
@@ -58,6 +59,10 @@ Fitness Club is a training mobile application that counts with all the tools for
 --------
 ## Demo:
 Touch the image to go to the video
+
+
+https://user-images.githubusercontent.com/94873540/197203158-8092fb3e-32fe-4ff9-a760-327a152c804b.mp4
+
 
  [<img src="https://user-images.githubusercontent.com/106752020/197092048-6c0425cc-8ae7-481f-bd49-e26d6373261f.png" width="30%">](https://www.youtube.com/watch?v=9UCH6CcP7G8)
 ------
