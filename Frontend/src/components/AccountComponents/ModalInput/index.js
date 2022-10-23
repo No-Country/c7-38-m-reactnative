@@ -14,11 +14,7 @@ import color from "../../../utils/colors";
 import { cameraPick, libraryPick, saveImage } from "./functionsCamera";
 import validation from "../InputsGroup/validations/validation";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  editInput,
-  setAccount,
-  setUserName,
-} from "../../../redux/slices/Account";
+import { editInput } from "../../../redux/slices/Account";
 
 const ModalInput = (props) => {
   const { icon, label, setloading, setuserInfo, state, set } = props;
