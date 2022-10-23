@@ -1,16 +1,26 @@
-# C7-38-M-React Native
-# Fitness Club
+
+<h1 align='center'> Fitness Club</h1>
+
+![Purple Blue Colorful Gaming LinkedIn Banner (1)](https://user-images.githubusercontent.com/93409437/197415533-c19c20ce-0823-4956-8b2d-a6f458091abf.png)
+
+
 [Español](#ES) - [English](#EN)
 #### Español
 <a name="ES"></a>
+
+## Grupo 
+#### C7-38-M-React Native
+
+--------
 ### Descripcion del Proyecto
+
 Fitness Club es una aplicacion movil de entrenamiento la cual cuenta con todas las herramientas para tener un entreno y registro de progreso eficiente, todo dentro de las misma App.
 ******
 
 ## Deploy/APK
 
-### Frontend : https://drive.google.com/drive/folders/1MyxITSnhBcx0NOdCQdjb7Fqedbcfcsj7?usp=sharing
-### backend : https://fitnessclub38.herokuapp.com/
+#### Frontend : https://drive.google.com/drive/folders/1MyxITSnhBcx0NOdCQdjb7Fqedbcfcsj7?usp=sharing
+#### Backend : https://fitnessclub38.herokuapp.com/
 
 --------
 ## Stack y tecnologias aplicadas
@@ -50,14 +60,18 @@ Miembros del Cohorte 7, Grupo 38, Fullstack de NoCountry
 <a name="EN"></a>
 #### English
 
+
+## Team
+#### C7-38-M-React Native 
+--------
 ### Proyect Description:
 Fitness Club is a training mobile application that counts with all the tools for an efficient  training and keeps track of your progress, all within the App
 ******
 
 ## Deploy/APK
 
-### Frontend : https://drive.google.com/drive/folders/1MyxITSnhBcx0NOdCQdjb7Fqedbcfcsj7?usp=sharing
-### backend : https://fitnessclub38.herokuapp.com/
+#### Frontend : https://drive.google.com/drive/folders/1MyxITSnhBcx0NOdCQdjb7Fqedbcfcsj7?usp=sharing
+#### Backend : https://fitnessclub38.herokuapp.com/
 
 --------
 ## Stack & Technologies
