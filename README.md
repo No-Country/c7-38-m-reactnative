@@ -6,6 +6,13 @@
 ### Descripcion del Proyecto
 Fitness Club es una aplicacion movil de entrenamiento la cual cuenta con todas las herramientas para tener un entreno y registro de progreso eficiente, todo dentro de las misma App.
 ******
+
+## Deploy/APK
+
+### Frontend : https://drive.google.com/drive/folders/1MyxITSnhBcx0NOdCQdjb7Fqedbcfcsj7?usp=sharing
+### backend : https://fitnessclub38.herokuapp.com/
+
+--------
 ## Stack y tecnologias aplicadas
 
 | Frontend      | Backend           
@@ -46,6 +53,13 @@ Miembros del Cohorte 7, Grupo 38, Fullstack de NoCountry
 ### Proyect Description:
 Fitness Club is a training mobile application that counts with all the tools for an efficient  training and keeps track of your progress, all within the App
 ******
+
+## Deploy/APK
+
+### Frontend : https://drive.google.com/drive/folders/1MyxITSnhBcx0NOdCQdjb7Fqedbcfcsj7?usp=sharing
+### backend : https://fitnessclub38.herokuapp.com/
+
+--------
 ## Stack & Technologies
 
 | Frontend      | Backend           
